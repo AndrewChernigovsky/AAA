@@ -2,22 +2,26 @@
   <footer>
     <div class="container">
       <nav class="nav">
-        <router-link class="nav__link" active-class="active" to="/"
-          >Главная</router-link
+        <router-link
+          v-for="link in links"
+          :key="link.path"
+          class="nav__link"
+          active-class="active"
+          :to="link.path"
         >
-        <router-link class="nav__link" active-class="active" to="/academy"
-          >Академия</router-link
-        >
-        <router-link class="nav__link" active-class="active" to="/author"
-          >Об Авторе</router-link
-        >
-        <router-link class="nav__link" active-class="active" to="/news"
-          >Новости</router-link
-        >
+          {{ link.name }}
+        </router-link>
       </nav>
     </div>
   </footer>
 </template>
+<script setup>
+import { ref } from 'vue';
+const links = ref([
+  { name: 'Главная', path: '/' },
+  { name: 'Учебник', path: '/manual' },
+]);
+</script>
 <style lang="scss" scoped>
 footer .container {
   border-top: 2px solid $BASE_TEXT;

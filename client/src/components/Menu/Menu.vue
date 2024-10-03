@@ -32,21 +32,15 @@
 
     <div class="menu" ref="burgerMenuRef" v-if="windowWidth > 768">
       <nav class="nav" ref="navRef">
-        <router-link class="nav__link" active-class="active" to="/"
-          >Главная</router-link
+        <router-link
+          v-for="link in links"
+          :key="link.path"
+          class="nav__link"
+          active-class="active"
+          :to="link.path"
         >
-        <router-link class="nav__link" active-class="active" to="/academy"
-          >Академия</router-link
-        >
-        <router-link class="nav__link" active-class="active" to="/author"
-          >Об Авторе</router-link
-        >
-        <router-link class="nav__link" active-class="active" to="/news"
-          >Новости</router-link
-        >
-        <router-link class="nav__link" active-class="active" to="/first"
-          >Группа</router-link
-        >
+          {{ link.name }}
+        </router-link>
       </nav>
     </div>
   </div>
@@ -60,10 +54,7 @@ let windowWidth = window.innerWidth;
 
 const links = ref([
   { name: 'Главная', path: '/' },
-  { name: 'Академия', path: '/academy' },
-  { name: 'Об Авторе', path: '/author' },
-  { name: 'Новости', path: '/news' },
-  { name: 'Группа', path: '/first' },
+  { name: 'Учебник', path: '/manual' },
 ]);
 
 function toggleMenu() {

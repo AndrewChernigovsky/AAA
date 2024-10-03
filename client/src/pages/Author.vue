@@ -7,9 +7,7 @@
   </div>
 </template>
 
-<script setup>
-import gifPath from '@/assets/images/gif-1.webp';
-</script>
+<script setup></script>
 
 <style lang="scss" scoped>
 .container {
@@ -24,11 +22,6 @@ import gifPath from '@/assets/images/gif-1.webp';
     height: 100%;
     display: flex;
     z-index: 0;
-    background-image: linear-gradient(
-        rgba(0, 0, 0, 0.905),
-        rgba(255, 0, 106, 0.6)
-      ),
-      url('@/assets/images/L.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

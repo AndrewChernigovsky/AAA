@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <img class="gif" :src="gifPath" alt="" />
     <div>
       <h2>404 Not Found</h2>
       <p>Страница, которую вы ищете, не существует.</p>
@@ -8,9 +7,7 @@
   </div>
 </template>
 
-<script setup>
-import gifPath from '@/assets/images/404.webp';
-</script>
+<script setup></script>
 
 <style lang="scss" scoped>
 .container {
