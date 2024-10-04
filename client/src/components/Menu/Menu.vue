@@ -25,7 +25,13 @@
             >
               {{ link.name }}
             </router-link>
+            <button type="button" @click="showLogin = !showLogin">Войти</button>
+            <button type="button" @click="showRegistration = !showRegistration">
+              Зарегистрироваться
+            </button>
           </nav>
+          <Login v-if="showLogin" />
+          <Registration v-if="showRegistration" />
         </div>
       </Transition>
     </div>
@@ -41,14 +47,25 @@
         >
           {{ link.name }}
         </router-link>
+        <button type="button" @click="showLogin = !showLogin">Войти</button>
+        <button type="button" @click="showRegistration = !showRegistration">
+          Зарегистрироваться
+        </button>
       </nav>
+      <Login v-if="showLogin" />
+      <Registration v-if="showRegistration" />
     </div>
   </div>
 </template>
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
+import Login from '@/views/Login.vue';
+import Registration from '@/views/Registration.vue';
+
 const navRef = ref(null);
-let show = ref(false);
+const show = ref(false);
+const showLogin = ref(false);
+const showRegistration = ref(false);
 
 let windowWidth = window.innerWidth;
 
