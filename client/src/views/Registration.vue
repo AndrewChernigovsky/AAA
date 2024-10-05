@@ -57,6 +57,7 @@ const registration = async () => {
     if (data.status === 'success') {
       console.log(data.message);
       localStorage.setItem('username', username.value);
+      localStorage.setItem('role', data.role);
       router.push('/dashboard');
       show.value = false;
     } else {

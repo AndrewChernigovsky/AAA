@@ -1,22 +1,18 @@
 <template>
-  <form @submit.prevent="login" v-if="show">
-    <input
-      type="text"
-      v-model="username"
-      name="username"
-      placeholder="Username"
-      required
-    />
-    <input
-      type="password"
-      name="password"
-      v-model="password"
-      placeholder="Password"
-      required
-    />
-    <button type="submit">Войти</button>
-  </form>
+  <div>
+    <form @submit.prevent="login">
+      <input type="text" v-model="username" placeholder="Username" required />
+      <input
+        type="password"
+        v-model="password"
+        placeholder="Password"
+        required
+      />
+      <button type="submit">Войти</button>
+    </form>
+  </div>
 </template>
+
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
@@ -24,7 +20,6 @@ import { useRouter } from 'vue-router';
 const username = ref('');
 const password = ref('');
 const router = useRouter();
-let show = ref(true);
 
 const login = async () => {
   try {
@@ -34,8 +29,8 @@ const login = async () => {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: new URLSearchParams({
-        username: username.value, // Используем username из ref
-        password: password.value, // Используем password из ref
+        username: username.value,
+        password: password.value,
       }),
     });
 
@@ -43,30 +38,18 @@ const login = async () => {
 
     if (data.status === 'success') {
       console.log(data.message);
-      localStorage.setItem('username', username.value); // Сохраняем имя пользователя
+      localStorage.setItem('username', username.value);
+      localStorage.setItem('role', data.role); // Сохраняем роль пользователя
       router.push('/dashboard'); // Перенаправление на личный кабинет
-      show.value = false;
     } else {
-      alert(data.message); // Обработка ошибок
+      alert(data.message);
     }
   } catch (error) {
     console.error('Ошибка при входе:', error);
   }
 };
 </script>
-<style lang="scss" scoped>
-form {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  z-index: 2;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100vh;
-  display: grid;
-  gap: 10px;
-  align-content: center;
-  justify-content: center;
-  background: linear-gradient(black, rgba(255, 255, 255, 0.6));
-}
+
+<style scoped>
+/* Добавьте ваши стили здесь */
 </style>
