@@ -10,7 +10,7 @@ const sassTask = () => {
 };
 
 const phpTask = () => {
-  return gulp.src('./*.php')
+  return gulp.src('./**/*.php')
     .pipe(browserSync.stream());
 };
 
@@ -20,7 +20,7 @@ const watchTask = () => {
     notify: false,
   });
   gulp.watch('./scss/**/*.scss', sassTask);
-  gulp.watch('./*.php', phpTask);
+  gulp.watch('./**/*.php', phpTask);
 };
 
 const defaultTask = gulp.parallel(sassTask, watchTask);

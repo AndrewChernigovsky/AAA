@@ -1,0 +1,47 @@
+.header {
+
+  padding: 20px 0;
+
+  &__intro {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+
+    .logo {
+      display: grid;
+      justify-items: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    a.tel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $white;
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+
+      @media screen and (min-width: $desktop) {
+        font-size: 48px;
+      }
+    }
+
+    a.add-text {
+      color: $white;
+      text-decoration: none;
+    }
+
+    .add-text {
+      font-size: 12px;
+
+      @media screen and (min-width: $desktop) {
+        font-size: 20px;
+      }
+    }
+
+  }
+}
