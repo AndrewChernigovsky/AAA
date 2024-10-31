@@ -1,4 +1,5 @@
 @import 'variables.scss';
+@import 'mixins.scss';
 @import 'reset.scss';
 @import 'fonts.scss';
 @import 'global.scss';
@@ -11,3 +12,4 @@
 @import './sections/prices.scss';
 @import './sections/tarifs.scss';
 @import './sections/about.scss';
+@import './sections/reasons.scss';

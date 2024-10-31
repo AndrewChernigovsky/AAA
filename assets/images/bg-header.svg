@@ -4,8 +4,8 @@
 	</desc>
 	<defs>
 		<linearGradient x1="0.000000" y1="192.587769" x2="1440.000122" y2="192.587769" id="paint_linear_8_132_0" gradientUnits="userSpaceOnUse">
-			<stop offset="0.003641" stop-color="#000000"/>
-			<stop offset="1.000000" stop-color="#0A042C"/>
+			<stop offset="0.003641" stop-color="#1C1B1B"/>
+			<stop offset="1.000000" stop-color="#02000A"/>
 		</linearGradient>
 	</defs>
 	<path id="Rectangle 22" d="M0 0L1440 0L1440 385.17C920.04 415.16 961 596.21 0 385.17L0 0Z" fill="url(#paint_linear_8_132_0)" fill-opacity="1.000000" fill-rule="nonzero"/>

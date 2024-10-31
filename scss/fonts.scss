@@ -16,12 +16,16 @@
   font-display: swap;
 }
 
+.primary-title {
+  font-size: 48px;
+}
+
 @media screen and (max-width: $tablet) {
-  h1 {
+  .primary-title {
     font-size: 20px;
   }
 
-  h2 {
+  .secondary-title {
     font-size: 18px;
   }
 

@@ -1,0 +1,18 @@
+.reasons {
+  padding: 60px 0;
+  border-bottom: 1px solid $white;
+
+  .secondary-title {
+    color: $orange;
+  }
+
+  &__list {
+    display: grid;
+    gap: 10px;
+  }
+
+  &__wrapper {
+    display: grid;
+    justify-content: center;
+  }
+}
