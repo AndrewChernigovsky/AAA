@@ -25,11 +25,7 @@
         <a href="#form" class="add-text">ЗАКАЗАТЬ САЙТ</a>
       </div>
 
-      <h1 class="primary-title">Cоздание
-        сайта. Разработка сайта</h1>
-
+   
     </div>
-
-
   </div>
 </header>

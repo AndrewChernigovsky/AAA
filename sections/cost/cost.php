@@ -1,7 +1,7 @@
 <section class="cost">
   <div class="container">
     <h2>Рассчитать стоимость сайта</h2>
-    <form action="" method="post">
+    <form action="" method="post" id="cost">
       <?php
       $base_path = __DIR__;
 

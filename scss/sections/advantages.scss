@@ -1,0 +1,14 @@
+.advantages {
+  padding: 60px 0;
+  border-bottom: 1px solid $white;
+
+  ul {
+    display: grid;
+    gap: 10px;
+    text-transform: none;
+  }
+
+  .secondary-title {
+    color: $orange;
+  }
+}
