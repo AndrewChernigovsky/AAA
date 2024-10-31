@@ -10,16 +10,73 @@
     text-transform: none;
   }
 
+  .tabs {
+    gap: 20px;
+    display: flex;
+
+    @media screen and (max-width: $tablet) {
+      display: grid;
+    }
+  }
+
   &__list-inner {
     li {
       text-transform: none;
     }
   }
 
+  &__tabs {
+    border-right: 1px solid $white;
+    width: min-content;
+    padding-right: 20px;
+
+    @media screen and (max-width: $tablet) {
+      display: grid;
+      gap: 10px;
+      width: 100%;
+      grid-template-columns: 1fr 1fr;
+      padding-right: 0;
+      padding-bottom: 20px;
+      border-right: none;
+      border-bottom: 1px solid $white;
+    }
+
+    li {
+
+      background: linear-gradient(rgb(38, 0, 64), rgb(24, 2, 132));
+      border-radius: 15px;
+      width: max-content;
+      height: 50px;
+
+      @media screen and (max-width: $tablet) {
+        width: 100%;
+      }
+
+      a {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        padding: 10px 10px 30px 10px;
+      }
+
+      &.active {
+        border: 1px solid $orange;
+        box-shadow: 0px 0px 10px 4px $orange;
+        position: relative;
+        z-index: 2;
+      }
+
+    }
+
+  }
+
   &__list {
     display: grid;
     gap: 20px;
+    position: relative;
     list-style-type: none;
+    margin: 0;
+    padding: 0;
   }
 
   &__list-item {
@@ -28,27 +85,33 @@
     border-radius: 15px;
     border: 1px solid $orange;
     box-shadow: 0px 0px 10px 4px $orange;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    transition: 0.3s ease-in-out;
 
-    &:first-of-type {
-      background: gray;
-      border: none;
-      box-shadow: none;
+    &.active {
+      display: grid;
+      position: static;
+      z-index: 0;
+      opacity: 1;
     }
 
+    &:first-of-type {}
+
     &:nth-of-type(2) {
-      background: linear-gradient(rgb(0, 91, 219), rgb(24, 2, 132));
-      border: none;
-      box-shadow: none;
+      background: linear-gradient(rgb(24, 2, 132), rgb(35, 5, 206));
     }
 
     &:nth-of-type(3) {
-      background: linear-gradient(rgb(0, 219, 172), rgb(1, 43, 20));
-      border: none;
-      box-shadow: none;
+      background: linear-gradient(rgb(35, 5, 206), rgb(33, 2, 185));
     }
 
     &:last-of-type {
-      background: linear-gradient(rgba(255, 106, 1), rgba(255, 0, 0, 1));
+      background: linear-gradient(rgb(33, 2, 185), rgb(69, 33, 250));
       color: $white;
     }
   }
