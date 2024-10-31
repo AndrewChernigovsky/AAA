@@ -1,3 +1,7 @@
+<?php
+include_once './helpers/includeSections.php';
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -9,26 +13,28 @@
 </head>
 
 <body>
-  <header class="header">
-    <div class="container">
-      <span class="add-text">Хостинг на год в подарок</span>
-      <img src="./assets/images/logo.png" alt="логотип академии Андрея Андреевича Изосимова" width="300" height="300">
-      <span class="add-text">ЗАКАЗАТЬ САЙТ</span>
-      <a href="tel:+79532322112">+7 953 232 21 12</a>
-      <nav>
-        <ul>
-          <li><a href="">Услуги</a></li>
-          <li><a href="">Гарантия</a></li>
-          <li><a href="">Обо мне</a></li>
-        </ul>
-      </nav>
-      <h1 class="primary-title">Устали от непрофессионализма? Дайте мне шанс! Обдуманное, структурирование создание
-        сайта. Разработка сайта с
-        любовью, от зачатия идеи до ее материализации</h1>
+  <?php
+  $base_path = __DIR__ . '/layout';
 
-    </div>
-  </header>
+  include $base_path . '/header.php';
+  ?>
   <main class="main">
+    <?php
+    $files_to_include = [
+      'sections/intro.php',
+      'sections/advantages.php',
+      'sections/prices.php',
+      'sections/tarifs.php',
+      'sections/about.php',
+      'sections/reasons.php',
+      'sections/cost/cost.php',
+      'sections/form.php'
+    ];
+
+    $sectionLoader = new IncludeSections(__DIR__, $files_to_include);
+    $sectionLoader->includeFiles();
+    ?>
+
     <section class="intro">
 
 
@@ -390,20 +396,11 @@
       </div>
     </section>
   </main>
-  <footer class="footer">
-    <div class="container">
-      <p>Телефон</p>
-      <a href="tel:+79532322112">+7 953 232 21 12</a>
-      <p>Почта</p>
-      <a href="mailto:chernigovsky108@gmail.com">chernigovsky108@gmail.com</a>
-      <p>Мессенджеры</p>
-      <a href="https://t.me/andrey_andreevich_official">telegram</a>
-      <a href="https://clck.ru/3EJEM2">whatsapp</a>
-      <p>Часы работы</p>
-      <p>Пн-Пт с 9.00 по 20.00</p>
-      <p>Сб-Вс с 10.00 по 14.00</p>
-    </div>
-  </footer>
+  <?php
+  $base_path = __DIR__ . '/layout';
+
+  include $base_path . '/footer.php';
+  ?>
 </body>
 
 </html>
