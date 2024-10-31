@@ -10,7 +10,7 @@ const sassTask = () => {
 };
 
 const phpTask = () => {
-  return gulp.src('./**/*.php')
+  return gulp.src(['./index.php', './pages/**/*.php'])
     .pipe(browserSync.stream());
 };
 

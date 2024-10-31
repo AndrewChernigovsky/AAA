@@ -15,3 +15,25 @@
   src: url('./../assets/fonts/Rubik-Bold.ttf') format(truetype);
   font-display: swap;
 }
+
+@media screen and (max-width: $tablet) {
+  h1 {
+    font-size: 20px;
+    text-transform: none;
+  }
+
+  h2 {
+    font-size: 18px;
+    text-transform: none;
+  }
+
+  h3 {
+    font-size: 16px;
+    text-transform: none;
+  }
+
+  p,
+  li {
+    text-transform: none;
+  }
+}

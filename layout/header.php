@@ -1,6 +1,13 @@
 <header class="header">
   <div class="container">
     <div class="header__wrapper">
+      <div class="header__inner">
+        <button class="header__menu-btn" type="button" id="btn-open-menu"><span class="visually-hidden">Открыть
+            окно</span></button>
+        <a href="tel:+79532322112" class="tel">+7 953 232 21 12</a>
+        <img src="./assets/images/logo.png" alt="логотип академии Андрея Андреевича Изосимова" width="50" height="50">
+      </div>
+
       <div class="header__intro">
         <span class="add-text">Хостинг на год в подарок</span>
         <div class="logo">
@@ -18,9 +25,8 @@
         <a href="#form" class="add-text">ЗАКАЗАТЬ САЙТ</a>
       </div>
 
-      <h1 class="primary-title">Устали от непрофессионализма? Дайте мне шанс! Обдуманное, структурирование создание
-        сайта. Разработка сайта с
-        любовью, от зачатия идеи до ее материализации</h1>
+      <h1 class="primary-title">Cоздание
+        сайта. Разработка сайта</h1>
 
     </div>
 
