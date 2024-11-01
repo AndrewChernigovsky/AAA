@@ -9,7 +9,7 @@
   position: relative;
 
   @media screen and (max-width: var.$tablet) {
-    clip-path: polygon(0% 0%, 100% 18%, 100% 87%, 0% 97%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 87%, 0% 97%);
   }
 
   &::before {

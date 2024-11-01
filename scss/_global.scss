@@ -7,12 +7,21 @@
   padding: 0 20px;
 }
 
+html {
+  height: 100%;
+}
+
 body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
   font-family: var.$primary-font;
   @include mix.gradient(rgb(7, 6, 6), rgb(8, 5, 26));
   text-transform: uppercase;
   color: var.$white;
   font-weight: 400;
+
+
 
   &::after {
     content: '';
@@ -32,6 +41,10 @@ body {
   &.overflow {
     overflow: hidden;
   }
+}
+
+main {
+  flex-grow: 1;
 }
 
 p {
