@@ -1,14 +1,17 @@
+@use 'variables'as var;
+@use 'mixins'as mix;
+
 .container {
-  max-width: $desktop;
+  max-width: var.$desktop;
   margin: 0 auto;
   padding: 0 20px;
 }
 
 body {
-  font-family: $primary-font;
-  @include gradient(rgb(7, 6, 6), rgb(8, 5, 26));
+  font-family: var.$primary-font;
+  @include mix.gradient(rgb(7, 6, 6), rgb(8, 5, 26));
   text-transform: uppercase;
-  color: $white;
+  color: var.$white;
   font-weight: 400;
 
   &::after {
@@ -23,7 +26,7 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url('./../assets/images/bg-header.svg');
-    filter: drop-shadow(2px 4px 6px $black);
+    filter: drop-shadow(2px 4px 6px var.$black);
   }
 
   &.overflow {
@@ -32,7 +35,7 @@ body {
 }
 
 p {
-  font-family: $secondary-font;
+  font-family: var.$secondary-font;
 }
 
 .list-style-none {
