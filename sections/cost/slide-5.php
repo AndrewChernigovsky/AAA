@@ -1,20 +1,22 @@
 <div class="form-slide">
   <h3>Оставьте контактные данные </h3>
-  <div class="chooses">
+  <div class="chooses contact">
     <label class="choose-label">Ваш телефон:
       <input type="tel" name="user-tel">
     </label>
-    <p> Выберите на какой мессенджер написать нашему Менеджеру </p>
-    <div class="chooses">
-      <label class="choose-label">whatsapp
-        <input type="radio" name="social" value="whatsapp">
-      </label>
-      <label class="choose-label">telegram
-        <input type="radio" name="social" value="telegram">
-      </label>
-      <label class="choose-label">viber
-        <input type="radio" name="social" value="viber">
-      </label>
+    <div>
+      <p> Выберите на какой мессенджер написать нашему Менеджеру </p>
+      <div class="chooses">
+        <label class="choose-label">whatsapp
+          <input type="radio" name="social" value="whatsapp">
+        </label>
+        <label class="choose-label">telegram
+          <input type="radio" name="social" value="telegram">
+        </label>
+        <label class="choose-label">viber
+          <input type="radio" name="social" value="viber">
+        </label>
+      </div>
     </div>
     <p>Наш сотрудник подберет для вас наиболее удобное время, в которое вы созвонитесь или спишетесь (как
       комфортнее) и обсудите все детали по созданию сайта и его разработке! <strong>Внимание: в приватности, у
