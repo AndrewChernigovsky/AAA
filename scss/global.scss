@@ -6,7 +6,7 @@
 
 body {
   font-family: $primary-font;
-  background: linear-gradient(rgb(0, 0, 66), rgb(4, 0, 27));
+  @include gradient(rgb(7, 6, 6), rgb(8, 5, 26));
   text-transform: uppercase;
   color: $white;
   font-weight: 400;
@@ -19,10 +19,15 @@ body {
     height: 100%;
     top: 0;
     left: 0;
-    z-index: -1001;
+    z-index: -2;
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url('./../assets/images/bg-header.svg');
+    filter: drop-shadow(2px 4px 6px $black);
+  }
+
+  &.overflow {
+    overflow: hidden;
   }
 }
 
@@ -34,4 +39,17 @@ p {
   margin: 0;
   padding: 0;
   list-style-type: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }

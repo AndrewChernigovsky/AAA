@@ -1,8 +1,21 @@
 .intro {
   padding: 60px 0;
   border-bottom: 1px solid $white;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+  position: relative;
 
-  &__wrapper {
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 150px;
+    background-color: $white;
+    clip-path: polygon(0 35%, 100% 0, 100% 100%, 0% 100%);
+    bottom: -90px;
+  }
+
+
+  &__inner {
     display: grid;
     align-content: center;
     justify-content: center;
@@ -23,6 +36,12 @@
       cursor: pointer;
       transition: 0.3s ease-in-out;
       text-decoration: none;
+
+      @media screen and (max-width: $tablet) {
+        max-width: 100%;
+        justify-self: auto;
+        text-align: center;
+      }
 
       &:hover {
         background-color: $white;

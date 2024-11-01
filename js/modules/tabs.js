@@ -1,0 +1,24 @@
+const tabs = document.querySelectorAll('#tarifs-tabs li a');
+const tabsItems = document.querySelectorAll('#tarifs-tabs-items .tarifs__list-item ')
+
+function clearReset() {
+  Array.from(tabs).forEach((tab, index) => {
+    tab.parentElement.classList.remove('active');
+    tabsItems[index].classList.remove('active');
+  });
+}
+
+export function initTarifsTabs() {
+  if (tabs && tabsItems) {
+    console.log(tabs);
+    console.log(tabsItems);
+    Array.from(tabs).forEach((tab, index) => {
+      tab.addEventListener('click', () => {
+        clearReset()
+        tab.parentElement.classList.toggle('active')
+        tabsItems[index].classList.toggle('active')
+      })
+    });
+  }
+  return;
+}

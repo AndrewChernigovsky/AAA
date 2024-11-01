@@ -1,11 +1,13 @@
 <section class="reasons">
   <div class="container">
-    <h2>Три причины выбрать меня</h2>
-    <ul>
-      <li>Профессионализм и опыт
-      </li>
-      <li> Гарантия качества и поддержки</li>
-      <li>Индивидуальный подход к каждому клиенту</li>
-    </ul>
+    <div class="reasons__wrapper">
+      <h2 class="secondary-title">Три причины выбрать меня</h2>
+      <ol class="reasons__list">
+        <li>Профессионализм и опыт</li>
+        <li> Гарантия качества и поддержки</li>
+        <li>Индивидуальный подход к каждому клиенту</li>
+      </ol>
+    </div>
+
   </div>
 </section>
