@@ -1,0 +1,74 @@
+.cost-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-slide {
+  display: flex;
+  flex-direction: column;
+
+  padding: 10px;
+  background: linear-gradient(rgb(34, 34, 34), rgb(4, 0, 27));
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 4px #ff4600;
+
+  & h3 {
+    color: #ff4600;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  & .chooses {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 12px;
+    gap: 20px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding: 20px;
+  }
+}
+
+.choose-label {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  position: relative;
+  min-width: 120px;
+  box-shadow: 0px 0px 10px 4px #cdcdcd;
+  text-align: center;
+  border-radius: 5px;
+
+  & input {
+    top: 0;
+    left: 0;
+    position: absolute;
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    cursor: pointer;
+  }
+  & input:hover,
+  & input:focus {
+    box-shadow: 0px 0px 10px 4px #ff4600;
+  }
+
+  & input:checked {
+    box-shadow: 0px 0px 10px 4px #ff4600;
+    z-index: 10;
+  }
+}
+
+.range-slide {
+  flex-direction: column;
+  text-align: center;
+}
+
+.total-cost {
+  padding: 10px;
+}

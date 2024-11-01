@@ -1,15 +1,16 @@
-@import 'variables.scss';
-@import 'mixins.scss';
-@import 'reset.scss';
-@import 'fonts.scss';
-@import 'global.scss';
+@import "variables.scss";
+@import "mixins.scss";
+@import "reset.scss";
+@import "fonts.scss";
+@import "global.scss";
 
-@import './blocks/header.scss';
-@import './blocks/nav.scss';
+@import "./blocks/header.scss";
+@import "./blocks/nav.scss";
 
-@import './sections/intro.scss';
-@import './sections/advantages.scss';
-@import './sections/prices.scss';
-@import './sections/tarifs.scss';
-@import './sections/about.scss';
-@import './sections/reasons.scss';
+@import "./sections/intro.scss";
+@import "./sections/advantages.scss";
+@import "./sections/prices.scss";
+@import "./sections/tarifs.scss";
+@import "./sections/about.scss";
+@import "./sections/reasons.scss";
+@import "./sections/cost.scss";
