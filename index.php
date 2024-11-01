@@ -9,8 +9,9 @@ include_once './helpers/includeSections.php';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ААА Академия Андрея Андреевича Изосимова, создание и продвижение сайтов</title>
+  <link rel="stylesheet" href="./libs/libs.css">
   <link rel="stylesheet" href="./css/style.css">
-  <script src="./js/main.js" defer type="module"></script>
+  <script src="./dist/js/main.js" defer type="module"></script>
 </head>
 
 <body>
@@ -29,7 +30,8 @@ include_once './helpers/includeSections.php';
       'sections/about.php',
       'sections/reasons.php',
       'sections/cost/cost.php',
-      'sections/form.php'
+      'sections/form.php',
+      'sections/reviews/reviews.php',
     ];
 
     $sectionLoader = new IncludeSections(__DIR__, $files_to_include);
