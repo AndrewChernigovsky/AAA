@@ -2,6 +2,7 @@
 @use 'fonts'as *;
 @use 'global'as *;
 
+@use './blocks/footer'as *;
 @use './blocks/header'as *;
 @use './blocks/nav'as *;
 
@@ -11,3 +12,4 @@
 @use './sections/tarifs'as *;
 @use './sections/about'as *;
 @use './sections/reasons'as *;
+@use './sections/reviews'as *;

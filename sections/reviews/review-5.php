@@ -1,4 +1,4 @@
-<li>
+<li class="swiper-slide">
   <!-- <img src="" alt="аватар"> -->
   <h4 class="four-title">Иванов Сергей Петрович</h4>
   <p>
