@@ -1,30 +1,32 @@
-const gulp = require('gulp');
-const sass = require('gulp-sass')(require('sass'));
-const browserSync = require('browser-sync').create();
+import { src, dest, watch, parallel } from 'gulp';
+import dartSass from 'sass';
+import gulpSass from 'gulp-sass';
+import browserSync from 'browser-sync';
+
+const sass = gulpSass(dartSass);
 
 const sassTask = () => {
-  return gulp.src('./scss/style.scss')
-    .pipe(sass({ outputStyle: 'compressed' }))
-    .pipe(gulp.dest('./css/'))
+  return src('./scss/style.scss')
+    .pipe(sass())
+    .pipe(dest('./css/'))
     .pipe(browserSync.stream());
 };
 
 const phpTask = () => {
-  return gulp.src(['./index.php', './pages/**/*.php'])
+  return src(['./index.php', './pages/**/*.php'])
     .pipe(browserSync.stream());
 };
 
 const watchTask = () => {
   browserSync.init({
-    proxy: "http://aaa/",
-    notify: false,
+    proxy: "http://aaa/", // Замените "aaa" на ваш локальный адрес
+    notify: false
   });
-  gulp.watch('./scss/**/*.scss', sassTask);
-  gulp.watch('./**/*.php', phpTask);
+  watch('./scss/**/*.scss', sassTask);
+  watch('./**/*.php', phpTask);
 };
 
-const defaultTask = gulp.parallel(sassTask, watchTask);
+const build = parallel(sassTask, watchTask);
 
-exports.sass = sassTask;
-exports.watch = watchTask;
-exports.default = defaultTask;
+export { sassTask, watchTask, build };
+export default build;

@@ -1,3 +1,5 @@
+@use 'variables'as var;
+
 @font-face {
   font-family: 'Russo';
   src: url('./../assets/fonts/Russo_One.ttf') format(truetype);
@@ -20,7 +22,7 @@
   font-size: 48px;
 }
 
-@media screen and (max-width: $tablet) {
+@media screen and (max-width: var.$tablet) {
   .primary-title {
     font-size: 20px;
   }
