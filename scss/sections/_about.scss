@@ -1,13 +1,15 @@
+@use 'variables'as var;
+
 .about {
-  background-color: $black;
+  background-color: var.$black;
   padding: 60px 0;
-  border-bottom: 1px solid $white;
+  border-bottom: 1px solid var.$white;
 
   &__wrapper {
     display: grid;
     gap: 20px;
 
-    @media screen and (min-width: $tablet) {
+    @media screen and (min-width: var.$tablet) {
       display: flex;
     }
   }
@@ -16,7 +18,7 @@
     max-width: 100%;
 
 
-    @media screen and (min-width: $tablet) {
+    @media screen and (min-width: var.$tablet) {
       max-width: 50%;
     }
 
@@ -31,7 +33,7 @@
   }
 
   &__advantages {
-    color: $orange;
+    color: var.$orange;
     font-weight: 700;
     display: grid;
     gap: 10px;

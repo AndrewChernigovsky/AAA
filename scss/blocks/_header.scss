@@ -1,3 +1,5 @@
+@use 'variables'as var;
+
 .header {
   padding: 20px 0;
 
@@ -7,9 +9,9 @@
     flex-wrap: wrap;
     justify-content: space-between;
 
-    @media screen and (max-width: $tablet) {
+    @media screen and (max-width: var.$tablet) {
       gap: 20px;
-      background-color: $blue-1;
+      background-color: var.$blue-1;
       min-height: 100vh;
       padding: 10px;
       text-align: center;
@@ -33,15 +35,15 @@
       nav {
         background-color: transparent;
         box-shadow: none;
-        border-top: 1px solid $white;
-        border-bottom: 1px solid $white;
+        border-top: 1px solid var.$white;
+        border-bottom: 1px solid var.$white;
         border-radius: 0;
 
         ul {
           display: grid;
 
           li a {
-            color: $white;
+            color: var.$white;
             font-size: 16px;
             font-weight: 700;
           }
@@ -57,14 +59,14 @@
     }
 
     a.add-text {
-      color: $white;
+      color: var.$white;
       text-decoration: none;
     }
 
     .add-text {
       font-size: 12px;
 
-      @media screen and (min-width: $desktop) {
+      @media screen and (min-width: var.$desktop) {
         font-size: 20px;
       }
     }
@@ -73,7 +75,7 @@
   &__inner {
     display: none;
 
-    @media screen and (max-width: $tablet) {
+    @media screen and (max-width: var.$tablet) {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -86,7 +88,7 @@
   }
 
   &__menu-btn {
-    @media screen and (max-width: $tablet) {
+    @media screen and (max-width: var.$tablet) {
       position: relative;
       z-index: 2;
       background: transparent;
@@ -108,13 +110,13 @@
         left: 10px;
         width: 30px;
         height: 2px;
-        background-color: $white;
-        box-shadow: 0 -10px 0px 0 $white, 0 10px 0px 0 $white;
+        background-color: var.$white;
+        box-shadow: 0 -10px 0px 0 var.$white, 0 10px 0px 0 var.$white;
       }
 
       &.active::after,
       &.active::before {
-        background-color: $white;
+        background-color: var.$white;
         box-shadow: none;
       }
 
@@ -138,16 +140,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: $white;
+    color: var.$white;
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;
 
-    @media screen and (max-width: $tablet) {
+    @media screen and (max-width: var.$tablet) {
       display: none;
     }
 
-    @media screen and (min-width: $desktop) {
+    @media screen and (min-width: var.$desktop) {
       font-size: 48px;
     }
   }
