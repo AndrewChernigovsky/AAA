@@ -11,8 +11,8 @@ include_once './helpers/includeSections.php';
   <title>ААА Академия Андрея Андреевича Изосимова, создание и продвижение сайтов</title>
   <link rel="stylesheet" href="./css/libs.css">
   <link rel="stylesheet" href="./css/style.css">
-  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
   <script src="./dist/js/main.js" defer type="module"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>

@@ -1,5 +1,5 @@
 import { src, dest, watch, parallel } from 'gulp';
-import dartSass from 'sass';
+import * as dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 import browserSync from 'browser-sync';
 import { exec } from 'child_process';

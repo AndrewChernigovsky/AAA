@@ -3,7 +3,7 @@ const line = document.querySelector('.cost__line');
 const lineActive = document.querySelector('.cost__line--active');
 const swiperCostSlides = document.querySelectorAll('.swiper-cost .swiper-slide');
 const stepBack = document.querySelector('#step-back');
-const costForm = document.querySelector('#cost')
+// const costForm = document.querySelector('#cost')
 const popup = document.querySelector('.popup');
 
 const inputRange = document.getElementById("inputRange");
@@ -74,10 +74,6 @@ function checkFormSlide() {
 //           throw new Error('Network response was not ok');
 //         }
 //         popup.classList.add('active');
-//         // let time = 3;
-//         // while (time >= 0) {
-//         //   setInterval(() => time--, 1000);
-//         // }
 //         popup.querySelector('p').textContent = `Окно закроется само через ${time} секунд`
 //         setTimeout(
 //           () => {
@@ -104,5 +100,3 @@ export function initCost() {
     checkFormSlide()
   });
 }
-
-// ES_6d95e610d7234675bf732e75cbda77eb

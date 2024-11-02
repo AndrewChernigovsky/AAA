@@ -9,6 +9,7 @@
       <div class="cost__line cost__line--active"></div>
     </div>
     <form action="./../../functions/mail/mail.php" method="post" id="cost" class="swiper swiper-cost">
+      <div class="g-recaptcha" data-sitekey="6LcXjXMqAAAAAOk-ZcPIIdan-9-WnbxIYv4Gbaav"></div>
       <div class="swiper-wrapper">
         <?php
         $base_path = __DIR__;
@@ -34,5 +35,7 @@
       </div>
 
     </form>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
+    </script>
   </div>
 </section>

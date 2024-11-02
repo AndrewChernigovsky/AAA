@@ -5,24 +5,39 @@ include_once './telegram.php';
 
 <?php
 
+$selected_site_type = $_POST['type-of-site'];
+$shere = $_POST['shere'];
+$date = $_POST['date'];
+$totalcost = $_POST['total-cost'];
+$usertel = $_POST['user-tel'];
+$social = $_POST['social'];
+
+$email_message = "Выбранный тип сайта: " . $selected_site_type . "\n";
+$email_message .= "Деятельность бизнеса: " . $shere . "\n";
+$email_message .= "Как срочно нужен сайт: " . $date . "\n";
+$email_message .= "Бюджет: " . $totalcost . "₽" . "\n";
+$email_message .= "Номер телефона: " . $usertel . "\n";
+$email_message .= "Мессенджер: " . $social . "\n";
+
+$headers = `From: ` . DOMEN_EMAIL . "\r\n";
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $selected_site_type = $_POST['type-of-site'];
-  $shere = $_POST['shere'];
-  $date = $_POST['date'];
-  $totalcost = $_POST['total-cost'];
-  $usertel = $_POST['user-tel'];
-  $social = $_POST['social'];
 
-  $email_message = "Выбранный тип сайта: " . $selected_site_type . "\n";
-  $email_message .= "Деятельность бизнеса: " . $shere . "\n";
-  $email_message .= "Как срочно нужен сайт: " . $date . "\n";
-  $email_message .= "Бюджет: " . $totalcost . "₽" . "\n";
-  $email_message .= "Номер телефона: " . $usertel . "\n";
-  $email_message .= "Мессенджер: " . $social . "\n";
+  $recaptchaResponse = $_POST['g-recaptcha-response'];
 
-  $headers = `From: ` . DOMEN_EMAIL . "\r\n";
-  mail(TO_EMAIL, 'Новая заявка с сайта', $email_message, $headers);
-  sendToTelegram($email_message);
+  $secretKey = '6LcXjXMqAAAAAOjUP-PcxCVOASxRW67hRD6hixlf';
 
-  echo "Данные формы отправлены успешно!";
+  // Проверьте ответ reCAPTCHA
+  $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secretKey}&response={$recaptchaResponse}");
+  $responseKeys = json_decode($response, true);
+
+  // Проверка успешности
+  if (intval($responseKeys["success"]) !== 1) {
+    echo "Проверка reCAPTCHA не пройдена. Пожалуйста, попробуйте еще раз.";
+  } else {
+    echo "Форма успешно отправлена!";
+
+    mail(TO_EMAIL, 'Новая заявка с сайта', $email_message, $headers);
+    sendToTelegram($email_message);
+  }
 }

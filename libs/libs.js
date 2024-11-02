@@ -1,6 +1,7 @@
 import Swiper from 'swiper';
 import { Autoplay, Pagination } from 'swiper/modules';
 
+
 const libraries = {
   Swiper: Swiper,
   Autoplay: Autoplay,

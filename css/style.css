@@ -70,6 +70,7 @@ body {
   text-transform: uppercase;
   color: white;
   font-weight: 400;
+  overflow-x: hidden;
 }
 body::after {
   content: "";

@@ -4,7 +4,7 @@
     <label class="choose-label">Ваш телефон:
       <input class='contact-input' type="tel" name="user-tel" placeholder="Введите номер телефона">
     </label>
-  <div>
+    <div>
       <p> Выберите на какой мессенджер написать нашему Менеджеру </p>
       <div class="chooses">
         <label class="choose-label choose-label-contact choose-label-whatsapp">whatsapp
@@ -22,7 +22,6 @@
       комфортнее) и обсудите все детали по созданию сайта и его разработке! <strong>Внимание: в приватности, у
         вас должно быть разрешено писать сторонним лицам, иначе мы не сможем написать вам в сообщения</strong>
     </p>
-    <div class="h-captch" data-sitekey="fb4ea794-9316-4da6-bfb8-0212c9aa2fb0"></div>
     <button type="submit" class="primary-button">Отправить</button>
   </div>
 </div>
