@@ -24,8 +24,6 @@
         </div>
         <a href="#form" class="add-text">ЗАКАЗАТЬ САЙТ</a>
       </div>
-
-   
     </div>
   </div>
 </header>
