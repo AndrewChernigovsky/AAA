@@ -1,6 +1,9 @@
 <section class="intro">
   <div class="intro__wrapper">
-    <h1 class="primary-title">Cоздание сайта. Разработка сайта</h1>
+    <h1 class="primary-title">
+      <p class='visually-hidden'>Cоздание сайта.</p>
+      <p class='visually-hidden'> Разработка сайта</p>
+    </h1>
     <div class="container">
       <div class="intro__inner">
         <h2 class="secondary-title">Сайт работает на всех устройствах<p>Вы преумножаете своих клиентов
