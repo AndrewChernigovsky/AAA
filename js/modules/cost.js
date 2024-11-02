@@ -46,15 +46,12 @@ function checkFormSlide() {
   const currentSlide = swiperCostSlides[swiperCost.realIndex];
   const inputs = currentSlide.querySelectorAll('input[type="radio"], input[type="checkbox"], input[type="range"]');
 
-  console.log(inputs, 'INPUTS');
-
   inputs.forEach(input => {
     input.addEventListener('change', () => {
       if (input.type == 'range') {
         swiperCost.slideNext();
       }
       if (input.checked) {
-        console.log(input.checked, 'checked');
         swiperCost.slideNext();
       }
     })
