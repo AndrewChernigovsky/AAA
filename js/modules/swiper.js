@@ -1,5 +1,5 @@
 export const initSwiper = () => {
-  const swiper = new Swiper('.swiper-reviews', {
+  const swiperReviews = new Swiper('.swiper-reviews', {
     loop: true,
     modules: [Autoplay, Pagination],
     autoplay: {
@@ -24,4 +24,11 @@ export const initSwiper = () => {
       clickable: true,
     }
   });
+  const swiperCost = new Swiper('.swiper-cost', {
+    slidesPerView: '1',
+    spaceBetween: 10,
+    noSwipingSelector: '.input-range',
+  });
+
+  window.swiperCost = swiperCost;
 };

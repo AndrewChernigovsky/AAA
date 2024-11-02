@@ -1,4 +1,4 @@
-<div class="form-slide">
+<div class="form-slide swiper-slide">
   <h3>Как срочно Вам нужен сайт ?
   </h3>
   <div class="chooses">
