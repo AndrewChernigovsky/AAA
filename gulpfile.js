@@ -8,6 +8,7 @@ const sass = gulpSass(dartSass);
 
 const paths = {
   styles: {
+    srcLib: './libs/libs.scss',
     src: './scss/style.scss',
     watch: './scss/**/*.scss',
     dest: './css/'
@@ -19,6 +20,13 @@ const paths = {
 
 const sassTask = () => {
   return src(paths.styles.src)
+    .pipe(sass().on('error', sass.logError))
+    .pipe(dest(paths.styles.dest))
+    .pipe(browserSync.stream());
+};
+
+const sassTaskLibs = () => {
+  return src(paths.styles.srcLib)
     .pipe(sass().on('error', sass.logError))
     .pipe(dest(paths.styles.dest))
     .pipe(browserSync.stream());
@@ -52,7 +60,7 @@ const watchTask = () => {
   watch('./**/*.php', phpTask);
 };
 
-const build = parallel(sassTask, rollupTask, watchTask);
+const build = parallel(sassTask, sassTaskLibs, rollupTask, watchTask);
 
-export { sassTask, rollupTask, phpTask, watchTask, build };
+export { sassTask, sassTaskLibs, rollupTask, phpTask, watchTask, build };
 export default build;

@@ -4,13 +4,8 @@
 .prices {
   padding: 60px 0;
   border-bottom: 1px solid var.$white;
-
   clip-path: polygon(0% 0%, 100% 18%, 100% 83%, 0% 97%);
   position: relative;
-
-  @media screen and (max-width: var.$tablet) {
-    clip-path: polygon(0% 0%, 100% 0%, 100% 87%, 0% 97%);
-  }
 
   &::before {
     content: '';
@@ -20,6 +15,20 @@
     background-color: var.$white;
     clip-path: polygon(0 59%, 100% 0, 100% 100%, 0% 100%);
     bottom: -35px;
+  }
+
+  @media screen and (max-width: var.$tablet) {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 93%, 0% 100%);
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 150px;
+      background-color: var.$white;
+      clip-path: polygon(-30% 50%, 100% 0, 100% 100%, 0% 100%);
+      bottom: -85px;
+    }
   }
 
   .secondary-title {
