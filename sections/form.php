@@ -4,19 +4,19 @@
     <form action="" method="post">
       <div class="form-slide">
         <h3>Оставьте контактные данные </h3>
-        <div class="chooses">
+        <div class="chooses contact">
           <label class="choose-label">Ваш телефон:
-            <input type="tel" name="user-tel">
+            <input class='contact-input' type="tel" name="user-tel">
           </label>
           <p> Выберите на какой мессенджер написать нашему Менеджеру </p>
           <div class="chooses">
-            <label class="choose-label">whatsapp
+            <label class="choose-label choose-label-contact choose-label-whatsapp">whatsapp
               <input type="radio" name="social" value="whatsapp">
             </label>
-            <label class="choose-label">telegram
+            <label class="choose-label choose-label-contact choose-label-telegram">telegram
               <input type="radio" name="social" value="telegram">
             </label>
-            <label class="choose-label">viber
+            <label class="choose-label choose-label-contact choose-label-viber">viber
               <input type="radio" name="social" value="viber">
             </label>
           </div>
@@ -24,7 +24,7 @@
             комфортнее) и обсудите все детали по созданию сайта и его разработке! <strong>Внимание: в приватности, у
               вас должно быть разрешено писать сторонним лицам, иначе мы не сможем написать вам в сообщения</strong>
           </p>
-          <button type="submit" class="primary-button">Отправить Заявку</button>
+          <button type="submit" class="primary-button value-button">Отправить Заявку</button>
         </div>
       </div>
     </form>
