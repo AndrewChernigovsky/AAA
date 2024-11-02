@@ -60,39 +60,39 @@ function checkFormSlide() {
   })
 }
 
-function sendForm() {
-  costForm.addEventListener('submit', function (event) {
-    event.preventDefault();
+// function sendForm() {
+//   costForm.addEventListener('submit', function (event) {
+//     event.preventDefault();
 
-    const formData = new FormData(this);
-    fetch('./../../functions/mail/mail.php', {
-      method: 'POST',
-      body: formData
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        popup.classList.add('active');
-        // let time = 3;
-        // while (time >= 0) {
-        //   setInterval(() => time--, 1000);
-        // }
-        popup.querySelector('p').textContent = `Окно закроется само через ${time} секунд`
-        setTimeout(
-          () => {
-            popup.classList.remove('active');
-          }, 3000)
-      })
-      .catch(error => console.error('Ошибка:', error));
-  });
-}
+//     const formData = new FormData(this);
+//     fetch('./../../functions/mail/mail.php', {
+//       method: 'POST',
+//       body: formData
+//     })
+//       .then(response => {
+//         if (!response.ok) {
+//           throw new Error('Network response was not ok');
+//         }
+//         popup.classList.add('active');
+//         // let time = 3;
+//         // while (time >= 0) {
+//         //   setInterval(() => time--, 1000);
+//         // }
+//         popup.querySelector('p').textContent = `Окно закроется само через ${time} секунд`
+//         setTimeout(
+//           () => {
+//             popup.classList.remove('active');
+//           }, 3000)
+//       })
+//       .catch(error => console.error('Ошибка:', error));
+//   });
+// }
 
 export function initCost() {
   changeStep();
   updatePrice();
   checkFormSlide();
-  sendForm();
+  // sendForm();
 
   stepBack.addEventListener('click', () => {
     swiperCost.slidePrev();
@@ -104,3 +104,5 @@ export function initCost() {
     checkFormSlide()
   });
 }
+
+// ES_6d95e610d7234675bf732e75cbda77eb
