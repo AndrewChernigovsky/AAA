@@ -43,6 +43,13 @@ include_once './helpers/includeSections.php';
   $base_path = __DIR__ . '/layout';
 
   include $base_path . '/footer.php';
+
+  $filesModal_to_include = [
+    'sections/popups/modal-form.php',
+  ];
+
+  $sectionLoader = new IncludeSections(__DIR__, $filesModal_to_include);
+  $sectionLoader->includeFiles();
   ?>
 </body>
 
