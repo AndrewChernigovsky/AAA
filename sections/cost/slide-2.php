@@ -1,4 +1,4 @@
-<div class="form-slide">
+<div class="form-slide swiper-slide">
   <h3>Выберите сферу деятельности вашего бизнеса
   </h3>
   <div class="chooses">

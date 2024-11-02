@@ -1,8 +1,8 @@
-<div class="form-slide">
+<div class="form-slide swiper-slide">
   <h3>Оставьте контактные данные </h3>
   <div class="chooses contact">
     <label class="choose-label">Ваш телефон:
-      <input type="tel" name="user-tel">
+      <input type="tel" name="user-tel" placeholder="Введите номер телефона">
     </label>
     <div>
       <p> Выберите на какой мессенджер написать нашему Менеджеру </p>
