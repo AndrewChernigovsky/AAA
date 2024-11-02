@@ -1,4 +1,4 @@
-@use "variables" as var;
+@use "variables"as var;
 
 .cost {
   &__line {
@@ -13,6 +13,28 @@
       background: var.$orange;
       width: 0;
       transition: 0.3s ease-in-out;
+    }
+  }
+
+  &__steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    #step-back {
+      background: none;
+      border: none;
+      outline: none;
+      background-color: var.$orange;
+      padding: 10px;
+      border-radius: 50px;
+      border: 1px solid var.$white;
+      font-weight: 700;
+      color: var.$white;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+      text-decoration: none;
     }
   }
 
@@ -43,6 +65,7 @@
 
 .swiper-cost {
   display: grid;
+  touch-action: none;
 }
 
 .form-slide {

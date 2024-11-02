@@ -1,22 +1,22 @@
 <section class="form">
   <div class="container">
     <h2>Заказать сайт</h2>
-    <form action="./function/mail/mail.php" method="post">
+    <form action="./../functions/mail/mail-simple.php" method="post">
       <div class="form-slide">
         <h3>Оставьте контактные данные </h3>
         <div class="chooses contact">
           <label class="choose-label">Ваш телефон:
-            <input class='contact-input' type="tel" name="user-tel">
+            <input class='contact-input' type="tel" name="user-tel" required>
           </label>
           <p> Выберите на какой мессенджер написать нашему Менеджеру </p>
           <div class="chooses">
-            <label class="choose-label choose-label-contact choose-label-whatsapp">whatsapp
+            <label class="choose-label choose-label-contact choose-label-whatsapp" required>whatsapp
               <input type="radio" name="social" value="whatsapp">
             </label>
-            <label class="choose-label choose-label-contact choose-label-telegram">telegram
+            <label class="choose-label choose-label-contact choose-label-telegram" required>telegram
               <input type="radio" name="social" value="telegram">
             </label>
-            <label class="choose-label choose-label-contact choose-label-viber">viber
+            <label class="choose-label choose-label-contact choose-label-viber" required>viber
               <input type="radio" name="social" value="viber">
             </label>
           </div>

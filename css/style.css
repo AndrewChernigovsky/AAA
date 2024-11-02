@@ -729,6 +729,26 @@ p {
   width: 0;
   transition: 0.3s ease-in-out;
 }
+.cost__steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cost__steps #step-back {
+  background: none;
+  border: none;
+  outline: none;
+  background-color: #FF4600;
+  padding: 10px;
+  border-radius: 50px;
+  border: 1px solid white;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  text-decoration: none;
+}
 .cost .primary-button {
   background: none;
   border: none;
@@ -755,6 +775,7 @@ p {
 
 .swiper-cost {
   display: grid;
+  touch-action: none;
 }
 
 .form-slide {

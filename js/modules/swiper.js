@@ -27,7 +27,10 @@ export const initSwiper = () => {
   const swiperCost = new Swiper('.swiper-cost', {
     slidesPerView: '1',
     spaceBetween: 10,
-    noSwipingSelector: '.input-range',
+    noSwipingSelector: '.input-range, mousewheel, keyboard',
+    allowTouchMove: false,
+    touchEventsTarget: 'container',
+    simulateTouch: false,
   });
 
   window.swiperCost = swiperCost;
