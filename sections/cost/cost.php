@@ -1,8 +1,9 @@
 <section class="cost">
   <div class="container">
+    <h2>Рассчитать стоимость сайта</h2>
     <div class="cost__steps">
-      <h2>Рассчитать стоимость сайта</h2>
       <p></p>
+      <button type="button" id="step-back">Шаг назад</button>
     </div>
     <div class="cost__line">
       <div class="cost__line cost__line--active"></div>
@@ -17,7 +18,7 @@
           'slide-2.php',
           'slide-3.php',
           'slide-4.php',
-          'slide-5.php',
+          'slide-5.php'
         ];
 
         foreach ($files_to_include as $file) {

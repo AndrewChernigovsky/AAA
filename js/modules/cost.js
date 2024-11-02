@@ -2,6 +2,9 @@ const steps = document.querySelector('.cost__steps p');
 const line = document.querySelector('.cost__line');
 const lineActive = document.querySelector('.cost__line--active');
 const swiperCostSlides = document.querySelectorAll('.swiper-cost .swiper-slide');
+const stepBack = document.querySelector('#step-back');
+const costForm = document.querySelector('#cost')
+const popup = document.querySelector('.popup');
 
 const inputRange = document.getElementById("inputRange");
 const activeColor = "#ff7300";
@@ -41,13 +44,63 @@ function changeLineProgress() {
   }
 }
 
+function checkFormSlide() {
+  const currentSlide = swiperCostSlides[swiperCost.realIndex];
+  const inputs = currentSlide.querySelectorAll('input[type="radio"], input[type="checkbox"], input[type="range"]');
+
+  inputs.forEach(input => {
+    input.addEventListener('change', () => {
+      if (input.type == 'range') {
+        swiperCost.slideNext();
+      }
+      if (input.checked) {
+        swiperCost.slideNext();
+      }
+    })
+  })
+}
+
+function sendForm() {
+  costForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const formData = new FormData(this);
+    fetch('./../../functions/mail/mail.php', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        popup.classList.add('active');
+        // let time = 3;
+        // while (time >= 0) {
+        //   setInterval(() => time--, 1000);
+        // }
+        popup.querySelector('p').textContent = `Окно закроется само через ${time} секунд`
+        setTimeout(
+          () => {
+            popup.classList.remove('active');
+          }, 3000)
+      })
+      .catch(error => console.error('Ошибка:', error));
+  });
+}
 
 export function initCost() {
   changeStep();
   updatePrice();
+  checkFormSlide();
+  sendForm();
+
+  stepBack.addEventListener('click', () => {
+    swiperCost.slidePrev();
+  })
 
   swiperCost.on('slideChange', function () {
     changeStep();
     updatePrice();
+    checkFormSlide()
   });
 }
