@@ -2,6 +2,7 @@ const steps = document.querySelector('.cost__steps p');
 const line = document.querySelector('.cost__line');
 const lineActive = document.querySelector('.cost__line--active');
 const swiperCostSlides = document.querySelectorAll('.swiper-cost .swiper-slide');
+const stepBack = document.querySelector('#step-back');
 
 const inputRange = document.getElementById("inputRange");
 const activeColor = "#ff7300";
@@ -41,13 +42,37 @@ function changeLineProgress() {
   }
 }
 
+function checkFormSlide() {
+  const currentSlide = swiperCostSlides[swiperCost.realIndex];
+  const inputs = currentSlide.querySelectorAll('input[type="radio"], input[type="checkbox"], input[type="range"]');
+
+  console.log(inputs, 'INPUTS');
+
+  inputs.forEach(input => {
+    input.addEventListener('change', () => {
+      if (input.type == 'range') {
+        swiperCost.slideNext();
+      }
+      if (input.checked) {
+        console.log(input.checked, 'checked');
+        swiperCost.slideNext();
+      }
+    })
+  })
+}
 
 export function initCost() {
   changeStep();
   updatePrice();
+  checkFormSlide();
+
+  stepBack.addEventListener('click', () => {
+    swiperCost.slidePrev();
+  })
 
   swiperCost.on('slideChange', function () {
     changeStep();
     updatePrice();
+    checkFormSlide()
   });
 }
