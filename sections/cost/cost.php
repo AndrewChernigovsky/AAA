@@ -7,7 +7,7 @@
     <div class="cost__line">
       <div class="cost__line cost__line--active"></div>
     </div>
-    <form action="" method="post" id="cost" class="swiper swiper-cost">
+    <form action="./../../functions/mail/mail.php" method="post" id="cost" class="swiper swiper-cost">
       <div class="swiper-wrapper">
         <?php
         $base_path = __DIR__;
