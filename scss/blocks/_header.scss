@@ -1,4 +1,4 @@
-@use 'variables'as var;
+@use "variables" as var;
 
 .header {
   padding: 20px 0;
@@ -11,7 +11,7 @@
 
     @media screen and (max-width: var.$tablet) {
       gap: 20px;
-      background-color: var.$blue-1;
+      background-color: #1a1919;
       min-height: 100vh;
       padding: 10px;
       text-align: center;
@@ -83,7 +83,6 @@
       a.tel {
         display: flex !important;
       }
-
     }
   }
 
@@ -104,7 +103,7 @@
       }
 
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 25px;
         left: 10px;
@@ -125,7 +124,7 @@
       }
 
       &.active::after {
-        content: '';
+        content: "";
         position: absolute;
         top: 25px;
         left: 10px;
@@ -153,6 +152,4 @@
       font-size: 48px;
     }
   }
-
-
 }
