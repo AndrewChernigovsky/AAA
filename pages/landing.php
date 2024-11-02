@@ -21,6 +21,21 @@ include_once './../helpers/includeSections.php';
   <main class="main">
     <div class="container">
       <h1>Лендинг</h1>
+      <?php
+  include './../sections/landing/content.php';
+  ?>
+      <?php
+  include './../sections/landing/stages.php';
+  ?>
+      <?php
+  include './../sections/landing/purpose.php';
+  ?>
+      <?php
+  include './../sections/landing/site.php';
+  ?>
+      <?php
+  include './../sections/landing/deadlines.php';
+  ?>
     </div>
   </main>
   <?php
