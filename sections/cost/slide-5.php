@@ -2,19 +2,19 @@
   <h3>Оставьте контактные данные </h3>
   <div class="chooses contact">
     <label class="choose-label">Ваш телефон:
-      <input class='contact-input' type="tel" name="user-tel" placeholder="Введите номер телефона">
+      <input class='contact-input' type="tel" name="user-tel" placeholder="Введите номер телефона" required>
     </label>
     <div>
       <p> Выберите на какой мессенджер написать нашему Менеджеру </p>
       <div class="chooses">
         <label class="choose-label choose-label-contact choose-label-whatsapp">whatsapp
-          <input type="radio" name="social" value="whatsapp">
+          <input type="radio" name="social" value="whatsapp" required>
         </label>
         <label class="choose-label choose-label-contact choose-label-telegram">telegram
-          <input type="radio" name="social" value="telegram">
+          <input type="radio" name="social" value="telegram" required>
         </label>
         <label class="choose-label choose-label-contact choose-label-viber">viber
-          <input type="radio" name="social" value="viber">
+          <input type="radio" name="social" value="viber" required>
         </label>
       </div>
     </div>
@@ -22,6 +22,7 @@
       комфортнее) и обсудите все детали по созданию сайта и его разработке! <strong>Внимание: в приватности, у
         вас должно быть разрешено писать сторонним лицам, иначе мы не сможем написать вам в сообщения</strong>
     </p>
+    <input type="text" name="password-hash" id="password-hash" value="">
     <button type="submit" class="primary-button">Отправить</button>
   </div>
 </div>

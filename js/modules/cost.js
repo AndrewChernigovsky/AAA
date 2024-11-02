@@ -3,7 +3,8 @@ const line = document.querySelector('.cost__line');
 const lineActive = document.querySelector('.cost__line--active');
 const swiperCostSlides = document.querySelectorAll('.swiper-cost .swiper-slide');
 const stepBack = document.querySelector('#step-back');
-// const costForm = document.querySelector('#cost')
+const costForm = document.querySelector('#cost')
+const hiddenInput = document.querySelector('#password-hash');
 const popup = document.querySelector('.popup');
 
 const inputRange = document.getElementById("inputRange");
@@ -60,6 +61,24 @@ function checkFormSlide() {
   })
 }
 
+function sendForm() {
+  costForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    if (hiddenInput.value === '') {
+      const formData = new FormData(this);
+      fetch('./../../functions/mail/mail.php', {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+        })
+        .catch(error => console.error('Ошибка:', error));
+    }
+  })
+}
 // function sendForm() {
 //   costForm.addEventListener('submit', function (event) {
 //     event.preventDefault();
@@ -88,7 +107,7 @@ export function initCost() {
   changeStep();
   updatePrice();
   checkFormSlide();
-  // sendForm();
+  sendForm();
 
   stepBack.addEventListener('click', () => {
     swiperCost.slidePrev();
