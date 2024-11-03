@@ -2,19 +2,19 @@
   <h3>Оставьте контактные данные </h3>
   <div class="chooses contact">
     <label class="choose-label">Ваш телефон:
-      <input class='contact-input' type="tel" name="user-tel" placeholder="Введите номер телефона" required>
+      <input class='contact-input' type="tel" name="user-tel" placeholder="Введите номер телефона">
     </label>
     <div>
       <p> Выберите на какой мессенджер написать нашему Менеджеру </p>
       <div class="chooses">
         <label class="choose-label choose-label-contact choose-label-whatsapp">whatsapp
-          <input type="radio" name="social" value="whatsapp" required>
+          <input type="radio" name="social" value="whatsapp">
         </label>
         <label class="choose-label choose-label-contact choose-label-telegram">telegram
-          <input type="radio" name="social" value="telegram" required>
+          <input type="radio" name="social" value="telegram">
         </label>
         <label class="choose-label choose-label-contact choose-label-viber">viber
-          <input type="radio" name="social" value="viber" required>
+          <input type="radio" name="social" value="viber">
         </label>
       </div>
     </div>
@@ -23,7 +23,7 @@
         вас должно быть разрешено писать сторонним лицам, иначе мы не сможем написать вам в сообщения</strong>
     </p>
     <div class="g-recaptcha" data-sitekey="6LcXjXMqAAAAAOk-ZcPIIdan-9-WnbxIYv4Gbaav"></div>
-    <input type="text" name="password-hash" id="password-hash" value="">
+    <input type="text" class="password-hash" id="password-hash" value="">
     <button type="submit" class="primary-button">Отправить</button>
   </div>
 </div>
