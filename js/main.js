@@ -5,8 +5,10 @@ import { initSwiper } from "./modules/swiper.js";
 import { initCost } from "./modules/cost.js";
 import { addHeadingAnimation } from "./modules/heading.js";
 import { initSubHeadingAnimation } from "./modules/subHeadingAnimation.js";
+import { initIHereAnimation } from "./modules/IHereAnimation.js";
 // import { myCaptcha } from "./modules/captcha.js";
 
+initIHereAnimation();
 toToggleMenu();
 initTarifsTabs();
 initSwiper();
