@@ -1,4 +1,4 @@
-@use "variables" as var;
+@use "variables"as var;
 
 .intro {
   padding: 60px 0;
@@ -37,6 +37,7 @@
       cursor: pointer;
       transition: 0.3s ease-in-out;
       text-decoration: none;
+      animation: pulse 6s infinite;
 
       @media screen and (max-width: var.$tablet) {
         max-width: 100%;
@@ -57,11 +58,27 @@
     max-width: 100%;
     text-transform: none;
 
-    p {
+    .intro__title.active {
+      transition: all 1s ease;
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .intro__title-firts {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    .intro__title-second {
       margin: 0;
-      opacity: 0.7;
+      opacity: 0;
       font-size: 18px;
       text-align: right;
+      transform: translateX(200%);
+
+      &.active {
+        opacity: 0.7;
+      }
     }
   }
 
@@ -106,6 +123,7 @@
     }
   }
 }
+
 @keyframes fadeIn {
   to {
     opacity: 1;
@@ -126,5 +144,25 @@
     right: -6%;
     opacity: 1;
     transform: scale(0.9);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    background-color: var.$orange;
+    border: 1px solid var.$white;
+    color: var.$white;
+  }
+
+  50% {
+    background-color: var.$white;
+    border: 1px solid var.$orange;
+    color: var.$orange;
+  }
+
+  100% {
+    background-color: var.$orange;
+    border: 1px solid var.$white;
+    color: var.$white;
   }
 }

@@ -449,6 +449,7 @@ p {
   cursor: pointer;
   transition: 0.3s ease-in-out;
   text-decoration: none;
+  animation: pulse 3s infinite;
 }
 @media screen and (max-width: 768px) {
   .intro__inner .value-button {
@@ -467,11 +468,24 @@ p {
   max-width: 100%;
   text-transform: none;
 }
-.intro .secondary-title p {
+.intro .secondary-title .intro__title.active {
+  transition: all 1s ease;
+  transform: translateX(0);
+  opacity: 1;
+}
+.intro .secondary-title .intro__title-firts {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.intro .secondary-title .intro__title-second {
   margin: 0;
-  opacity: 0.7;
+  opacity: 0;
   font-size: 18px;
   text-align: right;
+  transform: translateX(200%);
+}
+.intro .secondary-title .intro__title-second.active {
+  opacity: 0.7;
 }
 .intro .primary-title {
   position: relative;
@@ -527,6 +541,23 @@ p {
     right: -6%;
     opacity: 1;
     transform: scale(0.9);
+  }
+}
+@keyframes pulse {
+  0% {
+    background-color: #FF4600;
+    border: 1px solid white;
+    color: white;
+  }
+  50% {
+    background-color: white;
+    border: 1px solid #FF4600;
+    color: #FF4600;
+  }
+  100% {
+    background-color: #FF4600;
+    border: 1px solid white;
+    color: white;
   }
 }
 .advantages {

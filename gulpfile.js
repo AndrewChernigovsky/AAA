@@ -19,7 +19,7 @@ const paths = {
     srcLib: './libs/libs.scss',
     src: './scss/style.scss',
     watch: './scss/**/*.scss',
-    dest: './dist/css/'
+    dest: './css/'
   },
   scripts: {
     src: './js/**/*.js',
@@ -45,14 +45,14 @@ const paths = {
 
 const sassTask = () => {
   return src(paths.styles.src)
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({ silenceDeprecations: ['legacy-js-api'] }).on('error', sass.logError))
     .pipe(dest(paths.styles.dest))
     .pipe(browserSync.stream());
 };
 
 const sassTaskLibs = () => {
   return src(paths.styles.srcLib)
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({ silenceDeprecations: ['legacy-js-api'] }).on('error', sass.logError))
     .pipe(dest(paths.styles.dest))
     .pipe(browserSync.stream());
 };
@@ -122,5 +122,5 @@ const sassTaskLibsBuild = () => {
 const dev = parallel(sassTask, sassTaskLibs, rollupTask, watchTask);
 const build = parallel(cleanDist, phpTaskBuild, sassTaskBuild, sassTaskLibsBuild)
 
-export { sassTask, sassTaskLibs, rollupTask, phpTask, watchTask, dev, build, sassTaskBuild, sassTaskLibsBuild };
+// export { sassTask, sassTaskLibs, rollupTask, phpTask, watchTask, dev, build, sassTaskBuild, sassTaskLibsBuild };
 export default dev;
