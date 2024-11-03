@@ -1,0 +1,8 @@
+.content {
+    background-color: red;
+
+    &__wrapper {
+        color: aqua;
+        border: 2px solid blue;
+    }
+}
