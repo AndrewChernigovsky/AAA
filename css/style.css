@@ -449,6 +449,7 @@ p {
   cursor: pointer;
   transition: 0.3s ease-in-out;
   text-decoration: none;
+  animation: pulse 6s infinite;
 }
 @media screen and (max-width: 768px) {
   .intro__inner .value-button {
@@ -527,6 +528,23 @@ p {
     right: -6%;
     opacity: 1;
     transform: scale(0.9);
+  }
+}
+@keyframes pulse {
+  0% {
+    background-color: #FF4600;
+    border: 1px solid white;
+    color: white;
+  }
+  50% {
+    background-color: white;
+    border: 1px solid #FF4600;
+    color: #FF4600;
+  }
+  100% {
+    background-color: #FF4600;
+    border: 1px solid white;
+    color: white;
   }
 }
 .advantages {
