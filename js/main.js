@@ -6,7 +6,7 @@ import { initCost } from "./modules/cost.js";
 import { addHeadingAnimation } from "./modules/heading.js";
 import { initSubHeadingAnimation } from "./modules/sub-heading-animation.js";
 import { initIHereAnimation } from "./modules/ihere-animation.js";
-import { initTitleAnimation } from "./modules/advantages-heading.js";
+import { initTitleAnimation } from "./modules/title-animation.js";
 // import { myCaptcha } from "./modules/captcha.js";
 
 initTitleAnimation();

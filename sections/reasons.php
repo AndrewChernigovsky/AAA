@@ -1,7 +1,7 @@
 <section class="reasons">
   <div class="container">
     <div class="reasons__wrapper">
-      <h2 class="secondary-title">Три причины выбрать меня</h2>
+      <h2 class="secondary-title title-animation">Три причины выбрать меня</h2>
       <ol class="reasons__list">
         <li>Профессионализм и опыт</li>
         <li> Гарантия качества и поддержки</li>
