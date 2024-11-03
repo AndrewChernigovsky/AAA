@@ -1,8 +1,16 @@
 import { src, dest, watch, parallel } from 'gulp';
 import * as dartSass from 'sass';
 import gulpSass from 'gulp-sass';
+import autoPrefixer from 'gulp-autoprefixer';
+import cleanCSS from 'gulp-clean-css';
+import purgeCSS from 'gulp-purgecss';
 import browserSync from 'browser-sync';
 import { exec } from 'child_process';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const sass = gulpSass(dartSass);
 
@@ -11,11 +19,28 @@ const paths = {
     srcLib: './libs/libs.scss',
     src: './scss/style.scss',
     watch: './scss/**/*.scss',
-    dest: './css/'
+    dest: './dist/css/'
   },
   scripts: {
-    src: './js/**/*.js'
-  }
+    src: './js/**/*.js',
+    dest: './dist/js/'
+  },
+  assets: {
+    dist: './dist/assets'
+  },
+  helpers: {
+    dist: './dist/helpers'
+  },
+  functions: {
+    dist: './dist/functions'
+  },
+  pages: {
+    dist: './dist/pages'
+  },
+  layout: {
+    dist: './dist/layout'
+  },
+  dist: './dist'
 };
 
 const sassTask = () => {
@@ -60,7 +85,42 @@ const watchTask = () => {
   watch('./**/*.php', phpTask);
 };
 
-const build = parallel(sassTask, sassTaskLibs, rollupTask, watchTask);
+function cleanDist(done) {
+  fs.rmdir(path.join(__dirname, paths.dist), { recursive: true }, (err) => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log('Папка "dist" успешно удалена!');
+    }
+  })(done());
+}
 
-export { sassTask, sassTaskLibs, rollupTask, phpTask, watchTask, build };
-export default build;
+const phpTaskBuild = () => {
+  return src(['./index.php', './pages/**/*.php'])
+    .pipe(dest(paths.dist))
+};
+
+const sassTaskBuild = () => {
+  return src(paths.styles.src)
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoPrefixer())
+    .pipe(cleanCSS({ level: 2 }))
+    .pipe(purgeCSS({ content: ['src/scss/**/*.scss'] }))
+    .pipe(dest(paths.styles.dest))
+
+};
+
+const sassTaskLibsBuild = () => {
+  return src(paths.styles.srcLib)
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoPrefixer())
+    .pipe(cleanCSS({ level: 2 }))
+    .pipe(dest(paths.styles.dest))
+};
+
+
+const dev = parallel(sassTask, sassTaskLibs, rollupTask, watchTask);
+const build = parallel(cleanDist, phpTaskBuild, sassTaskBuild, sassTaskLibsBuild)
+
+export { sassTask, sassTaskLibs, rollupTask, phpTask, watchTask, dev, build, sassTaskBuild, sassTaskLibsBuild };
+export default dev;
