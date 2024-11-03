@@ -46,3 +46,14 @@
 .advantages-list__item.visible {
   opacity: 1; /* Появление элемента */
 }
+
+.title-animation {
+  opacity: 0; /* Скрываем элемент */
+  transform: translateY(20px); /* Сдвигаем элемент вниз */
+  transition: opacity 1s ease, transform 1s ease; /* Плавный переход */
+}
+
+.title-animation.visible {
+  opacity: 1; /* Делаем элемент видимым */
+  transform: translateY(0); /* Возвращаем элемент на место */
+}
