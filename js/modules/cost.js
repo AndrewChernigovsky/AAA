@@ -10,21 +10,20 @@ const popup = document.querySelector('.popup');
 const inputRange = document.getElementById("inputRange");
 const activeColor = "#ff7300";
 const inactiveColor = "#4b4747";
-const rangeBar = document.getElementById('inputRange');
 const valueDisplay = document.getElementById('total-cost');
 
-rangeBar.addEventListener('input', function () {
-  valueDisplay.value = this.value + 'Р';
+inputRange.addEventListener('input', function () {
+  valueDisplay.value = this.value;
 });
 
 function updatePrice() {
   const priceValue = inputRange.value;
   valueDisplay.value = priceValue;
   const ratio = (priceValue - inputRange.min) / (inputRange.max - inputRange.min) * 100;
-  rangeBar.style.background = `linear-gradient(90deg, ${activeColor} ${ratio}%, ${inactiveColor} ${ratio}%)`;
+  inputRange.style.background = `linear-gradient(90deg, ${activeColor} ${ratio}%, ${inactiveColor} ${ratio}%)`;
 }
 
-rangeBar.addEventListener('input', updatePrice);
+inputRange.addEventListener('input', updatePrice);
 
 function changeStep() {
   steps.textContent = `Шаг ${swiperCost.realIndex + 1}/${swiperCostSlides.length}`;
@@ -64,7 +63,12 @@ function checkFormSlide() {
 function sendForm() {
   costForm.addEventListener('submit', function (event) {
     event.preventDefault();
-    if (hiddenInput.value === '') {
+    const recaptchaResponse = grecaptcha.getResponse();
+    if (recaptchaResponse.length !== 0) {
+      popup.classList.add('active')
+      popup.querySelector('h3').textContent = "Нужно пройти капчу"
+    }
+    if (hiddenInput.value.length === 0 && recaptchaResponse.length !== 0) {
       const formData = new FormData(this);
       fetch('./../../functions/mail/mail.php', {
         method: 'POST',
@@ -74,40 +78,22 @@ function sendForm() {
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
+          popup.classList.add('active')
+          popup.querySelector('h3').textContent = 'Данные успешно  отправлены!'
+          popup.querySelector('p').textContent = 'Сообщение закроется через 3 секунды'
+          setTimeout(() => popup.classList.remove('active'), 3000)
+
         })
         .catch(error => console.error('Ошибка:', error));
     }
   })
 }
-// function sendForm() {
-//   costForm.addEventListener('submit', function (event) {
-//     event.preventDefault();
-
-//     const formData = new FormData(this);
-//     fetch('./../../functions/mail/mail.php', {
-//       method: 'POST',
-//       body: formData
-//     })
-//       .then(response => {
-//         if (!response.ok) {
-//           throw new Error('Network response was not ok');
-//         }
-//         popup.classList.add('active');
-//         popup.querySelector('p').textContent = `Окно закроется само через ${time} секунд`
-//         setTimeout(
-//           () => {
-//             popup.classList.remove('active');
-//           }, 3000)
-//       })
-//       .catch(error => console.error('Ошибка:', error));
-//   });
-// }
 
 export function initCost() {
   changeStep();
   updatePrice();
   checkFormSlide();
-  sendForm();
+  // sendForm();
 
   stepBack.addEventListener('click', () => {
     swiperCost.slidePrev();

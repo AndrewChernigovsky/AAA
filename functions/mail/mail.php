@@ -25,13 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   $recaptchaResponse = $_POST['g-recaptcha-response'];
 
-  $secretKey = '6LcXjXMqAAAAAOjUP-PcxCVOASxRW67hRD6hixlf';
-
-  // Проверьте ответ reCAPTCHA
-  $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secretKey}&response={$recaptchaResponse}");
+  $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={SECRET_KEY}&response={$recaptchaResponse}");
   $responseKeys = json_decode($response, true);
 
-  // Проверка успешности
   if (intval($responseKeys["success"]) !== 1) {
     echo "Проверка reCAPTCHA не пройдена. Пожалуйста, попробуйте еще раз.";
   } else {
