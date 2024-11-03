@@ -1,4 +1,4 @@
-@use "variables" as var;
+@use "variables"as var;
 
 .intro {
   padding: 60px 0;
@@ -37,6 +37,7 @@
       cursor: pointer;
       transition: 0.3s ease-in-out;
       text-decoration: none;
+      animation: pulse 6s infinite;
 
       @media screen and (max-width: var.$tablet) {
         max-width: 100%;
@@ -106,6 +107,7 @@
     }
   }
 }
+
 @keyframes fadeIn {
   to {
     opacity: 1;
@@ -126,5 +128,25 @@
     right: -6%;
     opacity: 1;
     transform: scale(0.9);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    background-color: var.$orange;
+    border: 1px solid var.$white;
+    color: var.$white;
+  }
+
+  50% {
+    background-color: var.$white;
+    border: 1px solid var.$orange;
+    color: var.$orange;
+  }
+
+  100% {
+    background-color: var.$orange;
+    border: 1px solid var.$white;
+    color: var.$white;
   }
 }
