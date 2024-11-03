@@ -9,7 +9,7 @@
       <div class="cost__line cost__line--active"></div>
     </div>
     <form action="./../../functions/mail/mail.php" method="post" id="cost" class="swiper swiper-cost">
-      <div class="g-recaptcha" data-sitekey="6LcXjXMqAAAAAOk-ZcPIIdan-9-WnbxIYv4Gbaav"></div>
+
       <div class="swiper-wrapper">
         <?php
         $base_path = __DIR__;
