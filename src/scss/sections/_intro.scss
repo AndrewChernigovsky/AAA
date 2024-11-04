@@ -94,9 +94,9 @@
     margin-bottom: 50px;
 
     span {
-      opacity: 0; // Исходное состояние
+      opacity: 0;
       transform: scale(0);
-      animation: fadeIn 2.4s forwards; // Анимация появления
+      animation: fadeIn 2.4s forwards;
     }
 
     &::before,
@@ -105,21 +105,21 @@
       content: "";
       top: 0;
       bottom: 0;
-      width: 2px; // Ширина линий
+      width: 2px;
       height: 100%;
-      background-color: white; // Цвет линий
-      opacity: 0; // Исходное состояние
-      transform: scale(0); // Исходное состояние
+      background-color: var.$white;
+      opacity: 0;
+      transform: scale(0);
     }
 
     &::before {
       left: 50%;
-      animation: slideLeft 1.5s cubic-bezier(0.7, -0.6, 0.3, 1.5) forwards; // Анимация для левой линии
+      animation: slideLeft 1.5s cubic-bezier(0.7, -0.6, 0.3, 1.5) forwards;
     }
 
     &::after {
       right: 50%;
-      animation: slideRight 1.5s cubic-bezier(0.7, -0.6, 0.3, 1.5) forwards; // Анимация для правой линии
+      animation: slideRight 1.5s cubic-bezier(0.7, -0.6, 0.3, 1.5) forwards;
     }
   }
 }

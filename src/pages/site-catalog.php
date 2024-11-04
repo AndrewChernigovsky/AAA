@@ -1,7 +1,6 @@
 <?php
 include_once './../helpers/includeSections.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="ru">
 

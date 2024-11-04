@@ -51,7 +51,7 @@ const phpTask = (cb) => {
 
   (() => {
     return src(['./src/pages/**/*.php'])
-      .pipe(dest(paths.dist + '/pages'))
+      .pipe(dest(paths.dist + '/php/pages'))
   })();
 
   (() => {
@@ -141,7 +141,7 @@ const copyStatics = () => {
 }
 
 const statics = parallel(() => cleanDist('assets/libs'), sassTaskLibs, rollupTask);
-const dev = parallel(phpTask, sassTask, sassTaskLibs, rollupTask, watchTask);
+const dev = series(() => cleanDist('dist'), phpTask, sassTask, sassTaskLibs, rollupTask, watchTask);
 const build = series(() => cleanDist('dist'), copyStatics, phpTask, sassTask, sassTaskLibs, rollupTask, watchTask);
 
 export { sassTask, sassTaskLibs, rollupTask, phpTask, watchTask, dev, build, statics };
