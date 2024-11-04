@@ -27,7 +27,7 @@
         <div class="logo">
           <img src="<?php echo $logoPath; ?>" alt="логотип академии Андрея Андреевича Изосимова" width="100"
             height="100">
-          <a href="tel:+79532322112" class="tel">+733333 953 232 21 12</a>
+          <a href="tel:+79532322112" class="tel">+7 953 232 21 12</a>
           <nav class="nav">
             <ul class="nav__list list-style-none ">
               <li class="nav__item"><a href="">Услуги</a></li>

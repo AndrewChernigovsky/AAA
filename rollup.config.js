@@ -3,7 +3,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 
-const production = process.env.PRODUCTION;
+const PRODUCTION = process.env.PRODUCTION === 'true';
 
 export default {
   input: './src/js/main.js',
@@ -13,7 +13,7 @@ export default {
     chunkFileNames: '[name]-[hash].js',
     entryFileNames: '[name].js',
     format: 'esm',
-    sourcemap: production ? false : true,
+    sourcemap: PRODUCTION ? false : true,
   },
   plugins: [
     resolve(),
@@ -23,7 +23,7 @@ export default {
       babelHelpers: 'bundled',
       presets: ['@babel/preset-env'],
     }),
-    production && terser()
+    PRODUCTION && terser()
   ].filter(Boolean),
   watch: {
     include: 'src/**'
