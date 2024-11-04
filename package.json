@@ -1,8 +1,9 @@
 {
   "type": "module",
   "scripts": {
-    "dev": "gulp",
-    "build": "gulp build"
+    "dev": "cross-env PRODUCTION=false gulp",
+    "build": "cross-env PRODUCTION=true gulp build",
+    "statics": "cross-env PRODUCTION=true gulp statics"
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",
@@ -11,6 +12,7 @@
     "@rollup/plugin-commonjs": "^28.0.1",
     "@rollup/plugin-node-resolve": "^15.3.0",
     "browser-sync": "^3.0.3",
+    "cross-env": "^7.0.3",
     "gulp": "^5.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^5.1.0",
@@ -22,7 +24,6 @@
   },
   "dependencies": {
     "gulp-autoprefixer": "^9.0.0",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-purgecss": "^6.0.0"
+    "gulp-clean-css": "^4.3.0"
   }
 }
