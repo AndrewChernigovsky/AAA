@@ -131,22 +131,6 @@
   }
 }
 
-@keyframes slideLeft {
-  to {
-    left: -6%;
-    opacity: 1;
-    transform: scale(0.9);
-  }
-}
-
-@keyframes slideRight {
-  to {
-    right: -6%;
-    opacity: 1;
-    transform: scale(0.9);
-  }
-}
-
 @keyframes pulse {
   0% {
     background-color: var.$orange;

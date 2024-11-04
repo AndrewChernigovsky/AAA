@@ -1,6 +1,6 @@
 <section class="tarifs">
   <div class="container">
-    <h2 class="secondary-title">Тарифы на разработку сайта</h2>
+    <h2 class="secondary-title title-animation">Тарифы на разработку сайта</h2>
     <div class="tabs">
       <ul class="tarifs__tabs list-style-none" id="tarifs-tabs">
         <li class="active">

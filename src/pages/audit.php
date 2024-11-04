@@ -21,6 +21,21 @@ include_once './../helpers/includeSections.php';
   <main class="main">
     <div class="container">
       <h1>Аудит</h1>
+      <?php
+  include './../sections/audit/content.php';
+  ?>
+      <?php
+  include './../sections/audit/stages.php';
+  ?>
+      <?php
+  include './../sections/audit/purpose.php';
+  ?>
+      <?php
+  include './../sections/audit/site.php';
+  ?>
+      <?php
+  include './../sections/audit/deadlines.php';
+  ?>
     </div>
   </main>
   <?php
