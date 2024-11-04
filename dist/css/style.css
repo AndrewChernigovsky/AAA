@@ -1093,3 +1093,11 @@ p {
   text-decoration: none;
   margin: 0 auto;
 }
+
+.content {
+  background-color: red;
+}
+.content__wrapper {
+  color: aqua;
+  border: 2px solid blue;
+}
