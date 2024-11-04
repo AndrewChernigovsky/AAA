@@ -1,0 +1,1 @@
+var e=document.querySelector("#btn-open-menu"),t=document.querySelector(".header__intro");function o(){e&&t&&e.addEventListener("click",(function(){t.classList.toggle("active"),e.classList.toggle("active"),document.querySelector("body").classList.toggle("overflow")}))}export{o as toToggleMenu};

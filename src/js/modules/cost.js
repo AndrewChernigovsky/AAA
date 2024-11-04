@@ -93,7 +93,7 @@ export function initCost() {
   changeStep();
   updatePrice();
   checkFormSlide();
-  // sendForm();
+  sendForm();
 
   stepBack.addEventListener('click', () => {
     swiperCost.slidePrev();
