@@ -8,6 +8,7 @@ import { exec } from 'child_process';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { dir } from 'console';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -87,6 +88,10 @@ const watchTask = () => {
     serveStatic: [{
       route: '/assets',
       dir: 'dist'
+    },
+    {
+      route: '/php/pages',
+      dir: 'assets'
     }],
     notify: false,
   });
@@ -135,9 +140,16 @@ const sassTaskLibs = () => {
   return stream.pipe(dest('./assets/libs'));
 };
 
-const copyStatics = () => {
-  return src('./assets/**/*')
-    .pipe(dest(paths.dist + '/assets'))
+const copyStatics = (cb) => {
+  (() => {
+    return src('./assets/**/*')
+      .pipe(dest(paths.dist + '/assets'))
+  })();
+  (() => {
+    return src('./.htaccess')
+      .pipe(dest(paths.dist))
+  })()
+  cb();
 }
 
 const statics = parallel(() => cleanDist('assets/libs'), sassTaskLibs, rollupTask);

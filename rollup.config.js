@@ -38,7 +38,7 @@ export default [
       chunkFileNames: '[name]-[hash].js',
       entryFileNames: '[name].js',
       format: 'esm',
-      sourcemap: PRODUCTION ? false : true,
+      sourcemap: false
     },
     plugins: [
       resolve(),

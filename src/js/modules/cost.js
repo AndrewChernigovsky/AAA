@@ -1,9 +1,9 @@
+const costForm = document.querySelector('#cost')
 const steps = document.querySelector('.cost__steps p');
 const line = document.querySelector('.cost__line');
 const lineActive = document.querySelector('.cost__line--active');
 const swiperCostSlides = document.querySelectorAll('.swiper-cost .swiper-slide');
 const stepBack = document.querySelector('#step-back');
-const costForm = document.querySelector('#cost')
 const hiddenInput = document.querySelector('#password-hash');
 const popup = document.querySelector('.popup');
 
@@ -12,18 +12,12 @@ const activeColor = "#ff7300";
 const inactiveColor = "#4b4747";
 const valueDisplay = document.getElementById('total-cost');
 
-inputRange.addEventListener('input', function () {
-  valueDisplay.value = this.value;
-});
-
 function updatePrice() {
   const priceValue = inputRange.value;
   valueDisplay.value = priceValue;
   const ratio = (priceValue - inputRange.min) / (inputRange.max - inputRange.min) * 100;
   inputRange.style.background = `linear-gradient(90deg, ${activeColor} ${ratio}%, ${inactiveColor} ${ratio}%)`;
 }
-
-inputRange.addEventListener('input', updatePrice);
 
 function changeStep() {
   steps.textContent = `Шаг ${swiperCost.realIndex + 1}/${swiperCostSlides.length}`;
@@ -89,18 +83,24 @@ function sendForm() {
 }
 
 export function initCost() {
-  changeStep();
-  updatePrice();
-  checkFormSlide();
-  sendForm();
-
-  stepBack.addEventListener('click', () => {
-    swiperCost.slidePrev();
-  })
-
-  swiperCost.on('slideChange', function () {
+  if (costForm) {
+    inputRange.addEventListener('input', function () {
+      valueDisplay.value = this.value;
+      updatePrice();
+    });
     changeStep();
     updatePrice();
-    checkFormSlide()
-  });
+    checkFormSlide();
+    sendForm();
+
+    stepBack.addEventListener('click', () => {
+      swiperCost.slidePrev();
+    })
+
+    swiperCost.on('slideChange', function () {
+      changeStep();
+      updatePrice();
+      checkFormSlide()
+    });
+  }
 }

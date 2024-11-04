@@ -1,18 +1,15 @@
 export function initTitleAnimation() {
-  document.addEventListener("DOMContentLoaded", function () {
-    const titles = document.querySelectorAll(".title-animation"); // Получаем все заголовки
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible"); // Добавляем класс для анимации
-          observer.unobserve(entry.target); // Удаляем наблюдателя для текущего заголовка
-        }
-      });
+  const titles = document.querySelectorAll(".title-animation");
+  const observer = new IntersectionObserver((entries) => {
+    console.log(entries, 'ENTRIES');
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
     });
-
-    titles.forEach((title) => {
-      observer.observe(title); // Начинаем наблюдение за каждым заголовком
-    });
+  });
+  titles.forEach((title) => {
+    observer.observe(title);
   });
 }

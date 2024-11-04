@@ -8,9 +8,10 @@ include_once './../helpers/includeSections.php';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ААА Академия Андрея Андреевича Изосимова, создание и продвижение сайтов | Сайт-каталог</title>
-  <link rel="stylesheet" href="./../css/libs.css">
-  <link rel="stylesheet" href="./../css/style.css">
-  <script src="./../dist/js/main.js"></script>
+  <link rel="stylesheet" href="/dist/assets/libs/libs.css">
+  <link rel="stylesheet" href="/dist/css/style.css">
+  <script src="/dist/assets/libs/libs.js" type="module" defer></script>
+  <script src="/dist/js/main.js" type="module" defer></script>
 </head>
 
 <body>
@@ -21,20 +22,20 @@ include_once './../helpers/includeSections.php';
     <div class="container">
       <h1>Сайт-каталог</h1>
       <?php
-  include './../sections/site-catalog/content.php';
-  ?>
+      include './../sections/site-catalog/content.php';
+      ?>
       <?php
-  include './../sections/site-catalog/stages.php';
-  ?>
+      include './../sections/site-catalog/stages.php';
+      ?>
       <?php
-  include './../sections/site-catalog/purpose.php';
-  ?>
+      include './../sections/site-catalog/purpose.php';
+      ?>
       <?php
-  include './../sections/site-catalog/site.php';
-  ?>
+      include './../sections/site-catalog/site.php';
+      ?>
       <?php
-  include './../sections/site-catalog/deadlines.php';
-  ?>
+      include './../sections/site-catalog/deadlines.php';
+      ?>
     </div>
   </main>
   <?php
