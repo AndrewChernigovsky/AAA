@@ -503,44 +503,11 @@ p {
   transform: scale(0);
   animation: fadeIn 2.4s forwards;
 }
-.intro .primary-title::before, .intro .primary-title::after {
-  position: absolute;
-  content: "";
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  height: 100%;
-  background-color: white;
-  opacity: 0;
-  transform: scale(0);
-}
-.intro .primary-title::before {
-  left: 50%;
-  animation: slideLeft 1.5s cubic-bezier(0.7, -0.6, 0.3, 1.5) forwards;
-}
-.intro .primary-title::after {
-  right: 50%;
-  animation: slideRight 1.5s cubic-bezier(0.7, -0.6, 0.3, 1.5) forwards;
-}
 
 @keyframes fadeIn {
   to {
     opacity: 1;
     transform: scale(1);
-  }
-}
-@keyframes slideLeft {
-  to {
-    left: -6%;
-    opacity: 1;
-    transform: scale(0.9);
-  }
-}
-@keyframes slideRight {
-  to {
-    right: -6%;
-    opacity: 1;
-    transform: scale(0.9);
   }
 }
 @keyframes pulse {
@@ -584,9 +551,41 @@ p {
   display: grid;
   gap: 10px;
   text-transform: none;
+  list-style: none;
 }
 .advantages .secondary-title {
   color: #FF4600;
+}
+
+.advantages-list {
+  padding: 0;
+  margin: 0;
+  min-height: 220px;
+}
+@media screen and (min-width: 1024px) {
+  .advantages-list {
+    min-height: 120px;
+  }
+}
+
+.advantages-list__item {
+  opacity: 0; /* Скрываем элементы */
+  transition: opacity 0.5s ease; /* Плавный переход для появления */
+}
+
+.advantages-list__item.visible {
+  opacity: 1; /* Появление элемента */
+}
+
+.title-animation {
+  opacity: 0; /* Скрываем элемент */
+  transform: translateY(20px); /* Сдвигаем элемент вниз */
+  transition: opacity 1s ease, transform 1s ease; /* Плавный переход */
+}
+
+.title-animation.visible {
+  opacity: 1; /* Делаем элемент видимым */
+  transform: translateY(0); /* Возвращаем элемент на место */
 }
 
 .prices {

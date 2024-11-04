@@ -1,6 +1,6 @@
 <section class="prices">
   <div class="container">
-    <h2 class="secondary-title">Разрешите себе вздохнуть, <br> Сайт будет приносить заявки даже ночью</h2>
+    <h2 class="secondary-title title-animation">Разрешите себе вздохнуть, <br> Сайт будет приносить заявки даже ночью</h2>
     <ul>
       <li>
         <h3 class="third-title">

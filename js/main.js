@@ -4,9 +4,13 @@ import { initTarifsTabs } from "./modules/tabs.js";
 import { initSwiper } from "./modules/swiper.js";
 import { initCost } from "./modules/cost.js";
 import { addHeadingAnimation } from "./modules/heading.js";
-import { initSubHeadingAnimation } from "./modules/subHeadingAnimation.js";
+import { initSubHeadingAnimation } from "./modules/sub-heading-animation.js";
+import { initIHereAnimation } from "./modules/ihere-animation.js";
+import { initTitleAnimation } from "./modules/title-animation.js";
 // import { myCaptcha } from "./modules/captcha.js";
 
+initTitleAnimation();
+initIHereAnimation();
 toToggleMenu();
 initTarifsTabs();
 initSwiper();
