@@ -1,5 +1,4 @@
 async function loadModule() {
-  await import("./../libs/libs.js");
   const { toToggleMenu } = await import("./modules/menu-burger.js");
   const { initTarifsTabs } = await import("./modules/tabs.js");
   const { initSwiper } = await import("./modules/swiper.js");

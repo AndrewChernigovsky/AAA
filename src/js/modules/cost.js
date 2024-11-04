@@ -82,7 +82,6 @@ function sendForm() {
           popup.querySelector('h3').textContent = 'Данные успешно  отправлены!'
           popup.querySelector('p').textContent = 'Сообщение закроется через 3 секунды'
           setTimeout(() => popup.classList.remove('active'), 3000)
-
         })
         .catch(error => console.error('Ошибка:', error));
     }

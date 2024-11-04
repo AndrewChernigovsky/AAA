@@ -23,7 +23,8 @@
         вас должно быть разрешено писать сторонним лицам, иначе мы не сможем написать вам в сообщения</strong>
     </p>
     <div class="g-recaptcha" data-sitekey="6LcXjXMqAAAAAOk-ZcPIIdan-9-WnbxIYv4Gbaav"></div>
-    <input type="text" class="password-hash" id="password-hash" value="">
+    <input type="text" class="password-hash" id="password-hash" value="" aria-hidden="true" aria-label="false"
+      tabindex="-1">
     <button type="submit" class="primary-button">Отправить</button>
   </div>
 </div>

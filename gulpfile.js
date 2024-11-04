@@ -29,20 +29,6 @@ const paths = {
 
 const PRODUCTION = process.env.PRODUCTION === 'true';
 
-// const sassTask = () => {
-//   return src(paths.styles.src)
-//     .pipe(sass({ silenceDeprecations: ['legacy-js-api'] }).on('error', sass.logError))
-//     .pipe(dest(paths.styles.dest))
-//     .pipe(browserSync.stream());
-// };
-
-// const sassTaskLibs = () => {
-//   return src(paths.styles.srcLib)
-//     .pipe(sass({ silenceDeprecations: ['legacy-js-api'] }).on('error', sass.logError))
-//     .pipe(dest(paths.styles.dest))
-//     .pipe(browserSync.stream());
-// };
-
 const rollupTask = (done) => {
   exec('rollup -c', (err, stdout, stderr) => {
     if (err) {
@@ -55,11 +41,6 @@ const rollupTask = (done) => {
     done();
   });
 };
-
-// const phpTask = () => {
-//   return src(['./index.php', './pages/**/*.php'])
-//     .pipe(browserSync.stream());
-// };
 
 const phpTask = (cb) => {
 
@@ -103,17 +84,21 @@ const phpTask = (cb) => {
 const watchTask = () => {
   browserSync.init({
     proxy: "http://aaa/dist",
-    notify: false
+    serveStatic: [{
+      route: '/assets',
+      dir: 'dist'
+    }],
+    notify: false,
   });
   if (!PRODUCTION) {
     watch(paths.styles.watch, sassTask);
     watch(paths.scripts.src, rollupTask);
-    watch('./src/**/*.php', phpTask);
+    watch(['./src/**/*.php', './index.php'], phpTask);
   }
 };
 
-async function cleanDist() {
-  const distPath = path.join(__dirname, paths.dist);
+async function cleanDist(dirname) {
+  const distPath = path.join(__dirname, dirname);
 
   try {
     await fs.access(distPath);
@@ -130,8 +115,6 @@ async function cleanDist() {
   }
 }
 
-
-
 const sassTask = () => {
   let stream = src(paths.styles.src)
     .pipe(sass({ silenceDeprecations: ['legacy-js-api'] }).on('error', sass.logError));
@@ -142,7 +125,6 @@ const sassTask = () => {
   return stream.pipe(dest(paths.styles.dest));
 };
 
-
 const sassTaskLibs = () => {
   let stream = src(paths.styles.srcLib)
     .pipe(sass({ silenceDeprecations: ['legacy-js-api'] }).on('error', sass.logError));
@@ -150,12 +132,17 @@ const sassTaskLibs = () => {
     stream = stream.pipe(autoPrefixer());
     stream = stream.pipe(cleanCSS({ level: 2 }));
   }
-  return stream.pipe(dest(paths.styles.dest));
+  return stream.pipe(dest('./assets/libs'));
 };
 
+const copyStatics = () => {
+  return src('./assets/**/*')
+    .pipe(dest(paths.dist + '/assets'))
+}
 
+const statics = parallel(() => cleanDist('assets/libs'), sassTaskLibs, rollupTask);
 const dev = parallel(phpTask, sassTask, sassTaskLibs, rollupTask, watchTask);
-const build = series(cleanDist, phpTask, sassTask, sassTaskLibs, rollupTask, watchTask);
+const build = series(() => cleanDist('dist'), copyStatics, phpTask, sassTask, sassTaskLibs, rollupTask, watchTask);
 
-export { sassTask, sassTaskLibs, rollupTask, phpTask, watchTask, dev, build };
+export { sassTask, sassTaskLibs, rollupTask, phpTask, watchTask, dev, build, statics };
 export default dev;

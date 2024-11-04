@@ -32,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "Проверка reCAPTCHA не пройдена. Пожалуйста, попробуйте еще раз.";
   } else {
     echo "Форма успешно отправлена!";
-
     mail(TO_EMAIL, 'Новая заявка с сайта', $email_message, $headers);
     sendToTelegram($email_message);
   }

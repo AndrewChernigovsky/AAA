@@ -5,27 +5,54 @@ import { terser } from 'rollup-plugin-terser';
 
 const PRODUCTION = process.env.PRODUCTION === 'true';
 
-export default {
-  input: './src/js/main.js',
-  preserveEntrySignatures: 'strict',
-  output: {
-    dir: 'dist/js',
-    chunkFileNames: '[name]-[hash].js',
-    entryFileNames: '[name].js',
-    format: 'esm',
-    sourcemap: PRODUCTION ? false : true,
+export default [
+  {
+    input: './src/js/main.js',
+    preserveEntrySignatures: 'strict',
+    output: {
+      dir: 'dist/js',
+      chunkFileNames: '[name]-[hash].js',
+      entryFileNames: '[name].js',
+      format: 'esm',
+      sourcemap: PRODUCTION ? false : true,
+    },
+    plugins: [
+      resolve(),
+      commonjs(),
+      babel({
+        exclude: 'node_modules/**',
+        babelHelpers: 'bundled',
+        presets: ['@babel/preset-env'],
+      }),
+      PRODUCTION && terser()
+    ].filter(Boolean),
+    watch: {
+      include: 'src/**'
+    }
   },
-  plugins: [
-    resolve(),
-    commonjs(),
-    babel({
-      exclude: 'node_modules/**',
-      babelHelpers: 'bundled',
-      presets: ['@babel/preset-env'],
-    }),
-    PRODUCTION && terser()
-  ].filter(Boolean),
-  watch: {
-    include: 'src/**'
-  }
-};
+  {
+    input: './src/js/libs.js',
+    preserveEntrySignatures: 'strict',
+    output: {
+      dir: 'assets/libs',
+      chunkFileNames: '[name]-[hash].js',
+      entryFileNames: '[name].js',
+      format: 'esm',
+      sourcemap: PRODUCTION ? false : true,
+    },
+    plugins: [
+      resolve(),
+      commonjs(),
+      babel({
+        exclude: 'node_modules/**',
+        babelHelpers: 'bundled',
+        presets: ['@babel/preset-env'],
+      }),
+      PRODUCTION && terser()
+    ].filter(Boolean),
+    watch: {
+      include: 'src/**'
+    }
+  },
+
+];

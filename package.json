@@ -2,7 +2,8 @@
   "type": "module",
   "scripts": {
     "dev": "cross-env PRODUCTION=false gulp",
-    "build": "cross-env PRODUCTION=true gulp build"
+    "build": "cross-env PRODUCTION=true gulp build",
+    "statics": "cross-env PRODUCTION=true gulp statics"
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",
