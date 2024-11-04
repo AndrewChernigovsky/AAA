@@ -1,14 +1,16 @@
-import "./../libs/libs.js";
-import { toToggleMenu } from "./modules/menu-burger.js";
-import { initTarifsTabs } from "./modules/tabs.js";
-import { initSwiper } from "./modules/swiper.js";
-import { initCost } from "./modules/cost.js";
-import { addHeadingAnimation } from "./modules/heading.js";
-// import { myCaptcha } from "./modules/captcha.js";
+async function loadModule() {
+  await import("./../libs/libs.js");
+  const { toToggleMenu } = await import("./modules/menu-burger.js");
+  const { initTarifsTabs } = await import("./modules/tabs.js");
+  const { initSwiper } = await import("./modules/swiper.js");
+  const { initCost } = await import("./modules/cost.js");
+  const { addHeadingAnimation } = await import("./modules/heading.js");
 
-toToggleMenu();
-initTarifsTabs();
-initSwiper();
-initCost();
-addHeadingAnimation();
-// myCaptcha();
+  toToggleMenu()
+  initTarifsTabs()
+  initSwiper();
+  initCost();
+  addHeadingAnimation();
+}
+
+loadModule()

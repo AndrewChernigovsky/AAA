@@ -1,7 +1,6 @@
 import Swiper from 'swiper';
 import { Autoplay, Pagination } from 'swiper/modules';
 
-
 const libraries = {
   Swiper: Swiper,
   Autoplay: Autoplay,
@@ -12,4 +11,10 @@ for (const [key, value] of Object.entries(libraries)) {
   window[key] = value;
 }
 
-export { Swiper, Autoplay, Pagination }; 
+async function loadLibs() {
+  const { Swiper, Autoplay, Pagination } = await import('swiper')
+}
+
+loadLibs();
+
+export { Swiper, Autoplay, Pagination };

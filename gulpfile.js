@@ -1,9 +1,8 @@
-import { src, dest, watch, parallel } from 'gulp';
+import { src, dest, watch, parallel, series } from 'gulp';
 import * as dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 import autoPrefixer from 'gulp-autoprefixer';
 import cleanCSS from 'gulp-clean-css';
-import purgeCSS from 'gulp-purgecss';
 import browserSync from 'browser-sync';
 import { exec } from 'child_process';
 import fs from 'fs/promises';
@@ -16,28 +15,33 @@ const sass = gulpSass(dartSass);
 
 const paths = {
   styles: {
-    srcLib: './libs/libs.scss',
-    src: './scss/style.scss',
-    watch: './scss/**/*.scss',
+    srcLib: './src/libs/libs.scss',
+    src: './src/scss/style.scss',
+    watch: './src/scss/**/*.scss',
     dest: './dist/css/'
+  },
+  scripts: {
+    src: './src/js/**/*.js',
   },
   src: './src',
   dist: './dist'
 };
 
-const sassTask = () => {
-  return src(paths.styles.src)
-    .pipe(sass({ silenceDeprecations: ['legacy-js-api'] }).on('error', sass.logError))
-    .pipe(dest(paths.styles.dest))
-    .pipe(browserSync.stream());
-};
+const PRODUCTION = process.env.PRODUCTION === 'true';
 
-const sassTaskLibs = () => {
-  return src(paths.styles.srcLib)
-    .pipe(sass({ silenceDeprecations: ['legacy-js-api'] }).on('error', sass.logError))
-    .pipe(dest(paths.styles.dest))
-    .pipe(browserSync.stream());
-};
+// const sassTask = () => {
+//   return src(paths.styles.src)
+//     .pipe(sass({ silenceDeprecations: ['legacy-js-api'] }).on('error', sass.logError))
+//     .pipe(dest(paths.styles.dest))
+//     .pipe(browserSync.stream());
+// };
+
+// const sassTaskLibs = () => {
+//   return src(paths.styles.srcLib)
+//     .pipe(sass({ silenceDeprecations: ['legacy-js-api'] }).on('error', sass.logError))
+//     .pipe(dest(paths.styles.dest))
+//     .pipe(browserSync.stream());
+// };
 
 const rollupTask = (done) => {
   exec('rollup -c', (err, stdout, stderr) => {
@@ -52,104 +56,106 @@ const rollupTask = (done) => {
   });
 };
 
-const phpTask = () => {
-  return src(['./index.php', './pages/**/*.php'])
-    .pipe(browserSync.stream());
-};
+// const phpTask = () => {
+//   return src(['./index.php', './pages/**/*.php'])
+//     .pipe(browserSync.stream());
+// };
 
+const phpTask = (cb) => {
 
-const watchTask = () => {
-  browserSync.init({
-    proxy: "http://aaa/",
-    notify: false
-  });
-  watch(paths.styles.watch, sassTask);
-  watch(paths.scripts.src, rollupTask);
-  watch('./**/*.php', phpTask);
-};
-
-const watchTaskBuild = () => {
-  browserSync.init({
-    proxy: "http://aaa/dist",
-    notify: false
-  });
-};
-
-async function cleanDist() {
-  const distPath = path.join(__dirname, paths.dist);
-
-  try {
-    const access = await fs.access(distPath);
-    if (access) {
-      await fs.rm(distPath, { recursive: true, force: true });
-      console.log('Папка "dist" успешно удалена!');
-    } else {
-      await fs.mkdir(distPath, { recursive: true });
-    }
-  } catch (err) {
-    console.error('Ошибка при удалении папки "dist":', err);
-  }
-}
-
-const phpTaskBuild = (cb) => {
   (() => {
     return src(['./index.php'])
       .pipe(dest(paths.dist))
   })();
 
   (() => {
-    return src(['./pages/**/*.php'])
+    return src(['./src/pages/**/*.php'])
       .pipe(dest(paths.dist + '/pages'))
   })();
 
   (() => {
-    return src(['./helpers/**/*.php'])
+    return src(['./src/helpers/**/*.php'])
       .pipe(dest(paths.dist + '/php/helpers'))
   })();
 
   (() => {
-    return src(['./sections/**/*.php'])
+    return src(['./src/sections/**/*.php'])
       .pipe(dest(paths.dist + '/php/sections'))
   })();
 
   (() => {
-    return src(['./layout/**/*.php'])
+    return src(['./src/layout/**/*.php'])
       .pipe(dest(paths.dist + '/php/layout'))
   })();
 
   (() => {
-    return src(['./functions/**/*.php'])
+    return src(['./src/functions/**/*.php'])
       .pipe(dest(paths.dist + '/php/functions'))
   })();
 
+  if (!PRODUCTION) {
+    return src(['./index.php', './src/pages/**/*.php'])
+      .pipe(browserSync.stream());
+  }
   cb();
 };
 
-const sassTaskBuild = () => {
-  return src(paths.styles.src)
-    .pipe(sass().on('error', sass.logError))
-    .pipe(autoPrefixer())
-    .pipe(cleanCSS({ level: 2 }))
-    .pipe(purgeCSS({ content: ['src/scss/**/*.scss'] }))
-    .pipe(dest(paths.styles.dest))
-
+const watchTask = () => {
+  browserSync.init({
+    proxy: "http://aaa/dist",
+    notify: false
+  });
+  if (!PRODUCTION) {
+    watch(paths.styles.watch, sassTask);
+    watch(paths.scripts.src, rollupTask);
+    watch('./src/**/*.php', phpTask);
+  }
 };
 
-const sassTaskLibsBuild = () => {
-  return src(paths.styles.srcLib)
-    .pipe(sass().on('error', sass.logError))
-    .pipe(autoPrefixer())
-    .pipe(cleanCSS({ level: 2 }))
-    .pipe(dest(paths.styles.dest))
+async function cleanDist() {
+  const distPath = path.join(__dirname, paths.dist);
+
+  try {
+    await fs.access(distPath);
+    await fs.rm(distPath, { recursive: true, force: true });
+    console.log(`${distPath} успешно удалена!`);
+
+  } catch (err) {
+    if (err.code === 'ENOENT') {
+      await fs.mkdir(distPath, { recursive: true });
+      console.log(`${distPath} успешно создана!`);
+    } else {
+      console.error('Ошибка при удалении папки "dist":', err);
+    }
+  }
+}
+
+
+
+const sassTask = () => {
+  let stream = src(paths.styles.src)
+    .pipe(sass({ silenceDeprecations: ['legacy-js-api'] }).on('error', sass.logError));
+  if (PRODUCTION) {
+    stream = stream.pipe(autoPrefixer());
+    stream = stream.pipe(cleanCSS({ level: 2 }));
+  }
+  return stream.pipe(dest(paths.styles.dest));
 };
 
-const cleanAndBuild = async () => {
-  await cleanDist();
-  return parallel(phpTaskBuild, watchTaskBuild)();
+
+const sassTaskLibs = () => {
+  let stream = src(paths.styles.srcLib)
+    .pipe(sass({ silenceDeprecations: ['legacy-js-api'] }).on('error', sass.logError));
+  if (PRODUCTION) {
+    stream = stream.pipe(autoPrefixer());
+    stream = stream.pipe(cleanCSS({ level: 2 }));
+  }
+  return stream.pipe(dest(paths.styles.dest));
 };
 
-const dev = parallel(sassTask, sassTaskLibs, rollupTask, watchTask);
-const build = cleanAndBuild;
 
-export { sassTask, sassTaskLibs, rollupTask, phpTask, watchTask, dev, build, sassTaskBuild, sassTaskLibsBuild };
+const dev = parallel(phpTask, sassTask, sassTaskLibs, rollupTask, watchTask);
+const build = series(cleanDist, phpTask, sassTask, sassTaskLibs, rollupTask, watchTask);
+
+export { sassTask, sassTaskLibs, rollupTask, phpTask, watchTask, dev, build };
 export default dev;
