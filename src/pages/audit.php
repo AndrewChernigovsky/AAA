@@ -10,9 +10,9 @@ include_once './../helpers/includeSections.php';
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ААА Академия Андрея Андреевича Изосимова, создание и продвижение сайтов | Аудит</title>
   <link rel="stylesheet" href="/assets/libs/libs.css">
-  <link rel="stylesheet" href="/dist/css/style.css">
+  <link rel="stylesheet" href="./../../css/style.css">
   <script src="/assets/libs/libs.js" type="module" defer></script>
-  <script src="/dist/js/main.js" type="module" defer></script>
+  <script src="./../../js/main.js" type="module" defer></script>
 </head>
 
 <body>
