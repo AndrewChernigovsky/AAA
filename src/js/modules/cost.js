@@ -58,13 +58,17 @@ function sendForm() {
   costForm.addEventListener('submit', function (event) {
     event.preventDefault();
     const recaptchaResponse = grecaptcha.getResponse();
-    if (recaptchaResponse.length !== 0) {
-      popup.classList.add('active')
-      popup.querySelector('h3').textContent = "Нужно пройти капчу"
+
+    if (recaptchaResponse.length === 0) {
+      popup.classList.add('active');
+      popup.querySelector('h3').textContent = "Нужно пройти капчу";
+      setTimeout(() => popup.classList.remove('active'), 3000);
+      return;
     }
-    if (hiddenInput.value.length === 0 && recaptchaResponse.length !== 0) {
+
+    if (hiddenInput.value.length === 0) {
       const formData = new FormData(this);
-      fetch('./../../functions/mail/mail.php', {
+      fetch('./php/functions/mail/mail.php', {
         method: 'POST',
         body: formData
       })
@@ -72,14 +76,15 @@ function sendForm() {
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
-          popup.classList.add('active')
-          popup.querySelector('h3').textContent = 'Данные успешно  отправлены!'
-          popup.querySelector('p').textContent = 'Сообщение закроется через 3 секунды'
-          setTimeout(() => popup.classList.remove('active'), 3000)
+          popup.classList.add('active');
+          popup.querySelector('h3').textContent = 'Данные успешно отправлены!';
+          popup.querySelector('p').textContent = 'Сообщение закроется через 3 секунды';
+          setTimeout(() => popup.classList.remove('active'), 3000);
+          grecaptcha.reset();
         })
         .catch(error => console.error('Ошибка:', error));
     }
-  })
+  });
 }
 
 export function initCost() {

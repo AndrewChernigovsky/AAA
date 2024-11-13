@@ -1,4 +1,4 @@
-<section class="form">
+<section class="form" id="form">
   <div class="container">
     <h2>Заказать сайт</h2>
     <form action="./../functions/mail/mail-simple.php" method="post">

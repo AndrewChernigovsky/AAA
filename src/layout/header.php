@@ -21,9 +21,12 @@ $logoPath = '/assets/images';
           <a href="tel:+79532322112" class="tel">+7 953 232 21 12</a>
           <nav class="nav">
             <ul class="nav__list list-style-none ">
-              <li class="nav__item"><a href="">Услуги</a></li>
-              <li class="nav__item"><a href="">Гарантия</a></li>
-              <li class="nav__item"><a href="">Обо мне</a></li>
+              <li class="nav__item"><a href="#advantages">Преимущества</a></li>
+              <li class="nav__item"><a href="#quality">Гарантия</a></li>
+              <li class="nav__item"><a href="#about">Обо мне</a></li>
+              <li class="nav__item"><a href="#tarifs">Тарифы</a></li>
+              <li class="nav__item"><a href="#prices">Цены</a></li>
+              <li class="nav__item"><a href="#reasons">Почему Я</a></li>
             </ul>
           </nav>
         </div>

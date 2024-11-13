@@ -1,4 +1,4 @@
-<section class="prices">
+<section class="prices" id="prices">
   <div class="container">
     <h2 class="secondary-title title-animation">Разрешите себе вздохнуть, <br> Сайт будет приносить заявки даже ночью
     </h2>

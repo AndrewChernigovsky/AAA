@@ -19,7 +19,7 @@
           'slide-2.php',
           'slide-3.php',
           'slide-4.php',
-          'slide-5.php'
+          'slide-5.php',
         ];
 
         foreach ($files_to_include as $file) {
