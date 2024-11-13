@@ -1,4 +1,4 @@
-<section class="faq">
+<section class="faq" id="faq">
   <div class="container">
     <h2>ВОПРОСы-ответы</h2>
     <ul>

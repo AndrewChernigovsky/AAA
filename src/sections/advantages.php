@@ -1,4 +1,4 @@
-<section class="advantages">
+<section class="advantages" id="advantages">
   <div class="container">
     <h2 class="secondary-title title-animation">Создание сайта нужно вам:</h2>
     <ul class="advantages-list">

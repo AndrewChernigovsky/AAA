@@ -158,14 +158,20 @@ const images = (cb) => {
     .on('end', cb)
 };
 
+const docs = (cb) => {
+  return src(['./src/docs/**/*.pdf'], { encoding: false })
+    .pipe(dest(paths.dist + '/docs/'))
+    .on('end', cb)
+};
+
 const vectors = () => {
   return src('./assets/images/**/*.svg')
     .pipe(dest(paths.dist + '/assets/images/vectors'));
 };
 
 const statics = parallel(() => cleanDist('assets/libs'), sassTaskLibs, rollupTask);
-const dev = series(() => cleanDist('dist'), phpTask, sassTask, sassTaskLibs, rollupTask, watchTask);
-const build = series(() => cleanDist('dist'), copyStatics, images, vectors, phpTask, sassTask, sassTaskLibs, rollupTask);
+const dev = series(() => cleanDist('dist'), docs, phpTask, sassTask, sassTaskLibs, rollupTask, watchTask);
+const build = series(() => cleanDist('dist'), copyStatics, docs, images, vectors, phpTask, sassTask, sassTaskLibs, rollupTask);
 
-export { images, sassTask, vectors, sassTaskLibs, rollupTask, phpTask, watchTask, dev, build, statics };
+export { images, sassTask, vectors, sassTaskLibs, rollupTask, phpTask, watchTask, dev, build, statics, docs };
 export default dev;

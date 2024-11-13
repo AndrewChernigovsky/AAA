@@ -1,4 +1,4 @@
-<section class="tarifs">
+<section class="tarifs" id="tarifs">
   <div class="container">
     <h2 class="secondary-title title-animation">Тарифы на разработку сайта</h2>
     <div class="tabs">

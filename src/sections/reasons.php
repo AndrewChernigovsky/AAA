@@ -1,4 +1,4 @@
-<section class="reasons">
+<section class="reasons" id="reasons">
   <div class="container">
     <div class="reasons__wrapper">
       <h2 class="secondary-title title-animation">Три причины выбрать меня</h2>
