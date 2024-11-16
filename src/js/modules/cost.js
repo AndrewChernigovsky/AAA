@@ -89,6 +89,10 @@ function sendForm() {
 
 export function initCost() {
   if (costForm) {
+    const phone = document.querySelector("input[name='user-tel']");
+    Inputmask({
+      mask: '+7 (999) 999-99-99',
+    }).mask(phone);
     inputRange.addEventListener('input', function () {
       valueDisplay.value = this.value;
       updatePrice();

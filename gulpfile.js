@@ -137,7 +137,7 @@ const sassTaskLibs = () => {
     stream = stream.pipe(autoPrefixer());
     stream = stream.pipe(cleanCSS({ level: 2 }));
   }
-  return stream.pipe(dest('./assets/libs'));
+  return stream.pipe(dest('./assets/libs/'));
 };
 
 const copyStatics = (cb) => {
