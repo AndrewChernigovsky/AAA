@@ -24,7 +24,8 @@
             комфортнее) и обсудите все детали по созданию сайта и его разработке! <strong>Внимание: в приватности, у
               вас должно быть разрешено писать сторонним лицам, иначе мы не сможем написать вам в сообщения</strong>
           </p>
-          <div class="g-recaptcha" data-sitekey="6LcXjXMqAAAAAOk-ZcPIIdan-9-WnbxIYv4Gbaav"></div>
+          <!-- <div class="g-recaptcha" data-sitekey="6LcXjXMqAAAAAOk-ZcPIIdan-9-WnbxIYv4Gbaav" id="recaptcha2"></div> -->
+          <div id="RecaptchaField2"></div>
           <input type="text" class="password-hash" id="password-hash" value="" aria-hidden="true" aria-label="false"
             tabindex="-1">
           <button type="submit" class="primary-button value-button">Отправить Заявку</button>
