@@ -1,7 +1,7 @@
 export const initSwiper = () => {
   const swiperReviewsDOM = document.querySelector('.swiper-reviews');
   const swiperCostDOM = document.querySelector('.swiper-cost');
-  if(swiperReviewsDOM) {
+  if (swiperReviewsDOM) {
     const swiperReviews = new Swiper('.swiper-reviews', {
       loop: true,
       modules: [Autoplay, Pagination],
@@ -29,7 +29,7 @@ export const initSwiper = () => {
     });
     window.swiperReviews = swiperReviews;
   }
-  if(swiperCostDOM) {
+  if (swiperCostDOM) {
     const swiperCost = new Swiper('.swiper-cost', {
       slidesPerView: '1',
       spaceBetween: 10,
