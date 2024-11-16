@@ -13,8 +13,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $email_message .= "Мессенджер: " . $social . "\n";
 
   $headers = `From: ` . DOMEN_EMAIL . "\r\n";
+
+  $recaptchaResponse = $_POST['g-recaptcha-response'];
+  $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={SECRET_KEY}&response={$recaptchaResponse}");
+  $responseKeys = json_decode($response, true);
+
+  if (intval($responseKeys["success"]) !== 1) {
+    echo json_encode(["status" => "error", "message" => "Проверка reCAPTCHA не пройдена. Пожалуйста, попробуйте еще раз."]);
+  } else {
+  }
   mail(TO_EMAIL, 'Новая заявка с сайта', $email_message, $headers);
   sendToTelegram($email_message);
-
-  echo "Данные формы отправлены успешно!";
+  echo json_encode(["status" => "success", "message" => "Форма успешно отправлена!"]);
 }

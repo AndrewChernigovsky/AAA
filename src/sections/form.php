@@ -1,7 +1,7 @@
 <section class="form" id="form">
   <div class="container">
     <h2>Заказать сайт</h2>
-    <form action="./../functions/mail/mail-simple.php" method="post">
+    <form action="./../../functions/mail/mail-simple.php" method="post">
       <div class="form-slide">
         <h3>Оставьте контактные данные </h3>
         <div class="chooses contact">
@@ -24,6 +24,9 @@
             комфортнее) и обсудите все детали по созданию сайта и его разработке! <strong>Внимание: в приватности, у
               вас должно быть разрешено писать сторонним лицам, иначе мы не сможем написать вам в сообщения</strong>
           </p>
+          <div class="g-recaptcha" data-sitekey="6LcXjXMqAAAAAOk-ZcPIIdan-9-WnbxIYv4Gbaav"></div>
+          <input type="text" class="password-hash" id="password-hash" value="" aria-hidden="true" aria-label="false"
+            tabindex="-1">
           <button type="submit" class="primary-button value-button">Отправить Заявку</button>
         </div>
       </div>
