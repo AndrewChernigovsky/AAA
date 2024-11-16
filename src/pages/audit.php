@@ -31,12 +31,7 @@ include_once './../helpers/includeSections.php';
       <?php
       include './../sections/audit/purpose.php';
       ?>
-      <?php
-      include './../sections/audit/site.php';
-      ?>
-      <?php
-      include './../sections/audit/deadlines.php';
-      ?>
+      <a href="./../../index.php#form" class="value-button">Заказать</a>
     </div>
   </main>
   <?php
