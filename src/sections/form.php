@@ -1,7 +1,7 @@
 <section class="form" id="form">
   <div class="container">
     <h2>Заказать сайт</h2>
-    <form action="./../../functions/mail/mail-simple.php" method="post">
+    <form action="./../../functions/mail/mail-simple.php" method="post" id="form-simple">
       <div class="form-slide">
         <h3>Оставьте контактные данные </h3>
         <div class="chooses contact">
