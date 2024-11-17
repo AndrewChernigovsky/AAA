@@ -19,3 +19,4 @@ async function loadLibs() {
 }
 
 loadLibs();
+// export { Swiper, Autoplay, Pagination, Inputmask };
