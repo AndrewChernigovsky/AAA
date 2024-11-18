@@ -1,5 +1,5 @@
-@use 'variables' as var;
-@use 'mixins' as mix;
+@use 'variables'as var;
+@use 'mixins'as mix;
 
 .container {
   max-width: var.$desktop;
@@ -8,7 +8,7 @@
 }
 
 html {
-  height: 100%;
+  min-height: 100vh;
   scroll-behavior: smooth;
 }
 
@@ -34,7 +34,7 @@ body {
     z-index: -2;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url('/assets/images/bg-header.svg');
+    background-image: url('/assets/images/vectors/bg-header.svg');
     filter: drop-shadow(2px 4px 6px var.$black);
   }
 

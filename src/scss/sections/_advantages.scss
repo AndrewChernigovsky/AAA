@@ -1,5 +1,5 @@
-@use "variables" as var;
-@use "mixins" as mix;
+@use "variables"as var;
+@use "mixins"as mix;
 
 .advantages {
   padding: 60px 0;
@@ -44,21 +44,21 @@
 }
 
 .advantages-list__item {
-  opacity: 0; /* Скрываем элементы */
-  transition: opacity 0.5s ease; /* Плавный переход для появления */
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 .advantages-list__item.visible {
-  opacity: 1; /* Появление элемента */
+  opacity: 1;
 }
 
 .title-animation {
-  opacity: 0; /* Скрываем элемент */
-  transform: translateY(20px); /* Сдвигаем элемент вниз */
-  transition: opacity 1s ease, transform 1s ease; /* Плавный переход */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 .title-animation.visible {
-  opacity: 1; /* Делаем элемент видимым */
-  transform: translateY(0); /* Возвращаем элемент на место */
+  opacity: 1;
+  transform: translateY(0);
 }

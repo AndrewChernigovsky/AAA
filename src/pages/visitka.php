@@ -22,6 +22,22 @@ include_once './../helpers/includeSections.php';
   <main class="main">
     <div class="container">
       <h1>Сайт-визитка</h1>
+      <?php
+      include './visitka/content.php';
+      ?>
+      <?php
+      include './visitka/stages.php';
+      ?>
+      <?php
+      include './visitka/purpose.php';
+      ?>
+      <?php
+      include './visitka/site.php';
+      ?>
+      <?php
+      include './visitka/deadlines.php';
+      ?>
+      <a href="./../../index.php#form" class="value-button">Заказать</a>
     </div>
   </main>
   <?php

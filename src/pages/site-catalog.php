@@ -22,20 +22,21 @@ include_once './../helpers/includeSections.php';
     <div class="container">
       <h1>Сайт-каталог</h1>
       <?php
-      include './../sections/site-catalog/content.php';
+      include './site-catalog/content.php';
       ?>
       <?php
-      include './../sections/site-catalog/stages.php';
+      include './site-catalog/stages.php';
       ?>
       <?php
-      include './../sections/site-catalog/purpose.php';
+      include './site-catalog/purpose.php';
       ?>
       <?php
-      include './../sections/site-catalog/site.php';
+      include './site-catalog/site.php';
       ?>
       <?php
-      include './../sections/site-catalog/deadlines.php';
+      include './site-catalog/deadlines.php';
       ?>
+      <a href="./../../index.php#form" class="value-button">Заказать</a>
     </div>
   </main>
   <?php

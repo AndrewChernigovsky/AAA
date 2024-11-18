@@ -21,17 +21,19 @@ include_once './../helpers/includeSections.php';
   ?>
   <main class="main">
     <div class="container">
-      <h1>Аудит</h1>
-      <?php
-      include './../sections/audit/content.php';
-      ?>
-      <?php
-      include './../sections/audit/stages.php';
-      ?>
-      <?php
-      include './../sections/audit/purpose.php';
-      ?>
-      <a href="./../../index.php#form" class="value-button">Заказать</a>
+      <h1>Аудит, стоимость: от 3 000 Р</h1>
+      <p>Аудит включен в любую услугу отличную от этой по умолчанию, в случае покупки услуги "Аудит", и покупки услуги
+        "Лендинг" или любой другой, из стоимости будет вычтена стоимость услуги "Аудит".
+        <?php
+        include './audit/content.php';
+        ?>
+        <?php
+        include './audit/stages.php';
+        ?>
+        <?php
+        include './audit/purpose.php';
+        ?>
+        <a href="./../../index.php#form" class="value-button">Заказать</a>
     </div>
   </main>
   <?php

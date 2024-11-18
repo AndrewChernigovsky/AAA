@@ -166,7 +166,7 @@ const docs = (cb) => {
 
 const vectors = () => {
   return src('./assets/images/**/*.svg')
-    .pipe(dest(paths.dist + '/assets/images/vectors'));
+    .pipe(dest(paths.dist + '/assets/images'));
 };
 
 const statics = parallel(() => cleanDist('assets/libs'), sassTaskLibs, rollupTask);

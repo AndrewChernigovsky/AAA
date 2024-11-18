@@ -60,11 +60,13 @@ function sendForm(formId, recaptchaResponse) {
         setTimeout(() => popup.classList.remove('active'), 3000);
         return;
       } else {
-        console.log(form, 'FROM');
         const formData = new FormData(form);
         formData.append('g-recaptcha-response', recaptchaResponse);
         const action = form === 'form-simple' ? './php/functions/mail/mail.php' : './php/functions/mail/mail-simple.php';
         console.log(action, 'ACTION');
+        grecaptcha.reset(widgetId1);
+        grecaptcha.reset(widgetId2);
+        recaptchaResponse = undefined;
         fetch(action, {
           method: 'POST',
           body: formData
@@ -73,12 +75,11 @@ function sendForm(formId, recaptchaResponse) {
             if (!response.ok) {
               throw new Error('Network response was not ok');
             }
+            console.log(123123123);
             popup.classList.add('active');
             popup.querySelector('h3').textContent = 'Данные успешно отправлены!';
             popup.querySelector('p').textContent = 'Сообщение закроется через 3 секунды';
             setTimeout(() => popup.classList.remove('active'), 3000);
-            grecaptcha.reset(widgetId1);
-            grecaptcha.reset(widgetId2);
           })
           .catch(error => console.error('Ошибка:', error));
       }

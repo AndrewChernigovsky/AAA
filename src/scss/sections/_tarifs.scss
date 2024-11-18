@@ -41,8 +41,9 @@
       text-transform: none;
       position: relative;
       padding-left: 20px;
+      list-style-type: none;
 
-      &::before {
+      &:not(:has(ul))::before {
         position: absolute;
         content: '';
         width: 10px;

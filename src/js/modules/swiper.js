@@ -31,13 +31,16 @@ export const initSwiper = () => {
   }
   if (swiperCostDOM) {
     const swiperCost = new Swiper('.swiper-cost', {
-      slidesPerView: '1',
+      slidesPerView: 1,
       spaceBetween: 10,
-      noSwipingSelector: '.input-range, mousewheel, keyboard',
+      touchEventsTarget: 'wrapper',
       allowTouchMove: false,
-      touchEventsTarget: 'container',
-      simulateTouch: false,
+      noSwiping: true,
+      noSwipingSelector: '.input-range',
+      mousewheel: false,
+      keyboard: false,
     });
+
 
     window.swiperCost = swiperCost;
   }
