@@ -33,6 +33,7 @@ include_once './php/helpers/includeSections.php';
       'php/sections/reasons.php',
       'php/sections/quality.php',
       'php/sections/cost/cost.php',
+      'php/sections/examples/examples.php',
       'php/sections/form.php',
       'php/sections/reviews/reviews.php',
     ];

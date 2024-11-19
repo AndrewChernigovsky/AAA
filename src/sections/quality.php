@@ -7,9 +7,9 @@
         <li>Издержки за наш счёт</li>
         <li>Поэтапная оплата и оформленный договор</li>
       </ol>
-      <div class="quality-doc">
+      <!-- <div class="quality-doc">
         <a href="/docs/quality.pdf" download="гарантии.pdf">Скачать Документ "Гарантии на сайт от компании ААА"</a>
-      </div>
+      </div> -->
     </div>
 
   </div>
