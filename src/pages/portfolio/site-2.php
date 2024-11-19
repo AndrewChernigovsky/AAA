@@ -40,7 +40,8 @@
       <h1>Сайт BRUNT Демонтажная техника из Китая
       </h1>
       <p><a href="https://brunt-sz.ru" rel="nofollow">https://brunt-sz.ru</a></p>
-      <img src="/assets/images/portfolio/site-2/site-2.png" alt="сайт аквафильтры, создание сайтов, продвижение сайтов">
+      <img src="/assets/images/portfolio/site-2/site-2.png"
+        alt="сайт Демонтажная техника из Китая, создание сайтов, продвижение сайтов">
       <a href="./../../../index.php#form" class="value-button">Заказать</a>
     </div>
   </main>

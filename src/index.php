@@ -36,6 +36,7 @@ include_once './php/helpers/includeSections.php';
       'php/sections/examples/examples.php',
       'php/sections/form.php',
       'php/sections/reviews/reviews.php',
+      'php/sections/faq.php',
     ];
 
     $sectionLoader = new IncludeSections(__DIR__, $files_to_include);

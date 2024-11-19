@@ -50,7 +50,7 @@ export const initSwiper = () => {
       loop: true,
       modules: [Autoplay, Pagination],
       autoplay: {
-        delay: 4500,
+        delay: 4533300,
         disableOnInteraction: false,
       },
       slidesPerView: '1',

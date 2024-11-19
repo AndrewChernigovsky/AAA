@@ -25,9 +25,9 @@
   ?>
   <main class="main">
     <div class="container">
-      <h1>Аквафильтры</h1>
-      <a href="https://aqulife.kg" rel="nofollow">https://aqulife.kg</a>
-      <img src="/assets/images/portfolio/site-1/site-1.png" alt="сайт аквафильтры, создание сайтов, продвижение сайтов">
+      <h1>Сайт Новостроев</h1>
+      <a href="https://novostroev.ru/" rel="nofollow">https://novostroev.ru/</a>
+      <img src="/assets/images/portfolio/site-3/site-3.png" alt="сайт Новостроев, создание сайтов, продвижение сайтов">
       <a href="./../../../index.php#form" class="value-button">Заказать</a>
     </div>
   </main>

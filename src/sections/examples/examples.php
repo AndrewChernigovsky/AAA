@@ -1,5 +1,6 @@
 <section class="examples">
   <div class="container">
+    <h2 class="secondary-title">Некоторые из работ</h2>
     <div class="swiper swiper-examples">
       <ul class="swiper-wrapper list-style-none">
         <?php
