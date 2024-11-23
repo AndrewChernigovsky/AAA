@@ -55,18 +55,20 @@ function checkFormSlide() {
 }
 
 function sendForm() {
+  const phone = document.querySelector("input[name='user-tel']");
+
   costForm.addEventListener('submit', function (event) {
     event.preventDefault();
-    const recaptchaResponse = grecaptcha.getResponse();
+    // const recaptchaResponse = grecaptcha.getResponse();
 
-    if (recaptchaResponse.length === 0) {
-      popup.classList.add('active');
-      popup.querySelector('h3').textContent = "Нужно пройти капчу";
-      setTimeout(() => popup.classList.remove('active'), 3000);
-      return;
-    }
+    // if (recaptchaResponse.length === 0) {
+    //   popup.classList.add('active');
+    //   popup.querySelector('h3').textContent = "Нужно пройти капчу";
+    //   setTimeout(() => popup.classList.remove('active'), 3000);
+    //   return;
+    // }
 
-    if (hiddenInput.value.length === 0) {
+    if (hiddenInput.value.length === 0 && phone.value.length > 18) {
       const formData = new FormData(this);
       fetch('./php/functions/mail/mail.php', {
         method: 'POST',

@@ -1,6 +1,7 @@
 export const initSwiper = () => {
   const swiperReviewsDOM = document.querySelector('.swiper-reviews');
   const swiperCostDOM = document.querySelector('.swiper-cost');
+  const swiperExamplesDOM = document.querySelector('.swiper-examples');
   if (swiperReviewsDOM) {
     const swiperReviews = new Swiper('.swiper-reviews', {
       loop: true,
@@ -31,15 +32,47 @@ export const initSwiper = () => {
   }
   if (swiperCostDOM) {
     const swiperCost = new Swiper('.swiper-cost', {
-      slidesPerView: '1',
+      slidesPerView: 1,
       spaceBetween: 10,
-      noSwipingSelector: '.input-range, mousewheel, keyboard',
+      touchEventsTarget: 'wrapper',
       allowTouchMove: false,
-      touchEventsTarget: 'container',
-      simulateTouch: false,
+      noSwiping: true,
+      noSwipingSelector: '.input-range',
+      mousewheel: false,
+      keyboard: false,
     });
 
+
     window.swiperCost = swiperCost;
+  }
+  if (swiperExamplesDOM) {
+    const swiperExamples = new Swiper('.swiper-examples', {
+      loop: true,
+      modules: [Autoplay, Pagination],
+      autoplay: {
+        delay: 4533300,
+        disableOnInteraction: false,
+      },
+      slidesPerView: '1',
+      spaceBetween: 10,
+      breakpoints: {
+        768: {
+          slidesPerView: '2',
+        },
+        1024: {
+          slidesPerView: '3',
+        },
+        1440: {
+          slidesPerView: '4',
+        },
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      }
+    });
+
+    window.swiperExamples = swiperExamples;
   }
 
 
