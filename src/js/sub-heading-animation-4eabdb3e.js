@@ -1,0 +1,1 @@
+function t(){var t=new IntersectionObserver((function(t){t.forEach((function(t){t.isIntersecting&&t.target.classList.add("active")}))}),{threshold:.1});document.querySelectorAll(".intro__title").forEach((function(e){t.observe(e),e.getBoundingClientRect().top<window.innerHeight&&e.getBoundingClientRect().bottom>0&&e.classList.add("active")}))}export{t as initSubHeadingAnimation};

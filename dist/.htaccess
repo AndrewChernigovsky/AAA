@@ -1,9 +1,0 @@
-<Files config.php>
-  order allow,deny
-  deny from all
-</Files>
-<FilesMatch "\.pdf$">
-  Order Allow,Deny
-  Allow from all
-</FilesMatch>
-AddType application/pdf .pdf
