@@ -9,11 +9,11 @@ include_once './php/helpers/includeSections.php';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ААА Академия Андрея Андреевича Изосимова, создание и продвижение сайтов</title>
-  <link rel="stylesheet" href="/assets/libs/libs.css">
-  <link rel="stylesheet" href="./css/style.css">
-  <script src="/assets/libs/libs.js" defer type="module"></script>
-  <script src="./js/main.js" defer type="module"></script>
+  <link rel="stylesheet" href="/assets/libs/libs.css?v=1.0.0">
+  <link rel="stylesheet" href="./css/style.css?v=1.0.0">
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="/assets/libs/libs.js?v=1.0.0" defer type="module"></script>
+  <script src="./js/main.js?v=1.0.0" defer type="module"></script>
 </head>
 
 <body>

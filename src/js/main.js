@@ -7,17 +7,17 @@ async function loadModule() {
   const { initSubHeadingAnimation } = await import("./modules/sub-heading-animation.js");
   const { initTitleAnimation } = await import("./modules/title-animation.js");
   const { initIHereAnimation } = await import("./modules/ihere-animation.js");
-  const { initFormSimple } = await import("./modules/simple-form.js");
+  const { initFormValidation } = await import("./modules/validation.js");
 
   toToggleMenu()
   initTarifsTabs()
   initSwiper();
   initCost();
-  initFormSimple();
   addHeadingAnimation();
   initSubHeadingAnimation();
   initTitleAnimation();
   initIHereAnimation();
+  initFormValidation();
 }
 
-loadModule()
+document.addEventListener('DOMContentLoaded', loadModule)

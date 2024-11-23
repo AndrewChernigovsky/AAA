@@ -4,8 +4,6 @@ const line = document.querySelector('.cost__line');
 const lineActive = document.querySelector('.cost__line--active');
 const swiperCostSlides = document.querySelectorAll('.swiper-cost .swiper-slide');
 const stepBack = document.querySelector('#step-back');
-const hiddenInput = document.querySelector('#password-hash');
-const popup = document.querySelector('.popup');
 
 const inputRange = document.getElementById("inputRange");
 const activeColor = "#ff7300";
@@ -32,7 +30,6 @@ function changeLineProgress() {
     lineActive.style.width = '100%';
   } else if (swiperCost.realIndex > 0) {
     lineActive.style.width = (lineWidth / totalSlides) * swiperCost.realIndex + 'px';
-    console.log(lineActive.style.width, 'width');
   } else {
     lineActive.style.width = '0px';
   }
@@ -54,41 +51,6 @@ function checkFormSlide() {
   })
 }
 
-function sendForm() {
-  const phone = document.querySelector("input[name='user-tel']");
-
-  costForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    // const recaptchaResponse = grecaptcha.getResponse();
-
-    // if (recaptchaResponse.length === 0) {
-    //   popup.classList.add('active');
-    //   popup.querySelector('h3').textContent = "Нужно пройти капчу";
-    //   setTimeout(() => popup.classList.remove('active'), 3000);
-    //   return;
-    // }
-
-    if (hiddenInput.value.length === 0 && phone.value.length > 18) {
-      const formData = new FormData(this);
-      fetch('./php/functions/mail/mail.php', {
-        method: 'POST',
-        body: formData
-      })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          popup.classList.add('active');
-          popup.querySelector('h3').textContent = 'Данные успешно отправлены!';
-          popup.querySelector('p').textContent = 'Сообщение закроется через 3 секунды';
-          setTimeout(() => popup.classList.remove('active'), 3000);
-          grecaptcha.reset();
-        })
-        .catch(error => console.error('Ошибка:', error));
-    }
-  });
-}
-
 export function initCost() {
   if (costForm) {
     const phone = document.querySelector("input[name='user-tel']");
@@ -102,7 +64,6 @@ export function initCost() {
     changeStep();
     updatePrice();
     checkFormSlide();
-    sendForm();
 
     stepBack.addEventListener('click', () => {
       swiperCost.slidePrev();

@@ -102,16 +102,4 @@ function sendForm(formId, recaptchaResponse) {
       }
     });
   }
-
-}
-
-export function initFormSimple() {
-  if (formSimple) {
-    const phone = formSimple.querySelector("input[name='user-tel']");
-    Inputmask({
-      mask: '+7 (999) 999-99-99',
-    }).mask(phone);
-
-    sendForm();
-  }
 }

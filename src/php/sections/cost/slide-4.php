@@ -6,7 +6,7 @@
         required>
     </label>
     <label class="rangebar-cost">
-      <input type="number" name="total-cost" id='total-cost' value='250000'>
+      <input type="number" name="total-cost" id='total-cost' value='250000' max="500000" min="20000">
     </label>
   </div>
 </div>
