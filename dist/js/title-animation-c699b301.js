@@ -1,0 +1,1 @@
+function e(){var e=document.querySelectorAll(".title-animation"),t=new IntersectionObserver((function(e){e.forEach((function(e){e.isIntersecting&&(e.target.classList.add("visible"),t.unobserve(e.target))}))}));e.forEach((function(e){t.observe(e)}))}export{e as initTitleAnimation};

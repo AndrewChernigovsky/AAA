@@ -468,11 +468,24 @@ p {
   max-width: 100%;
   text-transform: none;
 }
-.intro .secondary-title p {
+.intro .secondary-title .intro__title.active {
+  transition: all 1s ease;
+  transform: translateX(0);
+  opacity: 1;
+}
+.intro .secondary-title .intro__title-firts {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.intro .secondary-title .intro__title-second {
   margin: 0;
-  opacity: 0.7;
+  opacity: 0;
   font-size: 18px;
   text-align: right;
+  transform: translateX(200%);
+}
+.intro .secondary-title .intro__title-second.active {
+  opacity: 0.7;
 }
 .intro .primary-title {
   position: relative;
