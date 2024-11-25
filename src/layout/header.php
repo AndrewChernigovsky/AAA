@@ -21,16 +21,16 @@ $logoPath = '/assets/images';
           <a href="tel:+79532322112" class="tel">+7 953 232 21 12</a>
           <nav class="nav">
             <ul class="nav__list list-style-none ">
-              <li class="nav__item"><a href="/dist/index.php#advantages">Преимущества</a></li>
-              <li class="nav__item"><a href="/dist/index.php#quality">Гарантия</a></li>
-              <li class="nav__item"><a href="/dist/index.php#about">Обо мне</a></li>
-              <li class="nav__item"><a href="/dist/index.php#tarifs">Тарифы</a></li>
-              <li class="nav__item"><a href="/dist/index.php#prices">Цены</a></li>
-              <li class="nav__item"><a href="/dist/index.php#reasons">Почему Я</a></li>
+              <li class="nav__item"><a href="/index.php#advantages">Преимущества</a></li>
+              <li class="nav__item"><a href="/index.php#quality">Гарантия</a></li>
+              <li class="nav__item"><a href="/index.php#about">Обо мне</a></li>
+              <li class="nav__item"><a href="/index.php#tarifs">Тарифы</a></li>
+              <li class="nav__item"><a href="/index.php#prices">Цены</a></li>
+              <li class="nav__item"><a href="/index.php#reasons">Почему Я</a></li>
             </ul>
           </nav>
         </div>
-        <a href="/dist/index.php#form" class="add-text">ЗАКАЗАТЬ САЙТ</a>
+        <a href="/index.php#form" class="add-text">ЗАКАЗАТЬ САЙТ</a>
       </div>
     </div>
   </div>

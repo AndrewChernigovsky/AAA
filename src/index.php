@@ -1,20 +1,21 @@
 <?php
-include_once './php/helpers/includeSections.php';
+
+$head_path = './php/layout/head.php';
+$sections_path = './php/helpers/includeSections.php';
+include_once $head_path;
+include_once $sections_path;
+
+$title = 'ААА Академия Андрея Андреевича Изосимова, создание и продвижение сайтов';
+$script = './js/main.js';
+$head = new Head($title, [], [$script]);
+
 ?>
 
 <!DOCTYPE html>
 <html lang="ru">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ААА Академия Андрея Андреевича Изосимова, создание и продвижение сайтов</title>
-  <link rel="stylesheet" href="/assets/libs/libs.css?v=1.0.0">
-  <link rel="stylesheet" href="./css/style.css?v=1.0.0">
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <script src="/assets/libs/libs.js?v=1.0.0" defer type="module"></script>
-  <script src="./js/main.js?v=1.0.0" defer type="module"></script>
-</head>
+<?php
+echo $head->setHead();
+?>
 
 <body>
   <?php

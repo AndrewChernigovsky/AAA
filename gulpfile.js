@@ -146,7 +146,7 @@ const copyStatics = (cb) => {
       .pipe(dest(paths.dist + '/assets'))
   })();
   (() => {
-    return src(['./.htaccess', './src/index.php'])
+    return src(['./.htaccess', './src/index.php', './sitemap.xml', 'yandex_12ed8a33b1d44641.html'])
       .pipe(dest(paths.dist))
   })()
   cb();

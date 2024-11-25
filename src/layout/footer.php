@@ -32,7 +32,8 @@
         <p>
         <p>
           Для получения разрешения на использование материалов, пожалуйста, свяжитесь с нами по адресу:
-          chernigovsky108@gmail.com
+          <a href="mailto:chernigovsky108@gmail.com"
+            style="color: white; text-decoration: none;">chernigovsky108@gmail.com</a>
         </p>
         </p>
       </div>
