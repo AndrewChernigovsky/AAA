@@ -1,13 +1,19 @@
 <?php
 
-$head_path = './php/layout/head.php';
-$sections_path = './php/helpers/includeSections.php';
+
+$head_path = './files/php/layout/head.php';
+$sections_path = './files/php/helpers/includeSections.php';
 include_once $head_path;
 include_once $sections_path;
 
 $title = 'ААА Академия Андрея Андреевича Изосимова, создание и продвижение сайтов';
-$script = './js/main.js';
+$script = './files/js/main.js';
 $head = new Head($title, [], [$script]);
+// $styles = [
+//   '/assets/libs/libs.css',
+//   './css/style.css',
+// ];
+// $head = new Head($title, $styles, [$script]);
 
 ?>
 
@@ -19,25 +25,26 @@ echo $head->setHead();
 
 <body>
   <?php
-  $base_path = __DIR__ . '/php/layout';
+  $base_path = __DIR__ . '/files/php/layout';
 
   include $base_path . '/header.php';
   ?>
   <main class="main">
     <?php
+    $file_2_section = './files/php/sections/';
     $files_to_include = [
-      'php/sections/intro.php',
-      'php/sections/advantages.php',
-      'php/sections/prices.php',
-      'php/sections/tarifs.php',
-      'php/sections/about.php',
-      'php/sections/reasons.php',
-      'php/sections/quality.php',
-      'php/sections/cost/cost.php',
-      'php/sections/examples/examples.php',
-      'php/sections/form.php',
-      'php/sections/reviews/reviews.php',
-      'php/sections/faq.php',
+      $file_2_section . 'intro.php',
+      $file_2_section . 'advantages.php',
+      $file_2_section . 'prices.php',
+      $file_2_section . 'tarifs.php',
+      $file_2_section . 'about.php',
+      $file_2_section . 'reasons.php',
+      $file_2_section . 'quality.php',
+      $file_2_section . 'cost/cost.php',
+      $file_2_section . 'examples/examples.php',
+      $file_2_section . 'form.php',
+      $file_2_section . 'reviews/reviews.php',
+      $file_2_section . 'faq.php',
     ];
 
     $sectionLoader = new IncludeSections(__DIR__, $files_to_include);
@@ -46,12 +53,12 @@ echo $head->setHead();
 
   </main>
   <?php
-  $base_path = __DIR__ . '/php/layout';
+  $base_path = __DIR__ . '/files/php/layout';
 
   include $base_path . '/footer.php';
 
   $filesModal_to_include = [
-    'php/sections/popups/modal-form.php',
+    'files/php/sections/popups/modal-form.php',
   ];
 
   $sectionLoader = new IncludeSections(__DIR__, $filesModal_to_include);

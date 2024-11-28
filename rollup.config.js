@@ -7,10 +7,10 @@ const PRODUCTION = process.env.PRODUCTION === 'true';
 
 export default [
   {
-    input: './src/js/main.js',
+    input: './src/files/js/main.js',
     preserveEntrySignatures: 'strict',
     output: {
-      dir: 'dist/js',
+      dir: 'dist/files/js',
       chunkFileNames: '[name]-[hash].js',
       entryFileNames: '[name].js',
       format: 'esm',
@@ -31,10 +31,10 @@ export default [
     }
   },
   {
-    input: './src/js/libs.js',
+    input: './src/files/js/libs.js',
     preserveEntrySignatures: 'strict',
     output: {
-      dir: 'assets/libs',
+      dir: './dist/assets/libs',
       chunkFileNames: '[name]-[hash].js',
       entryFileNames: '[name].js',
       format: 'esm',

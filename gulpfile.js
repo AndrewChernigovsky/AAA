@@ -16,13 +16,13 @@ const sass = gulpSass(dartSass);
 
 const paths = {
   styles: {
-    srcLib: './src/libs/libs.scss',
-    src: './src/scss/style.scss',
-    watch: './src/scss/**/*.scss',
-    dest: './dist/css/'
+    srcLib: './src/files/libs/libs.scss',
+    src: './src/files/scss/style.scss',
+    watch: './src/files/scss/**/*.scss',
+    dest: './dist/files/css/'
   },
   scripts: {
-    src: './src/js/**/*.js',
+    src: './src/files/js/**/*.js',
   },
   src: './src',
   dist: './dist'
@@ -51,32 +51,37 @@ const phpTask = (cb) => {
   })();
 
   (() => {
-    return src(['./src/pages/**/*.php'])
-      .pipe(dest(paths.dist + '/php/pages'))
+    return src(['./src/files/php/pages/**/*.php'])
+      .pipe(dest(paths.dist + '/files/php/pages'))
   })();
 
   (() => {
-    return src(['./src/helpers/**/*.php'])
-      .pipe(dest(paths.dist + '/php/helpers'))
+    return src(['./src/files/php/helpers/**/*.php'])
+      .pipe(dest(paths.dist + '/files/php/helpers'))
   })();
 
   (() => {
-    return src(['./src/sections/**/*.php'])
-      .pipe(dest(paths.dist + '/php/sections'))
+    return src(['./src/files/php/sections/**/*.php'])
+      .pipe(dest(paths.dist + '/files/php/sections'))
   })();
 
   (() => {
-    return src(['./src/layout/**/*.php'])
-      .pipe(dest(paths.dist + '/php/layout'))
+    return src(['./src/files/php/layout/**/*.php'])
+      .pipe(dest(paths.dist + '/files/php/layout'))
   })();
 
   (() => {
-    return src(['./src/functions/**/*.php'])
-      .pipe(dest(paths.dist + '/php/functions'))
+    return src(['./src/files/php/functions/**/*.php'])
+      .pipe(dest(paths.dist + '/files/php/functions'))
+  })();
+
+  (() => {
+    return src(['./src/files/php/data/**/*.php'])
+      .pipe(dest(paths.dist + '/files/php/data'))
   })();
 
   if (!PRODUCTION) {
-    return src(['./src/index.php', './src/pages/**/*.php'])
+    return src(['./src/index.php', './src/files/php/pages/**/*.php'])
       .pipe(browserSync.stream());
   }
   cb();
@@ -137,41 +142,41 @@ const sassTaskLibs = () => {
     stream = stream.pipe(autoPrefixer());
     stream = stream.pipe(cleanCSS({ level: 2 }));
   }
-  return stream.pipe(dest('./assets/libs/'));
+  return stream.pipe(dest('./dist/assets/libs/'));
 };
 
 const copyStatics = (cb) => {
   (() => {
-    return src(['./assets/**/*', '!./assets/images/**'])
-      .pipe(dest(paths.dist + '/assets'))
+    return src(['./dist/assets/**/*', '!./dist/assets/images/**'])
+      .pipe(dest('./dist/assets'))
   })();
   (() => {
-    return src(['./.htaccess', './src/index.php', './sitemap.xml', 'yandex_12ed8a33b1d44641.html'])
+    return src(['./src/.htaccess', './src/index.php', './src/sitemap.xml', './src/yandex_12ed8a33b1d44641.html'])
       .pipe(dest(paths.dist))
   })()
   cb();
 }
 
 const images = (cb) => {
-  return src(['./assets/images/**/*.{png,jpg}'], { encoding: false })
+  return src(['./dist/assets/images/**/*.{png,jpg}'], { encoding: false })
     .pipe(dest(paths.dist + '/assets/images'))
     .on('end', cb)
 };
 
 const docs = (cb) => {
-  return src(['./src/docs/**/*.pdf'], { encoding: false })
-    .pipe(dest(paths.dist + '/docs/'))
+  return src(['./src/files/docs/**/*.pdf'], { encoding: false })
+    .pipe(dest(paths.dist + '/files/docs/'))
     .on('end', cb)
 };
 
 const vectors = () => {
-  return src('./assets/images/**/*.svg')
+  return src('./dist/assets/images/**/*.svg')
     .pipe(dest(paths.dist + '/assets/images'));
 };
 
-const statics = parallel(() => cleanDist('assets/libs'), sassTaskLibs, rollupTask);
-const dev = series(() => cleanDist('dist'), docs, phpTask, sassTask, sassTaskLibs, rollupTask, watchTask);
-const build = series(() => cleanDist('dist'), copyStatics, docs, images, vectors, phpTask, sassTask, sassTaskLibs, rollupTask);
+const statics = parallel(() => cleanDist('dist/assets/libs'), sassTaskLibs, rollupTask);
+const dev = series(() => cleanDist('dist/files'), docs, phpTask, sassTask, sassTaskLibs, rollupTask, watchTask);
+const build = series(() => cleanDist('dist/files'), copyStatics, docs, images, vectors, phpTask, sassTask, sassTaskLibs, rollupTask);
 
 export { images, sassTask, vectors, sassTaskLibs, rollupTask, phpTask, watchTask, dev, build, statics, docs };
 export default dev;
