@@ -1,7 +1,21 @@
+<?php
+$distPath = $_SERVER['DOCUMENT_ROOT'] . '/dist';
+
+if (is_dir($distPath)) {
+  $currentUrl = "http://localhost:3000/dist/index.php";
+  $pathFile = "http://localhost:3000/dist";
+} else {
+  $currentUrl = "/index.php";
+  $pathFile = "";
+}
+
+$imagePath = $pathFile . '/assets/images/'
+  ?>
+
 <section class="about" id="about">
   <div class="container">
     <div class="about__wrapper">
-      <img src="./../assets/images/avatar-1.png" alt="аватар Изосимова Андрея Андреевича" width="300">
+      <img src="<?php echo $imagePath . 'avatar-1.avif' ?>" alt="аватар Изосимова Андрея Андреевича" width="300">
       <div class="about__text">
         <h2>КТО Я ТАКОЙ</h2>
         <p class="base-text">Сайт менялся и меняется всю мою осозанную жизнь. Его предназначение и место в жизнях людей
@@ -48,7 +62,7 @@
         </div>
       </div>
 
-      <img src="./../assets/images/avatar-2.png" alt="аватар Изосимова Андрея Андреевича" width="500">
+      <img src="<?php echo $imagePath . 'avatar-2.avif' ?>" alt="аватар Изосимова Андрея Андреевича" width="500">
 
     </div>
 

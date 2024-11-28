@@ -10,7 +10,7 @@ export default [
     input: './src/files/js/main.js',
     preserveEntrySignatures: 'strict',
     output: {
-      dir: 'dist/files/js',
+      dir: './dist/files/js',
       chunkFileNames: '[name]-[hash].js',
       entryFileNames: '[name].js',
       format: 'esm',

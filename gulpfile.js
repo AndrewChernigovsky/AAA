@@ -8,6 +8,18 @@ import { exec } from 'child_process';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import svgSprite from 'gulp-svg-sprite';
+
+const config = {
+  mode: {
+    symbol: {
+      sprite: '../sprite.svg',
+      render: {
+        css: false
+      }
+    }
+  }
+};
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -101,8 +113,8 @@ const watchTask = () => {
     notify: false,
   });
   if (!PRODUCTION) {
-    watch(paths.styles.watch, sassTask);
-    watch(paths.scripts.src, rollupTask);
+    watch([paths.styles.watch], sassTask);
+    watch([paths.scripts.src], rollupTask);
     watch(['./src/**/*.php'], phpTask);
   }
 };
@@ -132,6 +144,9 @@ const sassTask = () => {
     stream = stream.pipe(autoPrefixer());
     stream = stream.pipe(cleanCSS({ level: 2 }));
   }
+  if (!PRODUCTION) {
+    stream = stream.pipe(browserSync.stream());
+  }
   return stream.pipe(dest(paths.styles.dest));
 };
 
@@ -147,7 +162,7 @@ const sassTaskLibs = () => {
 
 const copyStatics = (cb) => {
   (() => {
-    return src(['./dist/assets/**/*', '!./dist/assets/images/**'])
+    return src(['./src/assets/**/*', '!./src/assets/images/**'])
       .pipe(dest('./dist/assets'))
   })();
   (() => {
@@ -169,14 +184,20 @@ const docs = (cb) => {
     .on('end', cb)
 };
 
-const vectors = () => {
-  return src('./dist/assets/images/**/*.svg')
-    .pipe(dest(paths.dist + '/assets/images'));
+const sprite = () => {
+  return src(['./src/assets/images/vectors/**/*.svg', '!./src/assets/images/vectors/sprite.svg'])
+    .pipe(svgSprite(config))
+    .pipe(dest('./dist/assets/images/vectors'));
 };
 
-const statics = parallel(() => cleanDist('dist/assets/libs'), sassTaskLibs, rollupTask);
-const dev = series(() => cleanDist('dist/files'), docs, phpTask, sassTask, sassTaskLibs, rollupTask, watchTask);
+const vectors = () => {
+  return src('./src/assets/images/**/*.svg')
+    .pipe(dest(paths.dist + '/assets/images/vectors'));
+};
+
+const statics = parallel(() => cleanDist('dist/assets/libs'), sprite, sassTaskLibs, rollupTask);
+const dev = series(() => cleanDist('dist/files'), copyStatics, docs, phpTask, sassTask, sassTaskLibs, rollupTask, watchTask);
 const build = series(() => cleanDist('dist/files'), copyStatics, docs, images, vectors, phpTask, sassTask, sassTaskLibs, rollupTask);
 
-export { images, sassTask, vectors, sassTaskLibs, rollupTask, phpTask, watchTask, dev, build, statics, docs };
+export { images, sassTask, vectors, sassTaskLibs, rollupTask, phpTask, watchTask, dev, build, statics, docs, sprite };
 export default dev;

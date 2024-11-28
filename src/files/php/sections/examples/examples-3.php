@@ -1,5 +1,5 @@
 <li class="swiper-slide">
-  <img class="examples__image" src="./assets/images/portfolio/site-3/site-3-size.jpg"
+  <img class="examples__image" src="./assets/images/portfolio/site-3/site-3-size.avif"
     alt="сайт аквафильтры, создание сайтов, продвижение сайтов">
   <h4 class="four-title">Александр Белошапкин</h4>
   <p>У нас приболел разработчик по фронтенду и нужно было сделать пару правок для сайта, я на тот момент учился в ШТМЛ

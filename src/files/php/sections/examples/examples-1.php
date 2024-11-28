@@ -1,5 +1,5 @@
 <li class="swiper-slide">
-  <img class="examples__image" src="./assets/images/portfolio/site-1/site-1-size.jpg" alt="сайт аквафильтры">
+  <img class="examples__image" src="./assets/images/portfolio/site-1/site-1-size.avif" alt="сайт аквафильтры">
   <h4 class="four-title">Данил, Компания "Аквалайв"</h4>
   <p>
     хочу выразить вам огромное благодарность за проделанную работу, спасибо за вашу отзывчивость и терпение. Я конечно

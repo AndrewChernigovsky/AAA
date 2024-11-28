@@ -1,5 +1,5 @@
 <li class="swiper-slide">
-  <img class="examples__image" src="./assets/images/portfolio/site-2/site-2-size.jpg"
+  <img class="examples__image" src="./assets/images/portfolio/site-2/site-2-size.avif"
     alt="сайт аквафильтры, создание сайтов, продвижение сайтов">
   <h4 class="four-title"> Рожков Олег Владимирович</h4>
   <p>Создание сайта с Андреем Андреевичем было легким и приятным процессом. Он быстро понял наши пожелания и предложил
