@@ -130,17 +130,17 @@
   }
 
   &-whatsapp::before {
-    background-image: url("/assets/images/vectors/whatsapp.svg");
+    background-image: url("#{var.$DEV_PATH}assets/images/vectors/whatsapp.svg");
   }
 
   &-telegram::before {
-    background-image: url("/assets/images/vectors/telegram.svg");
+    background-image: url("#{var.$DEV_PATH}assets/images/vectors/telegram.svg");
   }
 
   &-viber::before {
     width: 25px;
     height: 25px;
-    background-image: url("/assets/images/vectors/viber.svg");
+    background-image: url("#{var.$DEV_PATH}assets/images/vectors/viber.svg");
   }
 
   input {

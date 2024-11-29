@@ -1,5 +1,6 @@
 import { setPopup } from './../helpers/popup.js'
 
+const form = document.querySelector('form');
 const hiddenInput = document.querySelector('#password-hash');
 const recaptchaField1 = document.getElementById('RecaptchaField1');
 const recaptchaField2 = document.getElementById('RecaptchaField2');
@@ -187,6 +188,8 @@ function sendFormValidation(formId) {
 }
 
 export function initFormValidation() {
-  captchaCallback();
+  if (form) {
+    captchaCallback();
+  }
 }
 

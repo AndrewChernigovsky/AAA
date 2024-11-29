@@ -1,11 +1,11 @@
 <?php
 $head_path = './../../layout/head.php';
 include_once $head_path;
-
-$title = 'ААА Академия Андрея Андреевича Изосимова, создание и продвижение сайтов | Портфолио';
-$script = '/js/main.js';
-$head = new Head($title, [], [$script]);
-
+include_once './../../data/paths.php';
+include_once './../../data/contacts.php';
+$title = 'Создание и продвижение сайтов | Академия Андрея Андреевича Изосимова | Портфолио';
+$canonical = "<link rel='canonical' href='https://xn----7sbbihceda5ae9bf1bg0j.xn--p1ai/'/>";
+$head = new Head($title, [], [$canonical]);
 ?>
 
 <!DOCTYPE html>
@@ -21,28 +21,37 @@ $head = new Head($title, [], [$script]);
       margin: 0 auto;
       margin-top: 20px;
     }
+
+    p {
+      font-family: 'Rubick', 'Arial', sans-serif;
+    }
+
+    p a {
+      color: white;
+      text-decoration: none;
+      text-transform: none;
+      font-weight: 400;
+      font-family: 'Rubick', 'Arial', sans-serif;
+    }
   </style>
 </head>
 
+
 <body>
   <?php
-  include './../../layout/header.php';
+  include $header_path;
   ?>
   <main class="main">
     <div class="container">
-      <h1>Сайт о здоровой еде</h1>
-      <img src="/assets/images/portfolio/site-4/site-4.png"
-        alt="сайт о здоровой еде, создание сайтов, продвижение сайтов">
-      <a href="./../../../index.php#form" class="value-button">Заказать</a>
+      <h1>Сайт о еде</h1>
+      <img src="<?php echo $portfolio_site_4 ?>"
+        alt="сайт, разработка сайтов, Андре Андреевич, сайт, пример работ сайтов">
+      <a href="<?php echo $buy_btn ?>" class="value-button">Заказать</a>
     </div>
   </main>
   <?php
-  include './../../layout/footer.php';
+  include $footer_path;
   ?>
 </body>
 
 </html>
-
-<?php
-
-?>

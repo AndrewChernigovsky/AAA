@@ -16,7 +16,7 @@
     z-index: -2;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url('/assets/images/vectors/bg-footer.svg');
+    background-image: url('#{var.$DEV_PATH}assets/images/vectors/bg-footer.svg');
     filter: drop-shadow(2px 4px 6px var.$black);
   }
 
@@ -67,11 +67,11 @@
       border-radius: 50%;
 
       &.telegram-icon {
-        background-image: url('/assets/images/vectors/telegram.svg');
+        background-image: url('#{var.$DEV_PATH}assets/images/vectors/telegram.svg');
       }
 
       &.whatsapp-icon {
-        background-image: url('/assets/images/vectors/whatsapp.svg');
+        background-image: url('#{var.$DEV_PATH}assets/images/vectors/whatsapp.svg');
       }
     }
   }

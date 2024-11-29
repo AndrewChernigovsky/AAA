@@ -2,7 +2,7 @@ export const initSwiper = () => {
   const swiperReviewsDOM = document.querySelector('.swiper-reviews');
   const swiperCostDOM = document.querySelector('.swiper-cost');
   const swiperExamplesDOM = document.querySelector('.swiper-examples');
-  if (swiperReviewsDOM) {
+  if (swiperReviewsDOM && typeof Swiper !== 'undefined') {
     const swiperReviews = new Swiper('.swiper-reviews', {
       loop: true,
       modules: [Autoplay, Pagination],
@@ -30,7 +30,7 @@ export const initSwiper = () => {
     });
     window.swiperReviews = swiperReviews;
   }
-  if (swiperCostDOM) {
+  if (swiperCostDOM && typeof Swiper !== 'undefined') {
     const swiperCost = new Swiper('.swiper-cost', {
       slidesPerView: 1,
       spaceBetween: 10,
@@ -45,7 +45,7 @@ export const initSwiper = () => {
 
     window.swiperCost = swiperCost;
   }
-  if (swiperExamplesDOM) {
+  if (swiperExamplesDOM && typeof Swiper !== 'undefined') {
     const swiperExamples = new Swiper('.swiper-examples', {
       loop: true,
       modules: [Autoplay, Pagination],

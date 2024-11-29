@@ -1,9 +1,6 @@
 <section class="intro">
   <div class="intro__wrapper">
-    <h1 class="primary-title">
-      <p class='visually-hidden'>Cоздание сайта.</p>
-      <p class='visually-hidden'>Разработка сайта</p>
-    </h1>
+    <h1 class="primary-title">Создание и разработка сайтов</h1>
     <div class="container">
       <div class="intro__inner">
         <h2 class="secondary-title">

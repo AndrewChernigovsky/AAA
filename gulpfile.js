@@ -9,6 +9,8 @@ import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import svgSprite from 'gulp-svg-sprite';
+import ttf2woff from 'gulp-ttf2woff';
+import ttf2woff2 from 'gulp-ttf2woff2';
 
 const config = {
   mode: {
@@ -103,7 +105,7 @@ const watchTask = () => {
   browserSync.init({
     proxy: "http://aaa/dist",
     serveStatic: [{
-      route: '/assets',
+      route: '/',
       dir: 'dist'
     },
     {
@@ -166,7 +168,7 @@ const copyStatics = (cb) => {
       .pipe(dest('./dist/assets'))
   })();
   (() => {
-    return src(['./src/.htaccess', './src/index.php', './src/sitemap.xml', './src/yandex_12ed8a33b1d44641.html'])
+    return src(['./src/.htaccess', './src/index.php', './src/sitemap.xml', './src/robots.txt', './src/yandex_12ed8a33b1d44641.html', './src/browserconfig.xml', './src/favicon.ico', './src/manifest.json'])
       .pipe(dest(paths.dist))
   })()
   cb();
@@ -195,9 +197,16 @@ const vectors = () => {
     .pipe(dest(paths.dist + '/assets/images/vectors'));
 };
 
+const fonts = (cb) => {
+  src('./src/assets/fonts/**/*.{ttf,woff,woff2}')
+    .pipe(dest(paths.dist + '/assets/fonts'))
+
+  cb()
+};
+
 const statics = parallel(() => cleanDist('dist/assets/libs'), sprite, sassTaskLibs, rollupTask);
 const dev = series(() => cleanDist('dist/files'), copyStatics, docs, phpTask, sassTask, sassTaskLibs, rollupTask, watchTask);
 const build = series(() => cleanDist('dist/files'), copyStatics, docs, images, vectors, phpTask, sassTask, sassTaskLibs, rollupTask);
 
-export { images, sassTask, vectors, sassTaskLibs, rollupTask, phpTask, watchTask, dev, build, statics, docs, sprite };
+export { images, sassTask, vectors, sassTaskLibs, rollupTask, phpTask, watchTask, dev, build, statics, docs, sprite, fonts };
 export default dev;

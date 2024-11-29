@@ -34,7 +34,7 @@ body {
     z-index: -2;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url('/assets/images/vectors/bg-header.svg');
+    background-image: url('#{var.$DEV_PATH}assets/images/vectors/bg-header.svg');
     filter: drop-shadow(2px 4px 6px var.$black);
   }
 

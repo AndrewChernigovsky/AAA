@@ -6,15 +6,8 @@ $sections_path = './files/php/helpers/includeSections.php';
 include_once $head_path;
 include_once $sections_path;
 
-$title = 'ААА Академия Андрея Андреевича Изосимова, создание и продвижение сайтов';
-$script = './files/js/main.js';
-$head = new Head($title, [], [$script]);
-// $styles = [
-//   '/assets/libs/libs.css',
-//   './css/style.css',
-// ];
-// $head = new Head($title, $styles, [$script]);
-
+$title = 'Создание и продвижение сайтов | Академия Андрея Андреевича Изосимова';
+$head = new Head($title, [], []);
 ?>
 
 <!DOCTYPE html>
