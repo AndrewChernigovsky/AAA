@@ -139,7 +139,7 @@ function sendFormValidation(formId) {
         } else {
           const formData = new FormData(form);
           formData.append('g-recaptcha-response', recaptchaResponse);
-          const action = formId === formCost ? './php/functions/mail/mail.php' : './php/functions/mail/mail-simple.php';
+          const action = formId === formCost ? './files/php/functions/mail/mail.php' : './files/php/functions/mail/mail-simple.php';
           console.log(action, 'action');
           grecaptcha.reset(widgetId1);
           grecaptcha.reset(widgetId2);
