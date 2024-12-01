@@ -189,6 +189,7 @@ function sendFormValidation(formId) {
 
 export function initFormValidation() {
   if (form) {
+    console.log(form, 'form');
     captchaCallback();
   }
 }
