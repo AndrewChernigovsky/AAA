@@ -15,7 +15,8 @@ $imagePath = $pathFile . '/assets/images/'
 <section class="about" id="about">
   <div class="container">
     <div class="about__wrapper">
-      <img src="<?php echo $imagePath . 'avatar-1.avif' ?>" alt="аватар Изосимова Андрея Андреевича" width="300">
+      <img src="<?php echo $imagePath . 'avatar-1.avif' ?>" alt="аватар Изосимова Андрея Андреевича" width="300"
+        height="300">
       <div class="about__text">
         <h2>КТО Я ТАКОЙ</h2>
         <p class="base-text">Сайт менялся и меняется всю мою осозанную жизнь. Его предназначение и место в жизнях людей
@@ -62,7 +63,8 @@ $imagePath = $pathFile . '/assets/images/'
         </div>
       </div>
 
-      <img src="<?php echo $imagePath . 'avatar-2.avif' ?>" alt="аватар Изосимова Андрея Андреевича" width="500">
+      <img src="<?php echo $imagePath . 'avatar-2.avif' ?>" alt="аватар Изосимова Андрея Андреевича" width="500"
+        height="500">
 
     </div>
 

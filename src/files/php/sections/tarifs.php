@@ -4,16 +4,16 @@
     <div class="tabs">
       <ul class="tarifs__tabs list-style-none" id="tarifs-tabs">
         <li class="active">
-          <a class="third-title">Пре-лайт</a>
+          <button type="button" class="third-title" aria-label="Переключить вкладку на">Пре-лайт</button>
         </li>
         <li>
-          <a class="third-title">Лайт ( базовый )</a>
+          <button type="button" class="third-title" aria-label="Переключить вкладку на">Лайт ( базовый )</button>
         </li>
         <li>
-          <a class="third-title">Медиум велл</a>
+          <button type="button" class="third-title" aria-label="Переключить вкладку на">Медиум велл</button>
         </li>
         <li>
-          <a class="third-title">Полный фарш XXL</a>
+          <button type="button" class="third-title" aria-label="Переключить вкладку на">Полный фарш XXL</button>
         </li>
       </ul>
       <ul class="tarifs__list" id="tarifs-tabs-items">

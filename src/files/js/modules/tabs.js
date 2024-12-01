@@ -1,4 +1,4 @@
-const tabs = document.querySelectorAll('#tarifs-tabs li a');
+const tabs = document.querySelectorAll('#tarifs-tabs li button');
 const tabsItems = document.querySelectorAll('#tarifs-tabs-items .tarifs__list-item ')
 
 
