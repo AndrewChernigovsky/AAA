@@ -79,7 +79,7 @@ class Head
         ";
     $headContent .= "<link rel='stylesheet' href='$pathFile_URL/assets/libs/libs.css'>";
     $headContent .= "<link rel='stylesheet' href='$pathFile_URL/files/css/style.css'>";
-    $headContent .= "<script src='https://www.google.com/recaptcha/api.js' async defer></script>";
+    // $headContent .= "<script src='https://www.google.com/recaptcha/api.js' async defer></script>";
     $headContent .= "<script src='$pathFile_URL/assets/libs/libs.js' defer type='module'></script>";
     $headContent .= "<script src='$pathFile_URL/files/js/main.js?v=1.0.0' defer type='module'></script>";
 

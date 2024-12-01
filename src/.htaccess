@@ -12,8 +12,7 @@ AddType application/pdf .pdf
 
 RewriteEngine On
 
-RewriteCond %{REQUEST_URI} !^/files/php/functions/mail/mail-simple\.php$ [NC]
-RewriteCond %{REQUEST_URI} !^/files/php/functions/mail/mail\.php$ [NC]
+RewriteRule ^files/php/functions - [L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f

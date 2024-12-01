@@ -1,4 +1,4 @@
-export function setPopup(msg = "Нужно пройти капчу", time = 3) {
+export function setPopup(msg = "Нажмите на 'Капча!', пройдите её", time = 3) {
   const popup = document.querySelector('.popup');
   if (popup) {
     popup.classList.add('active');

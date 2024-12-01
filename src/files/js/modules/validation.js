@@ -173,7 +173,7 @@ function sendFormValidation(formId) {
             setPopup('Выберите тип сайта');
           }
           if (!validationResult.shereValid) {
-            setPopup('Выберите шере');
+            setPopup('Выберите сферу');
           }
           if (!validationResult.dateValid) {
             setPopup('Выберите дату');
@@ -189,8 +189,17 @@ function sendFormValidation(formId) {
 
 export function initFormValidation() {
   if (form) {
-    console.log(form, 'form');
-    captchaCallback();
+    const script = document.createElement('script');
+    script.src = 'https://www.google.com/recaptcha/api.js?render=explicit';
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+
+    script.onload = function () {
+      grecaptcha.ready(function () {
+        document.querySelectorAll('.captcha-btn').forEach(btn => btn.addEventListener('click', captchaCallback))
+      });
+    };
   }
 }
 

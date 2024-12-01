@@ -82,3 +82,35 @@ p {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+
+.captcha {
+  display: grid;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.captcha-btn {
+  border: 1px solid var.$white;
+  background: none;
+  color: var.$white;
+  font-size: 16px;
+  font-weight: 700;
+  width: 150px;
+  height: 30px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .captcha {
+    display: flex;
+    gap: 20px;
+  }
+
+  .captcha-btn {
+    width: 300px;
+    height: 50px;
+    margin: 0;
+  }
+}

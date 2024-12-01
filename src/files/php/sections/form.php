@@ -24,7 +24,10 @@
             комфортнее) и обсудите все детали по созданию сайта и его разработке! <strong>Внимание: в приватности, у
               вас должно быть разрешено писать сторонним лицам, иначе мы не сможем написать вам в сообщения</strong>
           </p>
-          <div id="RecaptchaField2"></div>
+          <div class="captcha">
+            <button type="button" class="captcha-btn">Капча!</button>
+            <div id="RecaptchaField2"></div>
+          </div>
           <input type="text" class="password-hash" id="password-hash" value="" aria-hidden="true" aria-label="false"
             tabindex="-1">
           <button type="submit" class="primary-button value-button">Отправить Заявку</button>
