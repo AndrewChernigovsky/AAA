@@ -7,7 +7,8 @@ include_once $head_path;
 include_once $sections_path;
 
 $title = 'Создание и продвижение сайтов | Академия Андрея Андреевича Изосимова';
-$head = new Head($title, [], []);
+$canonical = "<link rel='canonical' href='https://xn----7sbbihceda5ae9bf1bg0j.xn--p1ai/'";
+$head = new Head($title, [], [$canonical]);
 ?>
 
 <!DOCTYPE html>

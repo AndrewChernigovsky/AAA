@@ -4,7 +4,7 @@ include_once $head_path;
 include_once './../../data/paths.php';
 
 $title = 'Создание и продвижение сайтов | Академия Андрея Андреевича Изосимова | Сайт-Каталог';
-$canonical = "<link rel='canonical' href='https://xn----7sbbihceda5ae9bf1bg0j.xn--p1ai/'/>";
+$canonical = "<link rel='canonical' href='https://xn----7sbbihceda5ae9bf1bg0j.xn--p1ai/files/php/pages/services/site-catalog-page/'/>";
 $head = new Head($title, [], [$canonical]);
 
 ?>

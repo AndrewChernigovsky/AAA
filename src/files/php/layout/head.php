@@ -31,6 +31,14 @@ class Head
     $headContent = <<<HTML
             <meta name="description" content="Профессиональная разработка и продвижение сайтов: лендинги, сайты-визитки, каталоги. Уникальный дизайн, адаптивность, базовая SEO-настройка. Хостинг на год в подарок.">
             <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+            <meta property="og:site_name" content="Академия Андрея Андреевича Изосимова" />
+            <meta property="og:title" content="Создание и продвижение сайтов" />
+            <meta property="og:description" content="Профессиональная разработка и продвижение сайтов: лендинги, сайты-визитки, каталоги. Уникальный дизайн, адаптивность, базовая SEO-настройка. Хостинг на год в подарок." />
+            <meta property="og:type" content="website" />
+            <meta property="og:image" content="https://xn----7sbbihceda5ae9bf1bg0j.xn--p1ai/logo.png" />
+            <meta property="og:image:width" content="300" />
+            <meta property="og:image:height" content="300" />
+            <meta property="og:url" content="https://xn----7sbbihceda5ae9bf1bg0j.xn--p1ai/" />
             <title>$title</title>
             HTML;
     foreach ($this->meta_tags as $meta_tag) {
@@ -79,7 +87,6 @@ class Head
         ";
     $headContent .= "<link rel='stylesheet' href='$pathFile_URL/assets/libs/libs.css'>";
     $headContent .= "<link rel='stylesheet' href='$pathFile_URL/files/css/style.css'>";
-    // $headContent .= "<script src='https://www.google.com/recaptcha/api.js' async defer></script>";
     $headContent .= "<script src='$pathFile_URL/assets/libs/libs.js' defer type='module'></script>";
     $headContent .= "<script src='$pathFile_URL/files/js/main.js?v=1.0.0' defer type='module'></script>";
 

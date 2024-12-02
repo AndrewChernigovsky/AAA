@@ -1,7 +1,7 @@
 <section class="reasons" id="quality">
   <div class="container">
     <div class="reasons__wrapper">
-      <h2 class="secondary-title title-animation">Я гарантирую</h2>
+      <h2 class="secondary-title">Я гарантирую</h2>
       <ol class="reasons__list">
         <li>Соблюдение сроков</li>
         <li>Издержки за наш счёт</li>

@@ -3,9 +3,9 @@ include_once './files/php/data/paths.php';
 ?>
 <section class="prices" id="prices">
   <div class="container">
-    <h2 class="secondary-title title-animation">Разрешите себе вздохнуть, <br> Сайт будет приносить заявки даже ночью
+    <h2 class="secondary-title">Разрешите себе вздохнуть, <br> Сайт будет приносить заявки даже ночью
     </h2>
-    <ul>
+    <ul class="prices__list">
       <li>
         <h3 class="third-title">
           Аудит сайта (от 3 тыс. Р)
