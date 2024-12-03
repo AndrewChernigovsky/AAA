@@ -8,6 +8,20 @@ import { exec } from 'child_process';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import svgSprite from 'gulp-svg-sprite';
+import ttf2woff from 'gulp-ttf2woff';
+import ttf2woff2 from 'gulp-ttf2woff2';
+
+const config = {
+  mode: {
+    symbol: {
+      sprite: '../sprite.svg',
+      render: {
+        css: false
+      }
+    }
+  }
+};
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,13 +30,13 @@ const sass = gulpSass(dartSass);
 
 const paths = {
   styles: {
-    srcLib: './src/libs/libs.scss',
-    src: './src/scss/style.scss',
-    watch: './src/scss/**/*.scss',
-    dest: './dist/css/'
+    srcLib: './src/files/libs/libs.scss',
+    src: './src/files/scss/style.scss',
+    watch: './src/files/scss/**/*.scss',
+    dest: './dist/files/css/'
   },
   scripts: {
-    src: './src/js/**/*.js',
+    src: './src/files/js/**/*.js',
   },
   src: './src',
   dist: './dist'
@@ -51,32 +65,37 @@ const phpTask = (cb) => {
   })();
 
   (() => {
-    return src(['./src/pages/**/*.php'])
-      .pipe(dest(paths.dist + '/php/pages'))
+    return src(['./src/files/php/pages/**/*.php'])
+      .pipe(dest(paths.dist + '/files/php/pages'))
   })();
 
   (() => {
-    return src(['./src/helpers/**/*.php'])
-      .pipe(dest(paths.dist + '/php/helpers'))
+    return src(['./src/files/php/helpers/**/*.php'])
+      .pipe(dest(paths.dist + '/files/php/helpers'))
   })();
 
   (() => {
-    return src(['./src/sections/**/*.php'])
-      .pipe(dest(paths.dist + '/php/sections'))
+    return src(['./src/files/php/sections/**/*.php'])
+      .pipe(dest(paths.dist + '/files/php/sections'))
   })();
 
   (() => {
-    return src(['./src/layout/**/*.php'])
-      .pipe(dest(paths.dist + '/php/layout'))
+    return src(['./src/files/php/layout/**/*.php'])
+      .pipe(dest(paths.dist + '/files/php/layout'))
   })();
 
   (() => {
-    return src(['./src/functions/**/*.php'])
-      .pipe(dest(paths.dist + '/php/functions'))
+    return src(['./src/files/php/functions/**/*.php'])
+      .pipe(dest(paths.dist + '/files/php/functions'))
+  })();
+
+  (() => {
+    return src(['./src/files/php/data/**/*.php'])
+      .pipe(dest(paths.dist + '/files/php/data'))
   })();
 
   if (!PRODUCTION) {
-    return src(['./src/index.php', './src/pages/**/*.php'])
+    return src(['./src/index.php', './src/files/php/pages/**/*.php'])
       .pipe(browserSync.stream());
   }
   cb();
@@ -86,7 +105,7 @@ const watchTask = () => {
   browserSync.init({
     proxy: "http://aaa/dist",
     serveStatic: [{
-      route: '/assets',
+      route: '/',
       dir: 'dist'
     },
     {
@@ -96,8 +115,8 @@ const watchTask = () => {
     notify: false,
   });
   if (!PRODUCTION) {
-    watch(paths.styles.watch, sassTask);
-    watch(paths.scripts.src, rollupTask);
+    watch([paths.styles.watch], sassTask);
+    watch([paths.scripts.src], rollupTask);
     watch(['./src/**/*.php'], phpTask);
   }
 };
@@ -127,6 +146,9 @@ const sassTask = () => {
     stream = stream.pipe(autoPrefixer());
     stream = stream.pipe(cleanCSS({ level: 2 }));
   }
+  if (!PRODUCTION) {
+    stream = stream.pipe(browserSync.stream());
+  }
   return stream.pipe(dest(paths.styles.dest));
 };
 
@@ -137,41 +159,54 @@ const sassTaskLibs = () => {
     stream = stream.pipe(autoPrefixer());
     stream = stream.pipe(cleanCSS({ level: 2 }));
   }
-  return stream.pipe(dest('./assets/libs/'));
+  return stream.pipe(dest('./dist/assets/libs/'));
 };
 
 const copyStatics = (cb) => {
   (() => {
-    return src(['./assets/**/*', '!./assets/images/**'])
-      .pipe(dest(paths.dist + '/assets'))
+    return src(['./src/assets/**/*', '!./src/assets/images/**'])
+      .pipe(dest('./dist/assets'))
   })();
   (() => {
-    return src(['./.htaccess', './src/index.php'])
+    return src(['./src/.htaccess', './src/index.php', './src/sitemap.xml', './src/robots.txt', './src/yandex_12ed8a33b1d44641.html', './src/browserconfig.xml', './src/favicon.ico', './src/manifest.json', './src/logo.png'])
       .pipe(dest(paths.dist))
   })()
   cb();
 }
 
 const images = (cb) => {
-  return src(['./assets/images/**/*.{png,jpg}'], { encoding: false })
+  return src(['./dist/assets/images/**/*.{png,jpg}'], { encoding: false })
     .pipe(dest(paths.dist + '/assets/images'))
     .on('end', cb)
 };
 
 const docs = (cb) => {
-  return src(['./src/docs/**/*.pdf'], { encoding: false })
-    .pipe(dest(paths.dist + '/docs/'))
+  return src(['./src/files/docs/**/*.pdf'], { encoding: false })
+    .pipe(dest(paths.dist + '/files/docs/'))
     .on('end', cb)
 };
 
-const vectors = () => {
-  return src('./assets/images/**/*.svg')
-    .pipe(dest(paths.dist + '/assets/images'));
+const sprite = () => {
+  return src(['./src/assets/images/vectors/**/*.svg', '!./src/assets/images/vectors/sprite.svg'])
+    .pipe(svgSprite(config))
+    .pipe(dest('./dist/assets/images/vectors'));
 };
 
-const statics = parallel(() => cleanDist('assets/libs'), sassTaskLibs, rollupTask);
-const dev = series(() => cleanDist('dist'), docs, phpTask, sassTask, sassTaskLibs, rollupTask, watchTask);
-const build = series(() => cleanDist('dist'), copyStatics, docs, images, vectors, phpTask, sassTask, sassTaskLibs, rollupTask);
+const vectors = () => {
+  return src('./src/assets/images/**/*.svg')
+    .pipe(dest(paths.dist + '/assets/images/vectors'));
+};
 
-export { images, sassTask, vectors, sassTaskLibs, rollupTask, phpTask, watchTask, dev, build, statics, docs };
+const fonts = (cb) => {
+  src('./src/assets/fonts/**/*.{ttf,woff,woff2}')
+    .pipe(dest(paths.dist + '/assets/fonts'))
+
+  cb()
+};
+
+const statics = parallel(() => cleanDist('dist/assets/libs'), sprite, sassTaskLibs, rollupTask);
+const dev = series(() => cleanDist('dist/files'), copyStatics, docs, phpTask, sassTask, sassTaskLibs, rollupTask, watchTask);
+const build = series(() => cleanDist('dist/files'), copyStatics, docs, images, vectors, phpTask, sassTask, sassTaskLibs, rollupTask);
+
+export { images, sassTask, vectors, sassTaskLibs, rollupTask, phpTask, watchTask, dev, build, statics, docs, sprite, fonts };
 export default dev;
