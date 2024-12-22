@@ -1,31 +1,20 @@
 <?php
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_PORT'] == 443 ? "https://" : "http://";
-$host = $_SERVER['HTTP_HOST'];
-$requestUri = $_SERVER['REQUEST_URI'];
-$currentUrl = $protocol . $host . $requestUri;
+include_once __DIR__ . '/../helpers/classes/setVariables.php';
 
-$distPath = $_SERVER['DOCUMENT_ROOT'] . '/dist';
+$initPath = new SetVariables();
+$initPath->setVar();
 
-// Проверяем, существует ли папка dist
-if (is_dir($distPath)) {
-  $currentUrl = "http://localhost:3000/dist/index.php";
-  $pathFile = "http://localhost:3000/dist";
-  $pathFile_URL = '/dist';
-} else {
-  $currentUrl = "/index.php";
-  $pathFile = "";
-  $pathFile_URL = '';
-}
+$path = $initPath->getPathFileURL();
 
-$link1 = $currentUrl . '#advantages';
-$link2 = $currentUrl . '#quality';
-$link3 = $currentUrl . '#tarifs';
-$link4 = $currentUrl . '#prices';
-$link5 = $currentUrl . '#reasons';
-$link6 = $currentUrl . '#about';
-$link2form = $currentUrl . '#form';
+$link1 = $path . '#advantages';
+$link2 = $path . '#quality';
+$link3 = $path . '#tarifs';
+$link4 = $path . '#prices';
+$link5 = $path . '#reasons';
+$link6 = $path . '#about';
+$link2form = $path . '#form';
 
-$logo = $pathFile_URL . '/assets/images/logo.avif';
+$logo = $path . '/assets/images/logo.avif';
 $phone = '+7 953 232 21 12';
 ?>
 
@@ -36,13 +25,17 @@ $phone = '+7 953 232 21 12';
         <button class="header__menu-btn" type="button" id="btn-open-menu"><span class="visually-hidden">Открыть
             окно</span></button>
         <a class='tel' href="tel:<?php echo str_replace(' ', '', $phone) ?>"><?php echo $phone ?></a>
-        <img src="<?php echo $logo; ?>" alt="логотип академии Андрея Андреевича Изосимова" width="50" height="50">
+        <a href="<?= $path ?>">
+          <img src="<?php echo $logo; ?>" alt="логотип академии Андрея Андреевича Изосимова" width="50" height="50">
+        </a>
       </div>
 
       <div class="header__intro">
         <span class="add-text">Хостинг на год в подарок</span>
         <div class="logo">
-          <img src="<?php echo $logo; ?>" alt="логотип академии Андрея Андреевича Изосимова" width="100" height="100">
+          <a href="<?= $path ?>">
+            <img src="<?php echo $logo; ?>" alt="логотип академии Андрея Андреевича Изосимова" width="100" height="100">
+          </a>
           <a class="tel" href="tel:<?php echo str_replace(' ', '', $phone) ?>"><?php echo $phone ?></a>
           <nav class="nav">
             <ul class="nav__list list-style-none ">

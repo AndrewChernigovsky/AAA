@@ -1,6 +1,4 @@
 <?php
-
-
 $head_path = './files/php/layout/head.php';
 $sections_path = './files/php/helpers/includeSections.php';
 include_once $head_path;
@@ -13,6 +11,7 @@ $head = new Head($title, [], [$canonical]);
 
 <!DOCTYPE html>
 <html lang="ru">
+
 <?php
 echo $head->setHead();
 ?>

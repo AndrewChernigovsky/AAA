@@ -2,7 +2,7 @@
 @use 'mixins'as mix;
 
 .prices {
-  padding: 60px 0;
+  padding: 140px 0;
   border-bottom: 1px solid var.$white;
   clip-path: polygon(0% 0%, 100% 18%, 100% 90%, 0% 97%);
   position: relative;
@@ -13,11 +13,12 @@
     width: 100%;
     height: 150px;
     background-color: var.$white;
-    clip-path: polygon(0 59%, 100% 0, 100% 100%, 0% 100%);
-    bottom: -35px;
+    clip-path: polygon(0 34%, 100% 0, 100% 100%, 0% 100%);
+    bottom: -50px;
   }
 
   @media screen and (max-width: var.$tablet) {
+    padding: 100px 0;
     clip-path: polygon(0% 0%, 100% 0%, 100% 93%, 0% 100%);
 
     &::before {
@@ -33,6 +34,10 @@
 
   .secondary-title {
     color: var.$orange;
+  }
+
+  .third-title {
+    color: var.$blue;
   }
 
   .base-text {
@@ -65,9 +70,9 @@
         left: -15px;
         bottom: 40px;
         border: 5px solid var.$orange;
-        width: 100px;
+        width: 50px;
         background: transparent;
-        height: 100px;
+        height: 50px;
         z-index: -1;
       }
 
@@ -77,9 +82,9 @@
         left: -4px;
         bottom: 30px;
         border: 1px solid var.$orange;
-        width: 100px;
-        background: black;
-        height: 100px;
+        width: 50px;
+        background: var.$black;
+        height: 50px;
         z-index: -1;
       }
     }
@@ -93,13 +98,13 @@
       &::before {
         content: '';
         position: absolute;
-        left: -35px;
+        left: -20px;
         top: -40px;
         border: 5px solid var.$orange;
-        width: 100px;
+        width: 50px;
         border-radius: 50%;
         background: transparent;
-        height: 100px;
+        height: 50px;
         z-index: -1;
       }
 
@@ -109,10 +114,10 @@
         left: -6px;
         top: -40px;
         border: 1px solid var.$orange;
-        width: 70px;
+        width: 50px;
         border-radius: 50%;
-        background: black;
-        height: 70px;
+        background: var.$black;
+        height: 50px;
         z-index: -1;
       }
     }
