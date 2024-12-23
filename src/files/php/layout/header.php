@@ -17,7 +17,6 @@ $link2form = $path . '#form';
 $logo = $path . '/assets/images/logo.avif';
 $phone = '+7 953 232 21 12';
 ?>
-
 <header class="header">
   <div class="container">
     <div class="header__wrapper">
@@ -25,7 +24,7 @@ $phone = '+7 953 232 21 12';
         <button class="header__menu-btn" type="button" id="btn-open-menu"><span class="visually-hidden">Открыть
             окно</span></button>
         <a class='tel' href="tel:<?php echo str_replace(' ', '', $phone) ?>"><?php echo $phone ?></a>
-        <a href="<?= $path ?>">
+        <a href="<?= $initPath->getPathFileURLInner() ?>">
           <img src="<?php echo $logo; ?>" alt="логотип академии Андрея Андреевича Изосимова" width="50" height="50">
         </a>
       </div>
@@ -33,7 +32,7 @@ $phone = '+7 953 232 21 12';
       <div class="header__intro">
         <span class="add-text">Хостинг на год в подарок</span>
         <div class="logo">
-          <a href="<?= $path ?>">
+          <a href="<?= $initPath->getPathFileURLInner() ?>">
             <img src="<?php echo $logo; ?>" alt="логотип академии Андрея Андреевича Изосимова" width="100" height="100">
           </a>
           <a class="tel" href="tel:<?php echo str_replace(' ', '', $phone) ?>"><?php echo $phone ?></a>

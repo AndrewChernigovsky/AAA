@@ -64,8 +64,8 @@ const phpTask = (cb) => {
       .pipe(dest('./dist/files/php'))
   );
   tasks.push(
-    src(['./src/index.php', './src/404.php',], { encoding: false })
-      .pipe(dest('./dist'))
+    src(['./src/index.php', './src/404.php'], { encoding: false })
+      .pipe(dest('./dist/'))
   );
   return Promise.all(tasks)
     .then(() => {

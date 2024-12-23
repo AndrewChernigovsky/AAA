@@ -4,6 +4,7 @@ class SetVariables
   private $currentPath;
   private $pathFile;
   private $pathFile_URL;
+  private $pathFile_URLInner;
   private $basePath;
 
   private $distPath;
@@ -25,10 +26,12 @@ class SetVariables
       $this->currentPath = "http://localhost:3000/dist/index.php";
       $this->pathFile = "http://localhost:3000/dist";
       $this->pathFile_URL = '/dist';
+      $this->pathFile_URLInner = '/dist';
     } else {
       $this->currentPath = "/index.php";
       $this->pathFile = "";
       $this->pathFile_URL = '';
+      $this->pathFile_URLInner = '/';
     }
   }
 
@@ -45,6 +48,10 @@ class SetVariables
   public function getPathFileURL()
   {
     return $this->pathFile_URL;
+  }
+  public function getPathFileURLInner()
+  {
+    return $this->pathFile_URLInner;
   }
   public function getBasePath()
   {
