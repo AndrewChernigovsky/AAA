@@ -14,7 +14,7 @@ $link5 = $path . '#reasons';
 $link6 = $path . '#about';
 $link2form = $path . '#form';
 
-$logo = $path . '/assets/images/logo.avif';
+$logo = $path . 'assets/images/logo.avif';
 $phone = '+7 953 232 21 12';
 ?>
 <header class="header">
