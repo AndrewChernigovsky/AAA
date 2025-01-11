@@ -11,6 +11,7 @@
 AddType application/pdf .pdf
 
 RewriteEngine On
+ErrorDocument 404 /404.php
 
 RewriteRule ^files/php/pages/services/audit-page/(?:\?|index|$) https://xn----7sbbihceda5ae9bf1bg0j.xn--p1ai/files/php/pages/services/audit-page [R=301,L]
 RewriteRule ^files/php/pages/services/visitka-page/(?:\?|index|$) https://xn----7sbbihceda5ae9bf1bg0j.xn--p1ai/files/php/pages/services/visitka-page [R=301,L]
