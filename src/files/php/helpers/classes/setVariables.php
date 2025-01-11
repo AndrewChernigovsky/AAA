@@ -30,7 +30,7 @@ class SetVariables
     } else {
       $this->currentPath = "/index.php";
       $this->pathFile = "";
-      $this->pathFile_URL = '';
+      $this->pathFile_URL = '/';
       $this->pathFile_URLInner = '/';
     }
   }

@@ -11,22 +11,22 @@ if (is_dir($distPath)) {
   $pathFile_URL = '/';
 }
 
-$images_dir = '/assets/images/';
+$images_dir = 'assets/images/';
 $portfolio_img_dir = $images_dir . 'portfolio/';
-$portfolio_pages_dir = '/files/php/portfolio/';
+$portfolio_pages_dir = 'files/php/portfolio/';
 
 // layout 
 $footer_path = "$pathFile/files/php/layout/footer.php";
 $header_path = "$pathFile/files/php/layout/header.php";
 
 // buttons 
-$buy_btn = "$pathFile_URL/index.php#form";
+$buy_btn = "{$pathFile_URL}index.php#form";
 
 // links pages 
-$audit_page = "$pathFile_URL/files/php/pages/services/audit-page.php";
-$landing_page = "$pathFile_URL/files/php/pages/services/landing-page.php";
-$visitka_page = "$pathFile_URL/files/php/pages/services/visitka-page.php";
-$site_catalog_page = "$pathFile_URL/files/php/pages/services/site-catalog-page.php";
+$audit_page = "{$pathFile_URL}files/php/pages/services/audit-page.php";
+$landing_page = "{$pathFile_URL}files/php/pages/services/landing-page.php";
+$visitka_page = "{$pathFile_URL}files/php/pages/services/visitka-page.php";
+$site_catalog_page = "{$pathFile_URL}files/php/pages/services/site-catalog-page.php";
 
 // images 
 $logo = $pathFile_URL . $images_dir . '/logo';
