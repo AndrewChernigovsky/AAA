@@ -8,7 +8,7 @@ if (is_dir($distPath)) {
 } else {
   $currentUrl = "/index.php";
   $pathFile = $_SERVER['DOCUMENT_ROOT'];
-  $pathFile_URL = '';
+  $pathFile_URL = '/';
 }
 
 $images_dir = '/assets/images/';

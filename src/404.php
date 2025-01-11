@@ -11,7 +11,8 @@ $head = new Head($title, [], [$canonical]);
 $initPath = new SetVariables();
 $initPath->setVar();
 $path = $initPath->getPathFileURL();
-?>
+echo error_log($path . "PATH")
+  ?>
 
 <!DOCTYPE html>
 <html lang="ru">
