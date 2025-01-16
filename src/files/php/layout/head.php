@@ -5,7 +5,7 @@ $distPath = $_SERVER['DOCUMENT_ROOT'] . '/dist';
 if (is_dir($distPath)) {
   $currentUrl = "http://localhost:3000/dist/index.php";
   $pathFile = $distPath;
-  $pathFile_URL = '/dist';
+  $pathFile_URL = '/dist/';
 } else {
   $currentUrl = "/index.php";
   $pathFile = $_SERVER['DOCUMENT_ROOT'];

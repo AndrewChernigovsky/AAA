@@ -83,7 +83,7 @@ const phpTask = (cb) => {
 
 const watchTask = () => {
   browserSync.init({
-    proxy: "http://AAA/dist",
+    proxy: "http://AAA/dist/",
     notify: false,
   });
   if (!PRODUCTION) {

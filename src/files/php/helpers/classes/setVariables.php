@@ -25,8 +25,8 @@ class SetVariables
     if (is_dir($distPath)) {
       $this->currentPath = "http://localhost:3000/dist/index.php";
       $this->pathFile = "http://localhost:3000/dist";
-      $this->pathFile_URL = '/dist';
-      $this->pathFile_URLInner = '/dist';
+      $this->pathFile_URL = '/dist/';
+      $this->pathFile_URLInner = '/dist/';
     } else {
       $this->currentPath = "/index.php";
       $this->pathFile = "";
