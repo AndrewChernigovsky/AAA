@@ -49,3 +49,51 @@ RewriteRule ^/?(.*)\.php$ /$1 [L,R=301]
 
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^/?(.*)$ /$1.php [L]
+
+# <Files config.php>
+#   Order allow,deny
+#   Deny from all
+# </Files>
+
+# <FilesMatch "\.pdf$">
+#   Order Allow,Deny
+#   Allow from all
+# </FilesMatch>
+
+# AddType application/pdf .pdf
+
+# RewriteEngine On
+# ErrorDocument 404 /404.php
+
+# RewriteBase /
+# RewriteRule ^files/php/pages/services/visitka-page/(?:\?|index|$) files/php/pages/services/visitka-page/ [R=301,L]
+# RewriteRule ^files/php/pages/services/site-catalog-page/(?:\?|index|$) files/php/pages/services/site-catalog-page/ [R=301,L]
+# RewriteRule ^files/php/pages/services/landing-page/(?:\?|index|$) files/php/pages/services/landing-page/ [R=301,L]
+# RewriteRule ^files/php/pages/services/audit-page/(?:\?|index|$) files/php/pages/services/audit-page/ [R=301,L]
+
+# RewriteRule ^files/php/pages/portfolio/site-1/(?:\?|index|$) files/php/pages/portfolio/site-1/ [R=301,L]
+# RewriteRule ^files/php/pages/portfolio/site-2/(?:\?|index|$) files/php/pages/portfolio/site-2/ [R=301,L]
+# RewriteRule ^files/php/pages/portfolio/site-3/(?:\?|index|$) files/php/pages/portfolio/site-3/ [R=301,L]
+# RewriteRule ^files/php/pages/portfolio/site-4/(?:\?|index|$) files/php/pages/portfolio/site-4/ [R=301,L]
+# RewriteRule ^files/php/pages/portfolio/site-5/(?:\?|index|$) files/php/pages/portfolio/site-5/ [R=301,L]
+
+# RewriteRule ^files/php/functions - [L]
+
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# RewriteCond %{THE_REQUEST} \s/index\.php [NC]
+# RewriteRule ^index\.php(.*)$ /$1 [R=301,L]
+
+# RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+# RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+# RewriteCond %{REQUEST_URI} ^(.*)//+(.*)$
+# RewriteRule . %1/%2 [R=301,L]
+
+# RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^\ ]+)\.php
+# RewriteRule ^/?(.*)\.php$ /$1 [L,R=301]
+
+# RewriteCond %{REQUEST_FILENAME}\.php -f
+# RewriteRule ^/?(.*)$ /$1.php [L]

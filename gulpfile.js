@@ -90,6 +90,14 @@ const watchTask = () => {
     watch([paths.styles.watch], sassTask);
     watch([paths.scripts.src], rollupTask);
     watch(['./src/**/*.php'], phpTask);
+    watch([
+      './src/.htaccess',
+      './src/sitemap.xml',
+      './src/robots.txt',
+      './src/yandex_12ed8a33b1d44641.html',
+      './src/browserconfig.xml',
+      './src/favicon.ico',
+      './src/manifest.json'], copySystemFiles);
   }
 };
 
@@ -143,6 +151,31 @@ const sassTaskLibs = () => {
     .pipe(dest('./dist/assets/libs/'));
 };
 
+const copySystemFiles = (cb) => {
+  const tasks = [];
+
+  tasks.push(
+    src([
+      './src/.htaccess',
+      './src/sitemap.xml',
+      './src/robots.txt',
+      './src/yandex_12ed8a33b1d44641.html',
+      './src/browserconfig.xml',
+      './src/favicon.ico',
+      './src/manifest.json'
+    ])
+      .pipe(dest(paths.dist))
+  )
+
+  return Promise.all(tasks)
+    .then(() => {
+      cb();
+    })
+    .catch(err => {
+      console.error('Ошибка при копировании системных файлов:', err);
+      cb(err);
+    });
+}
 
 const copyStatics = (cb) => {
 
